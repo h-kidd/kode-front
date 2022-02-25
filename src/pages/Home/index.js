@@ -1,25 +1,19 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { StudentLoginButton, Title } from "../../components";
 
 function Home() {
     const navigate = useNavigate()
-    const joinGame = () => {
-        navigate("/joinGame");
-    }
 
     const createGame = () => {
         navigate("/createGame");
     }
-    
+
     return (
         <div>
-            <header>
-                <h1>Kode</h1>
-            </header>
+            <Title />
 
-            <button id="studentLogin" onClick={joinGame}>
-                Student login
-            </button>
+            <StudentLoginButton />
 
             <button id="teacherLogin" onClick={createGame}>
                 Teacher login
