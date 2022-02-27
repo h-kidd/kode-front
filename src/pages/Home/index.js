@@ -1,12 +1,16 @@
 import React from "react";
+import { useDispatch } from 'react-redux';
 import { useNavigate } from "react-router-dom";
 import { StudentLoginButton, Title } from "../../components";
+import { isTeacher } from "../../actions"
 
 function Home() {
+    const dispatch = useDispatch();
     const navigate = useNavigate()
 
-    const createGame = () => {
-        navigate("/createGame");
+    const teacher = () => {
+        dispatch(isTeacher())
+        navigate("/teacher");
     }
 
     return (
@@ -15,7 +19,7 @@ function Home() {
 
             <StudentLoginButton />
 
-            <button id="teacherLogin" onClick={createGame}>
+            <button id="teacherLogin" onClick={teacher}>
                 Teacher login
             </button>
         </div>

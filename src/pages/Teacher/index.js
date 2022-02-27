@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { StudentList, Title } from "../../components";
 
-function CreateGame() {
+function Teacher() {
     const navigate = useNavigate()
     const createGame = () => {
         navigate("/gameSettings")
@@ -32,4 +32,4 @@ function CreateGame() {
     )
 }
 
-export default CreateGame;
+export default Teacher;

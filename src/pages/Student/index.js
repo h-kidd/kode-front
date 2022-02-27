@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { HomeworkList, Title } from "../../components";
 
-function JoinGame() {
+function Student() {
     const navigate = useNavigate()
     const joinGame = () => {
         navigate("/lobby")
@@ -30,4 +30,4 @@ function JoinGame() {
     )
 }
 
-export default JoinGame;
+export default Student;

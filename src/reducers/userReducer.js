@@ -13,6 +13,8 @@ const userReducer = (state=initState, action) => {
       return {...state, username: action.payload.username, firstname: action.payload.firstname, lastname: action.payload.lastname, socketId: action.payload.socketId, isTeacher: action.payload.isTeacher};
     case 'UPDATE_SCORE':
       return {...state, score: action.payload.score}
+    case 'IS_TEACHER':
+      return {...state, isTeacher: true}
     default:
       return state
   }
