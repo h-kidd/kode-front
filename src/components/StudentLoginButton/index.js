@@ -4,13 +4,13 @@ import { useNavigate } from "react-router-dom";
 const StudentLoginButton = () => {
     const navigate = useNavigate()
 
-    const joinGame = () => {
-        navigate("/joinGame")
+    const student = () => {
+        navigate("/student")
     }
 
     return (
         <div>
-            <button id="joinGame" onClick={ joinGame }>
+            <button id="student" onClick={ student }>
                 Join Game
             </button>
         </div>
