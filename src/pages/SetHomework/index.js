@@ -1,10 +1,8 @@
 import Categories from "../../data/Categories";
 import React from 'react'
-import { NavLink } from 'react-router-dom';
 import { Button, MenuItem, TextField } from "@material-ui/core";
 import { useState, useEffect } from "react";
 import { useNavigate, Outlet } from "react-router-dom";
-import ReactDOM from 'react-dom';
 
 const SetHomework = ({ user, fetchQuestions}) => {
     const [category, setCategory] = useState("");
