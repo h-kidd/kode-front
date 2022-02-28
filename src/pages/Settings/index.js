@@ -3,10 +3,12 @@ import { NavLink } from 'react-router-dom';
 import { Button, MenuItem, TextField } from "@material-ui/core";
 import { useState, useEffect } from "react";
 import { useNavigate, Outlet } from "react-router-dom";
+import { useDispatch } from 'react-redux';
 import Categories from "../../data/Categories";
-
+import { loadSettings } from '../../actions';
 
 const CreateRoom = ({ user, fetchQuestions}) => {
+    const dispatch = useDispatch();
     const [category, setCategory] = useState("");
     const [difficulty, setDifficulty] = useState("");
     const [error, setError] = useState(false);
@@ -19,8 +21,8 @@ const CreateRoom = ({ user, fetchQuestions}) => {
       return;
     } else {
       setError(false);
-      fetchQuestions(category, difficulty);
-      navigate("/game");
+      dispatch(loadSettings(category, difficulty))
+      navigate("/Lobby");
     }
   };
 

@@ -5,7 +5,7 @@ import { StudentList, Title } from "../../components";
 function Teacher() {
     const navigate = useNavigate()
     const createGame = () => {
-        navigate("/gameSettings")
+        navigate("/Settings")
     }
 
     const setHomework = () => {

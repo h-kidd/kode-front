@@ -1,13 +1,33 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { LobbyStatus, PlayerBubble } from "../../components";
 import { useSelector } from "react-redux";
+import { useSocket } from "../../contexts/SocketProvider";
 import { makeStyles } from '@material-ui/core';
 import { CardContent, Card, Box } from '@material-ui/core';
 
 const Lobby = () => {
-    const room = useSelector((state) => state.user.room);
-    const host = useSelector((state) => state.user.user.type);
-    const players = useSelector((state) => state.user.user.username);
+    const socket = useSocket();
+    const navigate = useNavigate();
+    const room = useSelector((state) => state.socketId);
+    const category = useSelector((state) => state.category);
+    const difficulty = useSelector((state) => state.difficulty);
+    const [players, setPlayers] = useState([]);
+
+    useEffect(() => {
+      socket.emit('create', room);
+    }, []);
+
+    useEffect(() => {
+      socket.on('user_joined', (firstname, lastname) => {
+        setPlayers(players => [...players, {firstname: firstname, lastname: lastname}])
+      });
+    }, [socket]);
+
+    const handleStart = (() => {
+      socket.emit('start_game', category, difficulty);
+      navigate("/leaderboard")
+    })
     
     const useStyles = makeStyles({
         mainStyle: {
@@ -43,7 +63,7 @@ const Lobby = () => {
           <CardContent>
           <h2 className={classes.writing}>Lobby</h2>
     
-          <LobbyStatus host={host} />
+          {/* <LobbyStatus/> */}
     
           
           <div id="players">

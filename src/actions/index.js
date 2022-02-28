@@ -57,3 +57,8 @@ export const isTeacher = () => ({
   type: 'IS_TEACHER',
   payload: null
 });
+
+export const loadSettings = (category, difficulty) => ({ 
+  type: 'LOAD_SETTINGS',
+  payload: { category, difficulty }
+});
