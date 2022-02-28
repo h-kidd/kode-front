@@ -52,3 +52,8 @@ export const moveToNextQuestion = (nextQuestion) => ({
 });
 
 export const getScore = () => ({ type: "GET_SCORE" });
+
+export const isTeacher = () => ({ 
+  type: 'IS_TEACHER',
+  payload: null
+});
