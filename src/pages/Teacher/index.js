@@ -7,7 +7,7 @@ import { makeStyles } from "@material-ui/core";
 function Teacher() {
     const navigate = useNavigate()
     const createGame = () => {
-        navigate("/gameSettings")
+        navigate("/Settings")
     }
 
     const setHomework = () => {
