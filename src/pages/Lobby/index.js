@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { LobbyStatus, PlayerBubble } from "../../components";
 import { useSelector } from "react-redux";
 import { useSocket } from "../../contexts/SocketProvider";
@@ -7,6 +8,7 @@ import { CardContent, Card, Box } from '@material-ui/core';
 
 const Lobby = () => {
     const socket = useSocket();
+    const navigate = useNavigate();
     const room = useSelector((state) => state.socketId);
     const [players, setPlayers] = useState([]);
 
@@ -19,6 +21,11 @@ const Lobby = () => {
         setPlayers(players => [...players, name])
       });
     }, [socket]);
+
+    const handleStart = (() => {
+      socket.emit('start_game');
+      navigate("/Game")
+    })
     
     const useStyles = makeStyles({
         mainStyle: {
