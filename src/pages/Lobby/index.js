@@ -10,6 +10,8 @@ const Lobby = () => {
     const socket = useSocket();
     const navigate = useNavigate();
     const room = useSelector((state) => state.socketId);
+    const category = useSelector((state) => state.category);
+    const difficulty = useSelector((state) => state.difficulty);
     const [players, setPlayers] = useState([]);
 
     useEffect(() => {
@@ -17,14 +19,14 @@ const Lobby = () => {
     }, []);
 
     useEffect(() => {
-      socket.on('user_joined', name => {
-        setPlayers(players => [...players, name])
+      socket.on('user_joined', (firstname, lastname) => {
+        setPlayers(players => [...players, {firstname: firstname, lastname: lastname}])
       });
     }, [socket]);
 
     const handleStart = (() => {
-      socket.emit('start_game');
-      navigate("/Game")
+      socket.emit('start_game', category, difficulty);
+      navigate("/leaderboard")
     })
     
     const useStyles = makeStyles({
