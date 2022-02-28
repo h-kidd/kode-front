@@ -19,8 +19,7 @@ const CreateRoom = ({ user, fetchQuestions}) => {
       return;
     } else {
       setError(false);
-      fetchQuestions(category, difficulty);
-      navigate("/game");
+      navigate("/Lobby");
     }
   };
 

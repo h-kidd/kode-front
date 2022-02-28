@@ -1,13 +1,24 @@
 import React, { useState, useEffect } from "react";
 import { LobbyStatus, PlayerBubble } from "../../components";
 import { useSelector } from "react-redux";
+import { useSocket } from "../../contexts/SocketProvider";
 import { makeStyles } from '@material-ui/core';
 import { CardContent, Card, Box } from '@material-ui/core';
 
 const Lobby = () => {
-    const room = useSelector((state) => state.user.room);
-    const host = useSelector((state) => state.user.user.type);
-    const players = useSelector((state) => state.user.user.username);
+    const socket = useSocket();
+    const room = useSelector((state) => state.socketId);
+    const [players, setPlayers] = useState([]);
+
+    useEffect(() => {
+      socket.emit('create', room);
+    }, []);
+
+    useEffect(() => {
+      socket.on('user_joined', name => {
+        setPlayers(players => [...players, name])
+      });
+    }, [socket]);
     
     const useStyles = makeStyles({
         mainStyle: {
@@ -43,7 +54,7 @@ const Lobby = () => {
           <CardContent>
           <h2 className={classes.writing}>Lobby</h2>
     
-          <LobbyStatus host={host} />
+          {/* <LobbyStatus/> */}
     
           
           <div id="players">
