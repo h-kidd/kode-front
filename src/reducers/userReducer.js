@@ -6,7 +6,8 @@ const initState = {
   isTeacher: false,
   score: 0,
   difficulty: "easy",
-  category: "maths"
+  category: "maths",
+  isMulti: false
 };
 
 const userReducer = (state=initState, action) => {
@@ -19,6 +20,8 @@ const userReducer = (state=initState, action) => {
       return {...state, score: action.payload.score}
     case 'IS_TEACHER':
       return {...state, isTeacher: true}
+    case 'IS_MULTI':
+      return {...state, isMulti: action.payload.bool}
     default:
       return state
   }

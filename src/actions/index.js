@@ -62,3 +62,8 @@ export const loadSettings = (category, difficulty) => ({
   type: 'LOAD_SETTINGS',
   payload: { category, difficulty }
 });
+
+export const isMulti = () => ({ 
+  type: 'IS_MULTI',
+  payload: null
+});
