@@ -1,9 +1,9 @@
-import React, { useEffect, useSelector } from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Title } from "../../components";
 import { useSocket } from "../../contexts/SocketProvider";
-import { loadSettings } from '../../actions';
+import { loadSettings, isMulti } from '../../actions';
 
 function Teacher() {
     const dispatch = useDispatch();
@@ -20,6 +20,7 @@ function Teacher() {
     useEffect(() => {
         socket.on('start_game', (category, difficulty) => {
             dispatch(loadSettings(category, difficulty));
+            dispatch(isMulti(true));
             navigate('/Game')
         });
       }, [socket]);
