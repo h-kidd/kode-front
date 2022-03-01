@@ -1,7 +1,7 @@
 import './App.css';
 import { Routes, Route, Outlet } from "react-router-dom";
 import Settings from "./pages/Settings/index"
-import { Questions, Leaderboard, Score, Waiting } from "./pages";
+import { Questions, Lobby, Leaderboard, Score, Results } from "./pages";
 import Home from "./pages/Home";
 import Teacher from './pages/Teacher';
 import Student from './pages/Student';
@@ -14,6 +14,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/questions" element={<Questions />} />
+        <Route path="/results" element={<Results />} />
         <Route path="/leaderboard" element={<Leaderboard />} />
         <Route path="/lobby" element={<Waiting />} />
         <Route path="/score" element={<Score />} />
