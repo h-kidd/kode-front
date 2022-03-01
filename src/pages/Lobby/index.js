@@ -3,8 +3,10 @@ import { useNavigate } from "react-router-dom";
 import { LobbyStatus, PlayerBubble } from "../../components";
 import { useSelector } from "react-redux";
 import { useSocket } from "../../contexts/SocketProvider";
-import { makeStyles } from '@material-ui/core';
+import { Grid, makeStyles } from '@material-ui/core';
 import { CardContent, Card, Box } from '@material-ui/core';
+import background from "../../img/background.jpg";
+import { Title } from "../../components";
 
 const Lobby = () => {
     const socket = useSocket();
@@ -31,50 +33,41 @@ const Lobby = () => {
     
     const useStyles = makeStyles({
         mainStyle: {
-          backgroundSize: "cover"
+          background: `url(${background})`,
+          backgroundSize: "cover",
+          height: "100vh"
         },
-        cardStyle: {
-          backgroundColor: "#140100"
+        cardCode: {
+          width: "50%",
+          marginTop: "20px",
+          border: "1px solid black"
         },
-        box: {
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          minHeight: "90vh"
-        },
-        writing: {
-          color: "white",
-          fontSize: "20px",
-          padding: "10px"
-        },
-        button: {
-          backgroundColor: "#140100",
-          color: "#61DBFB",
-          marginTop: "10px",
-          fontSize: "20px"
+        cardLobby: {
+          width: "50%",
+          marginTop: "20px",
+          border: "1px solid black"
         }
       });
     
       const classes = useStyles();
     return (
-        <div id="Lobby" className={classes.mainStyle}>
-          <Box className={classes.box}>
-          <Card className={ classes.cardStyle }>
-          <CardContent>
-          <h2 className={classes.writing}>Lobby</h2>
-    
-          {/* <LobbyStatus/> */}
-    
-          
-          <div id="players">
-            {players &&
-              players.map((player) => (
-                <PlayerBubble key={players.indexOf(player)} player={player} />
-              ))}
-          </div>
-          </CardContent>
+        <div className={classes.mainStyle}>
+          <Title />
+
+          <Grid
+          container
+          direction="column"
+          alignItems="center"
+          justify="center"
+          id="Lobby" >
+          <Card className={classes.cardCode}>
+            Code: code
           </Card>
-          </Box>
+          <Card className={classes.cardLobby}>
+            <h3>Classroom List</h3>
+            <p>Users</p>
+          </Card>
+        </Grid>
         </div>
       );
     };

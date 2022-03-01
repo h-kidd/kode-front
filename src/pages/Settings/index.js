@@ -12,20 +12,21 @@ import background from "../../img/background.jpg";
 
 const CreateRoom = ({ user, fetchQuestions}) => {
     const dispatch = useDispatch();
-    const [category, setCategory] = useState("");
+    const [topic, setTopic] = useState("");
     const [difficulty, setDifficulty] = useState("");
     const [error, setError] = useState(false);
 
     const navigate = useNavigate();
 
     const handleSubmit = () => {
-    if (!category || !difficulty) {
+    if (!topic || !difficulty) {
       setError(true);
       return;
     } else {
       setError(false);
-      dispatch(loadSettings(category, difficulty))
-      navigate("/Lobby");
+      
+      dispatch(loadSettings(topic, difficulty))
+      navigate("/lobby");
     }
   };
 
@@ -34,8 +35,8 @@ const CreateRoom = ({ user, fetchQuestions}) => {
     background: {
         backgroundImage: `url(${background})`,
         backgroundSize: "cover",
-        backgroundPosition: "center",
-        objectFit: "cover",
+        // backgroundPosition: "center",
+        // objectFit: "cover",
         height: "100vh"
     },
     container: {
@@ -43,10 +44,10 @@ const CreateRoom = ({ user, fetchQuestions}) => {
       width: "350px",
       padding: "20px",
       borderRadius: "30px",
-      position: "fixed",
-      marginTop: "200px",
-      marginLeft: "600px",
-      transform: "translate(-50%, -50%)",
+      // position: "fixed",
+      marginTop: "100px",
+      // marginLeft: "600px",
+      // transform: "translate(-50%, -50%)",
       display: "flex",
       flexDirection: "column",
       alignItems: "center"   
@@ -62,9 +63,10 @@ const CreateRoom = ({ user, fetchQuestions}) => {
     width: "200px"
   },
   hi: {
-    textAlign: "left",
+    textAlign: "center",
     fontSize: "50px",
-    color: "white"
+    color: "white",
+    margin: 0
   }
   })
   const classes = useStyles();
@@ -80,8 +82,8 @@ const CreateRoom = ({ user, fetchQuestions}) => {
           <TextField className={classes.input}
             select
             label="Select Category"
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
+            value={topic}
+            onChange={(e) => setTopic(e.target.value)}
             variant="outlined"
             style={{ marginBottom: 30 }}
           >
@@ -91,7 +93,7 @@ const CreateRoom = ({ user, fetchQuestions}) => {
               </MenuItem>
             ))}
           </TextField >
-          <div className="divider1"/>
+          {/* <div className="divider1"/> */}
           <div className="difficulty">
           <TextField className={classes.input} 
             select
@@ -112,7 +114,7 @@ const CreateRoom = ({ user, fetchQuestions}) => {
             </MenuItem>
           </TextField>
           </div>
-          <div className="divider1"></div>
+          {/* <div className="divider1"></div> */}
 
           <Button className={classes.button}
             variant="contained"

@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { makeStyles, Button, Container } from "@material-ui/core";
+import { makeStyles, Button, Container, Grid } from "@material-ui/core";
 import background from "../../img/background.jpg";
 import { appendOwnerState } from "@mui/base";
 
@@ -36,13 +36,15 @@ const LoginPage = () => {
             width: "300px",
             padding: "20px",
             borderRadius: "30px",
-            position: "fixed",
-            marginTop: "200px",
-            marginLeft: "600px",
-            transform: "translate(-50%, -50%)",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center"   
+            // position: "fixed",
+            // marginTop: "200px",
+            justify: "center",
+            // marginLeft: "600px",
+            // transform: "translate(-50%, -50%)",
+            // display: "flex",
+            // flexDirection: "column",
+            alignItems: "center",
+            direction: "column" 
         },
         customfield: {
             fontSize: "14px",
@@ -77,7 +79,7 @@ const LoginPage = () => {
     
         const classes = useStyles();
     return (
-        <div className={classes.background}>
+        <Grid className={classes.background}>
 
         <Container className={classes.container} maxWidth="sm">
             <div>      
@@ -102,7 +104,7 @@ const LoginPage = () => {
                 
         </Container>
 
-        </div>
+        </Grid>
     )
 }
 

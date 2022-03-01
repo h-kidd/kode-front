@@ -1,12 +1,13 @@
 import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Title } from "../../components";
 import { useSocket } from "../../contexts/SocketProvider";
-import { loadSettings } from '../../actions';
+import { loadSettings, isMulti } from '../../actions';
+import { makeStyles, Card, Grid } from "@material-ui/core";
+import background from "../../img/background.jpg";
 
-function Teacher() {
+function Waiting() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const socket = useSocket();
@@ -21,16 +22,52 @@ function Teacher() {
     useEffect(() => {
         socket.on('start_game', (category, difficulty) => {
             dispatch(loadSettings(category, difficulty));
+            dispatch(isMulti(true));
             navigate('/Game')
         });
       }, [socket]);
 
+      // Adding material ui
+      const useStyles = makeStyles({
+        mainStyle: {
+          background: `url(${background})`,
+          backgroundSize: "cover",
+          height: "100vh"
+        },
+        cardCode: {
+          width: "50%",
+          marginTop: "20px",
+          border: "1px solid black"
+        },
+        cardLobby: {
+          width: "50%",
+          marginTop: "20px",
+          border: "1px solid black"
+        }
+      });
+    
+      const classes = useStyles();
+
     return (
-        <div>
-            <Title />
-            <h2>Waiting for teacher to start</h2>
+        <div className={classes.mainStyle}>
+          <Title />
+
+          <Grid
+          container
+          direction="column"
+          alignItems="center"
+          justify="center"
+          id="Lobby" >
+          <Card className={classes.cardCode}>
+            Code: code
+          </Card>
+          <Card className={classes.cardLobby}>
+            <h3>Classroom List</h3>
+            <p>Users</p>
+          </Card>
+        </Grid>
         </div>
     )
 }
 
-export default Teacher;
+export default Waiting;
