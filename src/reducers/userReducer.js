@@ -17,11 +17,11 @@ const userReducer = (state=initState, action) => {
     case 'LOAD_SETTINGS':
       return {...state, difficulty: action.payload.difficulty, category: action.payload.category}
     case 'UPDATE_SCORE':
-      return {...state, score: action.payload.score}
+      return {...state, score: state.score + action.payload}
     case 'IS_TEACHER':
-      return {...state, isTeacher: true}
+      return {...state, isTeacher: action.payload}
     case 'IS_MULTI':
-      return {...state, isMulti: action.payload.bool}
+      return {...state, isMulti: action.payload}
     default:
       return state
   }
