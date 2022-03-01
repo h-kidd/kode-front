@@ -1,7 +1,7 @@
 import './App.css';
 import { Routes, Route, Outlet } from "react-router-dom";
 import Settings from "./pages/Settings/index"
-import { Questions, Lobby, Leaderboard, Score, Results } from "./pages";
+import { Questions, Waiting, Leaderboard, Score, Results } from "./pages";
 import Home from "./pages/Home";
 import Teacher from './pages/Teacher';
 import Student from './pages/Student';

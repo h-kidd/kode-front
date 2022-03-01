@@ -25,7 +25,7 @@ const CreateRoom = ({ user, fetchQuestions}) => {
     } else {
       setError(false);
       
-      dispatch(loadSettings(category, difficulty))
+      dispatch(loadSettings(topic, difficulty))
       navigate("/lobby");
     }
   };
