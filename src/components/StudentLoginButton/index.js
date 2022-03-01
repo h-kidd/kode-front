@@ -7,7 +7,7 @@ const StudentLoginButton = () => {
     const navigate = useNavigate()
 
     const studentLogin = () => {
-        navigate("/studentLogin")
+        navigate("/loginPage")
     }
 
     const useStyles = makeStyles({
@@ -41,7 +41,7 @@ const StudentLoginButton = () => {
         alignItems="center"
         direction="column">
             <Card className={classes.card}>
-                <CardActionArea onClick={ studentLogin } to="/studentLogin">
+                <CardActionArea onClick={ studentLogin } to="/loginPage">
                     <h2 className={classes.typography}>Student Login</h2>
                     <CardContent className={classes.cardStyle}>
                     </CardContent>
