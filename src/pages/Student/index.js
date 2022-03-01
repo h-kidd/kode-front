@@ -1,6 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { HomeworkList, Title } from "../../components";
+import { makeStyles, Button, Container } from "@material-ui/core";
+import background from "../../img/background.jpg";
 
 function Student() {
     const navigate = useNavigate()
@@ -11,14 +13,23 @@ function Student() {
     const viewScores = () => {
         navigate("/viewScores")
     }
-
+    const useStyles = makeStyles ({
+        background: {
+            backgroundImage: `url(${background})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            objectFit: "cover",
+            height: "100vh",
+        },
+    })
+    const classes = useStyles();
     return (
-        <div>
+        <div className={classes.background}>
             <Title />
 
             <HomeworkList />
 
-            <div>
+            <div >
                 <button id="joinGame" onClick={ joinGame }>
                     Join Game
                 </button>

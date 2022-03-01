@@ -25,7 +25,8 @@ function Home() {
         button: {
             backgroundColor: "white",
             marginTop: "20px"
-        }
+        },
+        
     })
 
     const classes = useStyles();
