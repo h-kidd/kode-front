@@ -7,4 +7,4 @@ export { default as Settings } from './Settings';
 export { default as Student } from './Student';
 export { default as Teacher } from './Teacher';
 export { default as Waiting } from './Waiting';
-export { default as StudentLogin } from './StudentLogin';
+export { default as LoginPage } from './LoginPage';

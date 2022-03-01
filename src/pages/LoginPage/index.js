@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 
-const StudentLogin = () => {
+const LoginPage = () => {
 
     const navigate = useNavigate()
     const login = () => {
@@ -24,4 +24,4 @@ const StudentLogin = () => {
     )
 }
 
-export default StudentLogin;
+export default LoginPage;

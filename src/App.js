@@ -5,7 +5,7 @@ import { Questions, Lobby, Leaderboard, Score } from "./pages";
 import Home from "./pages/Home";
 import Teacher from './pages/Teacher';
 import Student from './pages/Student';
-import { StudentLogin } from './pages';
+import { LoginPage } from './pages';
 
 function App() {
   return (
@@ -19,7 +19,7 @@ function App() {
         <Route path="/score" element={<Score />} />
         <Route path="/teacher" element={<Teacher />} />
         <Route path="/student" element={<Student />} />
-        <Route path='/studentLogin' element={<StudentLogin />} />
+        <Route path='/loginPage' element={<LoginPage />} />
       </Routes>
       <Outlet />
     </div>
