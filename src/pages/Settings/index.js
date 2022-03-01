@@ -25,7 +25,7 @@ const CreateRoom = ({ user, fetchQuestions}) => {
     } else {
       setError(false);
       dispatch(loadSettings(category, difficulty))
-      navigate("/Lobby");
+      navigate("/lobby");
     }
   };
 
@@ -34,8 +34,8 @@ const CreateRoom = ({ user, fetchQuestions}) => {
     background: {
         backgroundImage: `url(${background})`,
         backgroundSize: "cover",
-        backgroundPosition: "center",
-        objectFit: "cover",
+        // backgroundPosition: "center",
+        // objectFit: "cover",
         height: "100vh"
     },
     container: {
@@ -43,10 +43,10 @@ const CreateRoom = ({ user, fetchQuestions}) => {
       width: "350px",
       padding: "20px",
       borderRadius: "30px",
-      position: "fixed",
-      marginTop: "200px",
-      marginLeft: "600px",
-      transform: "translate(-50%, -50%)",
+      // position: "fixed",
+      marginTop: "100px",
+      // marginLeft: "600px",
+      // transform: "translate(-50%, -50%)",
       display: "flex",
       flexDirection: "column",
       alignItems: "center"   
@@ -62,9 +62,10 @@ const CreateRoom = ({ user, fetchQuestions}) => {
     width: "200px"
   },
   hi: {
-    textAlign: "left",
+    textAlign: "center",
     fontSize: "50px",
-    color: "white"
+    color: "white",
+    margin: 0
   }
   })
   const classes = useStyles();
@@ -91,7 +92,7 @@ const CreateRoom = ({ user, fetchQuestions}) => {
               </MenuItem>
             ))}
           </TextField >
-          <div className="divider1"/>
+          {/* <div className="divider1"/> */}
           <div className="difficulty">
           <TextField className={classes.input} 
             select
@@ -112,7 +113,7 @@ const CreateRoom = ({ user, fetchQuestions}) => {
             </MenuItem>
           </TextField>
           </div>
-          <div className="divider1"></div>
+          {/* <div className="divider1"></div> */}
 
           <Button className={classes.button}
             variant="contained"

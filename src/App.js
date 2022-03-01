@@ -1,11 +1,11 @@
 import './App.css';
 import { Routes, Route, Outlet } from "react-router-dom";
 import Settings from "./pages/Settings/index"
-import { Questions, Lobby, Leaderboard, Score } from "./pages";
+import { Questions, Leaderboard, Score, Waiting } from "./pages";
 import Home from "./pages/Home";
 import Teacher from './pages/Teacher';
 import Student from './pages/Student';
-import { LoginPage } from './pages';
+import { LoginPage, SetHomework } from './pages';
 
 function App() {
   return (
@@ -15,11 +15,12 @@ function App() {
         <Route path="/settings" element={<Settings />} />
         <Route path="/questions" element={<Questions />} />
         <Route path="/leaderboard" element={<Leaderboard />} />
-        <Route path="/lobby" element={<Lobby />} />
+        <Route path="/lobby" element={<Waiting />} />
         <Route path="/score" element={<Score />} />
         <Route path="/teacher" element={<Teacher />} />
         <Route path="/student" element={<Student />} />
         <Route path='/loginPage' element={<LoginPage />} />
+        <Route path="/setHomework" element={<SetHomework />} />
       </Routes>
       <Outlet />
     </div>
