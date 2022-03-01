@@ -5,9 +5,9 @@ export const isTeacher = (bool) => ({
   payload: bool
 });
 
-export const loadSettings = (category, difficulty) => ({ 
+export const loadSettings = (topic, difficulty) => ({ 
   type: 'LOAD_SETTINGS',
-  payload: { category, difficulty }
+  payload: { topic, difficulty }
 });
 
 export const isMulti = (bool) => ({ 
