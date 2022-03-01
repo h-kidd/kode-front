@@ -12,18 +12,19 @@ import background from "../../img/background.jpg";
 
 const CreateRoom = ({ user, fetchQuestions}) => {
     const dispatch = useDispatch();
-    const [category, setCategory] = useState("");
+    const [topic, setTopic] = useState("");
     const [difficulty, setDifficulty] = useState("");
     const [error, setError] = useState(false);
 
     const navigate = useNavigate();
 
     const handleSubmit = () => {
-    if (!category || !difficulty) {
+    if (!topic || !difficulty) {
       setError(true);
       return;
     } else {
       setError(false);
+      
       dispatch(loadSettings(category, difficulty))
       navigate("/lobby");
     }
@@ -81,8 +82,8 @@ const CreateRoom = ({ user, fetchQuestions}) => {
           <TextField className={classes.input}
             select
             label="Select Category"
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
+            value={topic}
+            onChange={(e) => setTopic(e.target.value)}
             variant="outlined"
             style={{ marginBottom: 30 }}
           >

@@ -1,92 +1,96 @@
-import React from "react";
-import { makeStyles, CardContent, Card, Box } from '@material-ui/core';
-import { AnswerCard, Question, Timer } from "../../components";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { moveToNextQuestion } from "../../actions";
+import { useNavigate } from "react-router-dom";
+import { updateScore } from "../../actions";
+import Grid from '@mui/material/Grid';
 
 const Quiz = () => {
-    const dispatch = useDispatch();
-    const currentQuestion = useSelector(
-      (state) => state.quizReducer.current_question_index
-    );
-    const result = useSelector((state) => state.quizReducer.results);
-    const answers = result[currentQuestion].answers;
-    // const index = result.indexOf(result[currentQuestion]);
-    const question = result[currentQuestion].question;
-    const players = useSelector((state) => state.user.user.username);
-    const playerTurn = useSelector((state) => state.quizReducer.playerTurn);
-  
-   
-    if (playerTurn === players.length) {
-      dispatch(moveToNextQuestion(["test", 0]));
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const initTimer = 20;
+  const [timer, setTimer] = useState(initTimer);
+  const [seconds, setSeconds] =  useState(timer);
+  const [index, setIndex] =  useState(0);
+  const [correct, setCorrect] = useState();
+  let questions = [{answer: ["5*2", "2*5"], options: ["5", "/", "4", "*", "2", "+"], question: ["How would you get the output to equel 10", "___=10"]},
+  {answer: ["10/2"], options: ["10", "/", "2", "*", "5"], question: ["How would you get the output to equel 5.0", "___=5.0"]}];
+  const [answer, setAnswer] =  useState("");
+  const score = useSelector(state => state.score);
+  const [questionString, setQuestionString] = useState(questions[0].question[1]);
+
+  const callNextQuestion = (point) => {
+    dispatch(updateScore(point));
+    setTimer(initTimer);
+    console.log(score + point)
+    if (index+1 === questions.length) {
+      navigate("/results");
+    } else {
+      setIndex(index + 1);
+      setAnswer("")
+      setQuestionString(questions[index+1].question[1]);
+      setCorrect()
     }
-    // SHUFFLE ARRAY, so answers are not in the same order each time
-    function randomAnswers(array) {
-      var currentIndex = array.length,
-        temporaryValue,
-        randomIndex;
-      // While there remain elements to shuffle...
-      while (0 !== currentIndex) {
-        // Pick a remaining element...
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex -= 1;
-        // And swap it with the current element.
-        temporaryValue = array[currentIndex];
-        array[currentIndex] = array[randomIndex];
-        array[randomIndex] = temporaryValue;
-      }
-      return array;
+  }
+
+  useEffect(() => {
+    let myInterval = setInterval(() => {
+    if (seconds > 0) {
+      setSeconds(seconds - 1);
     }
-  
-    //Use the shuffled array and for each answer in the array map over it
-    const shuffledAnswers = randomAnswers(answers);
-  
-    // Adding Material UI
-    const useStyles = makeStyles({
-      mainStyle: {
-          backgroundSize: "cover"
-        },
-      cardStyle: {
-        backgroundColor: "#140100"
-      },
-      box: {
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        minHeight: "90vh"
-      },
-      writing: {
-        color: "white",
-        fontSize: "20px"
-      }
-    });
-  
-    const classes = useStyles();
-  
-    return (
-      <div role="quiz-container" id="quiz-page" className={classes.mainStyle}>
-          <Box className={classes.box}>
-        <Card className={ classes.cardStyle }>
-        <CardContent  className={classes.writing}>
-        {/* <Timer timer={Timer} /> */}
-        <p>{players[playerTurn]} it's your turn</p>
-        <Question question={question} index={currentQuestion} />
-  
-  
-        {shuffledAnswers &&
-          shuffledAnswers.map((answer) => (
-            <AnswerCard
-              answer={answer}
-              index={currentQuestion}
-              playerTurn={playerTurn}
-            />
-          ))}
-          </CardContent>
-          </Card>
-          </Box>
-      </div>
-    );
+    }, 1000)
+    return () => clearInterval(myInterval);
+  });
+
+  useEffect(() => {
+    setSeconds(timer);
+  }, [index]);
+
+  useEffect(() => {
+    if (seconds === 0) {
+      callNextQuestion(0);
+    };
+  }, [seconds]);
+
+  const handleAnswerSelect = async (option) => {
+    let tmp = answer + option
+    setAnswer(answer + option)
+    setQuestionString(questionString.replace(/_/, option))
+    console.log(tmp)
+    console.log(questions[index].answer[0])
+    if (questions[index].answer.includes(tmp)) {
+      setCorrect("Correct!")
+      setSeconds(99);
+      await new Promise(res => setTimeout(res, 2000));
+      callNextQuestion(1);
+    } else if (!questionString.replace(/_/, option).includes('_')) {
+      setCorrect("Incorrect, the answer is: " + questions[index].answer[0])
+      setSeconds(99);
+      await new Promise(res => setTimeout(res, 5000));
+      callNextQuestion(0);
+    }
   };
-  
-  export default Quiz;
+
+  return (
+    <div id="quiz-page">
+      <div className='timer'>
+        {seconds}
+      </div>
+      <label>Score: {score} </label>
+      <div className='q-frame typewriter'>
+        <p className=''> {questions[index].question[0]} </p>
+        <p className=''> {questionString} </p>
+        <p>{correct}</p>
+      </div>
+      <Grid container spacing={3}>
+        {questions[index].options.map(opt => (
+          <Grid item xs>
+            <button disabled={answer.includes(opt)} onClick={() => handleAnswerSelect(opt)}>{opt}</button>
+          </Grid>
+        ))}
+      </Grid>
+    </div>
+  );
+};
+
+export default Quiz;
   

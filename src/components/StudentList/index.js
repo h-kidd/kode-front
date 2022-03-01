@@ -14,7 +14,7 @@ const StudentList = () =>  {
             let data = await response.json();
             setClassRoster(data)
         }
-            getClassRoster();
+        getClassRoster();
     },[])
 
     const renderClassRoster = () => classRoster.map(student => <div><h3>{student.firstname} {student.lastname}</h3> <button id={student.username}>Join Game</button></div>)

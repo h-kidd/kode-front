@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Title } from "../../components";
 import { useSocket } from "../../contexts/SocketProvider";
-import { loadSettings } from '../../actions';
+import { loadSettings, isMulti } from '../../actions';
 import { makeStyles, Card, Grid } from "@material-ui/core";
 import background from "../../img/background.jpg";
 
@@ -23,6 +23,7 @@ function Waiting() {
     useEffect(() => {
         socket.on('start_game', (category, difficulty) => {
             dispatch(loadSettings(category, difficulty));
+            dispatch(isMulti(true));
             navigate('/Game')
         });
       }, [socket]);
