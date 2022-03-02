@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { makeStyles, Button, Container, Grid } from "@material-ui/core";
 import background from "../../img/background.jpg";
 import { appendOwnerState } from "@mui/base";
+import { Title } from "../../components";
 
 
 const LoginPage = () => {
@@ -18,8 +19,8 @@ const LoginPage = () => {
             backgroundImage: `url(${background})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
-            objectFit: "cover",
-            height: "100vh",
+            // objectFit: "cover",
+            height: "100vh"
         },
         button: {
             backgroundColor: "lightblue",
@@ -41,10 +42,11 @@ const LoginPage = () => {
             justify: "center",
             // marginLeft: "600px",
             // transform: "translate(-50%, -50%)",
-            // display: "flex",
-            // flexDirection: "column",
+            display: "flex",
+            flexDirection: "column",
             alignItems: "center",
-            direction: "column" 
+            // direction: "column",
+            marginTop: "100px"
         },
         customfield: {
             fontSize: "14px",
@@ -62,24 +64,14 @@ const LoginPage = () => {
             borderradius: "3px",
             margin: "10px"
             
-        },
-        placeholder: {
-            position: "absolute",
-            left: "12px",
-            bottom: "50%",
-            top: "22px",
-            transform: "translateY(-50%)",
-            width: "calc(100% - 24px)" , 
-            color: "#aaa",
-            overflow: "hidden",
-            whitespace: "nowrap",
-            textoverflow: "ellipsis"
         }
         })
     
         const classes = useStyles();
     return (
         <Grid className={classes.background}>
+
+        <Title />
 
         <Container className={classes.container} maxWidth="sm">
             <div>      

@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { updateScore } from "../../actions";
-import Grid from '@mui/material/Grid';
+import { makeStyles, Grid, Card } from '@material-ui/core';
+import background from "../../img/background.jpg";
+import { Title } from "../../components";
 
 const Quiz = () => {
   const dispatch = useDispatch();
@@ -12,7 +14,7 @@ const Quiz = () => {
   const [seconds, setSeconds] =  useState(timer);
   const [index, setIndex] =  useState(0);
   const [correct, setCorrect] = useState();
-  let questions = [{answer: ["5*2", "2*5"], options: ["5", "/", "4", "*", "2", "+"], question: ["How would you get the output to equel 10", "___=10"]},
+  let questions = [{answer: ["5*2", "2*5"], options: ["5", "/", "4", "*", "2", "+"], question: ["How would you get the output to equal 10", "___=10"]},
   {answer: ["10/2"], options: ["10", "/", "2", "*", "5"], question: ["How would you get the output to equel 5.0", "___=5.0"]}];
   const [answer, setAnswer] =  useState("");
   const score = useSelector(state => state.score);
@@ -70,12 +72,31 @@ const Quiz = () => {
     }
   };
 
+  const useStyles = makeStyles({
+    background: {
+      background: `url(${background})`,
+      backgroundSize: "cover",
+      height: "100vh"
+    },
+
+    card: {
+      width: "50%",
+      
+    }
+  })
+
+  const classes = useStyles();
+
   return (
-    <div id="quiz-page">
+    <div id="quiz-page" className={classes.background}>
+      <Title />
+      <Card>
       <div className='timer'>
         {seconds}
       </div>
       <label>Score: {score} </label>
+      </Card>
+      <Card>
       <div className='q-frame typewriter'>
         <p className=''> {questions[index].question[0]} </p>
         <p className=''> {questionString} </p>
@@ -88,6 +109,7 @@ const Quiz = () => {
           </Grid>
         ))}
       </Grid>
+      </Card>
     </div>
   );
 };

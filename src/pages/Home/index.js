@@ -20,11 +20,16 @@ function Home() {
         background: {
             backgroundImage: `url(${background})`,
             backgroundSize: "cover",
-            height: "100vh"
+            height: "100vh",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            width: "100vw"
+            
         },
         button: {
             backgroundColor: "white",
-            marginTop: "20px"
+            marginTop: "20px",
+            border: "1px solid black"
         },
         
     })
