@@ -5,7 +5,7 @@ import { HomeworkList, Title } from "../../components";
 import { makeStyles, Button, Container, Grid, Card } from "@material-ui/core";
 import background from "../../img/background.jpg";
 import { dividerClasses } from "@mui/material";
-import { isMulti } from '../../actions';
+import { isMulti, resetScore } from '../../actions';
 
 function Student() {
     const dispatch = useDispatch();
@@ -20,6 +20,7 @@ function Student() {
 
     useEffect(() => {
         dispatch(isMulti(false));
+        dispatch(resetScore())
     }, []);
     
     const useStyles = makeStyles ({
