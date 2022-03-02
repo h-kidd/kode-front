@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import { Title } from "../../components";
 import { useSocket } from "../../contexts/SocketProvider";
-import { loadSettings, isMulti } from '../../actions';
+import { loadExercise, isMulti } from '../../actions';
 import { makeStyles, Card, Grid, Button } from "@material-ui/core";
 import background from "../../img/background.jpg";
 
@@ -16,14 +16,14 @@ function Waiting() {
     const lastname = useSelector((state) => state.lastname);
 
     useEffect(() => {
-        socket.emit('join-room', room, firstname, lastname);
+        socket.emit('join', {room: room, firstname: firstname, lastname: lastname});
       }, []);
 
     useEffect(() => {
-        socket.on('start_game', (category, difficulty) => {
-            dispatch(loadSettings(category, difficulty));
+        socket.on('start_game', (data) => {
+            dispatch(loadExercise(data.topic, data.difficulty));
             dispatch(isMulti(true));
-            navigate('/Game')
+            navigate('/questions')
         });
       }, [socket]);
 

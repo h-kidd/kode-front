@@ -1,23 +1,29 @@
 import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useSocket } from "../../contexts/SocketProvider";
 import { makeStyles, Button, Container, Grid, Card, Box, CardContent } from "@material-ui/core";
 import background from "../../img/background.jpg";
+import { isMulti } from "../../actions"
 
 function Results() {
   const navigate = useNavigate();
   const socket = useSocket();
+  const dispatch = useDispatch();
   const firstname = useSelector(state => state.firstname);
   const lastname = useSelector(state => state.lastname);
   const score = useSelector(state => state.score);
+  const isMultiplayer = useSelector(state => state.isMulti);
   
   const handleClick = () => {
     navigate("/student");
   };
 
   useEffect(() => {
-    socket.emit('send_score', firstname, lastname, score);
+    if (isMultiplayer) {
+      socket.emit('send_score', {firstname: firstname, lastname: lastname, score: score});
+      dispatch(isMulti(false))
+    }
   }, []);
 
   //Include Material UI

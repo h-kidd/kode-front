@@ -12,7 +12,7 @@ const Lobby = () => {
     const socket = useSocket();
     const navigate = useNavigate();
     const room = useSelector((state) => state.socketId);
-    const category = useSelector((state) => state.category);
+    const topic = useSelector((state) => state.topic);
     const difficulty = useSelector((state) => state.difficulty);
     const [players, setPlayers] = useState([]);
 
@@ -21,13 +21,13 @@ const Lobby = () => {
     }, []);
 
     useEffect(() => {
-      socket.on('user_joined', (firstname, lastname) => {
-        setPlayers(players => [...players, {firstname: firstname, lastname: lastname}])
+      socket.on('user_joined', (data) => {
+        setPlayers(players => [...players, data])
       });
     }, [socket]);
 
     const handleStart = (() => {
-      socket.emit('start_game', category, difficulty);
+      socket.emit('start_game', {topic: topic, difficulty: difficulty});
       navigate("/leaderboard")
     })
 
@@ -37,25 +37,19 @@ const Lobby = () => {
     
     const useStyles = makeStyles({
         mainStyle: {
-        backgroundImage: `url(${background})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        objectFit: "cover",
-        height: "100vh",
-        marginTop: "0px"
+          background: `url(${background})`,
+          backgroundSize: "cover",
+          height: "100vh"
         },
         cardCode: {
           width: "50%",
           marginTop: "20px",
-          border: "1px solid black",
-          borderradius: "10px"
+          border: "1px solid black"
         },
         cardLobby: {
           width: "50%",
           marginTop: "20px",
-          border: "1px solid black",
-          borderradius: "10px"
-
+          border: "1px solid black"
         }
       });
     
@@ -75,7 +69,9 @@ const Lobby = () => {
           </Card>
           <Card className={classes.cardLobby}>
             <h3>Classroom List</h3>
-            <p>Users</p>
+            {players.map(player => (
+              <p>{player.firstname} {player.lastname}</p>
+            ))}
           </Card>
           <br/>
           <Button variant="contained" onClick={handleStart}>
@@ -87,4 +83,3 @@ const Lobby = () => {
     };
     
 export default Lobby;
-    

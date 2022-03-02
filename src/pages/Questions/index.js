@@ -16,10 +16,9 @@ const Quiz = () => {
   const [seconds, setSeconds] =  useState(timer);
   const [index, setIndex] =  useState(0);
   const [correct, setCorrect] = useState();
-  let questions = [{answer: ["5*2", "2*5"], options: ["5", "/", "4", "*", "2", "+"], question: ["How would you get the output to equal 10", "___=10"]},
-  {answer: ["10/2"], options: ["10", "/", "2", "*", "5"], question: ["How would you get the output to equel 5.0", "___=5.0"]}];
   const [answer, setAnswer] =  useState("");
   const score = useSelector(state => state.score);
+  const questions = useSelector(state => state.questions);
   const [questionString, setQuestionString] = useState(questions[0].question[1]);
 
   const callNextQuestion = (point) => {
