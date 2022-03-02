@@ -11,38 +11,32 @@ import axios from "axios";
 const TeacherLogin = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const token = sessionStorage.getItem("token") 
-    
     const navigate = useNavigate()
     // const login = () => {
     //     navigate('/teacher')
     // }
 
-    const handleClick = () => {
-        axios({
-            method: "POST",
-            url: 'https://kode-server.herokuapp.com/token/teacher',
-            data:{
+    const handleClick = async () => {
+        try{
+            let response = await axios.post('https://kode-server.herokuapp.com/token/teacher',{
                 username: username,
                 password: password
-            }
-        })
-        .then((response) => { 
-            console.log("success")
+            })
+            console.log(response)
             
-            navigate('/teacher') 
-            sessionStorage.setItem(response.data.access_token)
-          }).catch((error) => {
-            if (error.response) {
-              console.log(error.response)
-              console.log(error.response.status)
-              console.log(error.response.headers)
-              }
-          })
-         
-    }
-
-   
+            localStorage.setItem("token",response.data.access_token)
+            localStorage.setItem("teacher_id", response.data.additional_claims.teacher_id)
+            localStorage.setItem("firstname", response.data.additional_claims.firstname)
+            localStorage.setItem("lastname", response.data.additional_claims.lastname)
+            
+            navigate('/teacher')
+        }catch(error){
+            console.log(error)
+            console.log(error.status)
+            console.log(error.headers) 
+        }     
+    }   
+       
 
     //Include Material UI
     //Include Material UI
@@ -137,7 +131,7 @@ const TeacherLogin = () => {
          <Card className={classes.cardStyle}>
            <CardContent className={classes.writing}> 
            <h1>Teacher Login!</h1>
-           {(token && token!=="" && token!==undefined) ? "You are logged in with this token" + token:
+           {/* {(token && token!=="" && token!==undefined) ? "You are logged in with this token" + token: */}
            <div>
                 
                 <label>
@@ -152,7 +146,7 @@ const TeacherLogin = () => {
                         
                    
              </div> 
-             }
+             {/* } */}
              </CardContent>
          </Card>
         </Box>
