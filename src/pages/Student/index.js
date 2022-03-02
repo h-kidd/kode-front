@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch} from 'react-redux';
 import { useNavigate } from "react-router-dom";
 import { HomeworkList, Title } from "../../components";
 import { makeStyles, Button, Container, Grid } from "@material-ui/core";
 import background from "../../img/background.jpg";
 import { dividerClasses } from "@mui/material";
+import { isMulti } from '../../actions';
 
 function Student() {
+    const dispatch = useDispatch();
     const navigate = useNavigate()
     const joinGame = () => {
         navigate("/waiting")
@@ -14,6 +17,11 @@ function Student() {
     const viewScores = () => {
         navigate("/viewScores")
     }
+
+    useEffect(() => {
+        dispatch(isMulti(false));
+    }, []);
+    
     const useStyles = makeStyles ({
         background: {
             backgroundImage: `url(${background})`,
