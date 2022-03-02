@@ -1,12 +1,13 @@
 const initState = { 
   username: "",
-  firstname: "",
-  lastname: "",
-  socketId: "",
+  firstname: "first",
+  lastname: "last",
+  socketId: "test",
   isTeacher: false,
   score: 0,
-  difficulty: "easy",
-  topic: "maths",
+  topic: "",
+  difficulty: "",
+  questions: [],
   isMulti: false
 };
 
@@ -16,6 +17,10 @@ const userReducer = (state=initState, action) => {
       return {...state, username: action.payload.username, firstname: action.payload.firstname, lastname: action.payload.lastname, socketId: action.payload.socketId, isTeacher: action.payload.isTeacher};
     case 'LOAD_SETTINGS':
       return {...state, difficulty: action.payload.difficulty, topic: action.payload.topic}
+    case 'LOAD_QUESTIONS':
+      return {...state, difficulty: action.payload.questions}
+    case 'RESET_SCORE':
+      return {...state, score: 0}
     case 'UPDATE_SCORE':
       return {...state, score: state.score + action.payload}
     case 'IS_TEACHER':

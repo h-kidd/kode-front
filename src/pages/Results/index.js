@@ -17,7 +17,7 @@ function Results() {
   };
 
   useEffect(() => {
-    socket.emit('send_score', firstname, lastname, score);
+    socket.emit('send_score', {firstname: firstname, lastname: lastname, score: score});
   }, []);
 
   //Include Material UI
