@@ -1,8 +1,8 @@
 import axios from "axios";
 
-export const isTeacher = (bool) => ({ 
-  type: 'IS_TEACHER',
-  payload: bool
+export const loadUser = (userId, username, firstname, lastname, socketId, isTeacher) => ({ 
+  type: 'LOAD_USER',
+  payload: {userId, username, firstname, lastname, socketId, isTeacher}
 });
 
 export const loadSettings = (topic, difficulty) => ({ 
@@ -30,6 +30,7 @@ export const loadExercise = (topic, difficulty) => {
     try {
       const questions = await fetchQuestions(topic, difficulty);
       console.log(questions)
+      dispatch({ type: 'LOAD_SETTINGS', payload: { topic, difficulty } });
       dispatch({ type: 'LOAD_QUESTIONS', payload: questions });
     } catch (err) {
       console.warn(err.message);

@@ -1,17 +1,13 @@
 import React from "react";
-import { useDispatch } from 'react-redux';
 import { useNavigate } from "react-router-dom";
 import { StudentLoginButton, Title } from "../../components";
-import { isTeacher } from "../../actions"
 import { makeStyles, Button } from "@material-ui/core";
 import background from "../../img/background.jpg";
 
 function Home() {
-    const dispatch = useDispatch();
     const navigate = useNavigate()
 
     const teacher = () => {
-        dispatch(isTeacher())
         navigate("/teacherLogin");
     }
 
