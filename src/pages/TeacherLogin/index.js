@@ -45,13 +45,14 @@ const TeacherLogin = () => {
    
 
     //Include Material UI
+    //Include Material UI
     const useStyles = makeStyles ({
         background: {
             backgroundImage: `url(${background})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
-            // objectFit: "cover",
-            height: "100vh"
+            objectFit: "cover",
+            height: "100vh",
         },
         button: {
             backgroundColor: "lightblue",
@@ -69,16 +70,8 @@ const TeacherLogin = () => {
             width: "400px",
             padding: "20px",
             borderRadius: "20px",
-            // position: "fixed",
-            // marginTop: "250px",
             justify: "center",
-            // marginLeft: "600px",
-            // transform: "translate(-50%, -50%)",
-            display: "flex",
-            flexDirection: "column",
             alignItems: "center",
-            // direction: "column",
-            marginTop: "100px",
             direction: "column",
             boxShadow: "10px 10px 20px black;"
 
@@ -100,13 +93,46 @@ const TeacherLogin = () => {
             borderradius: "3px",
             margin: "10px"
             
-        }
+        },
+        placeholder: {
+            position: "absolute",
+            left: "12px",
+            bottom: "50%",
+            top: "22px",
+            transform: "translateY(-50%)",
+            width: "calc(100% - 24px)" , 
+            color: "#aaa",
+            overflow: "hidden",
+            whitespace: "nowrap",
+            textoverflow: "ellipsis"
+        },
+        cardStyle: {
+            backgroundColor: "white",
+            width: "400px",
+            borderRadius: "10px",
+            boxShadow: "10px 10px 20px black;"
+      
+      
+          },
+          box: {
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            marginTop: "50px"
+            
+      
+          },
+          writing: {
+            color: "black",
+            fontSize: "20px"
+          }
         })
     
         const classes = useStyles();
     return (
        
         <div className={classes.background}>
+        <Title />
         <Box className={classes.box}>
          <Card className={classes.cardStyle}>
            <CardContent className={classes.writing}> 
