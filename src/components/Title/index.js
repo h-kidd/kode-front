@@ -9,8 +9,11 @@ const Title = () => {
                 'Architects Daughter'
             ].join(','),
             allVariants: {
-                color: "white"
-            }
+                color: "white",
+                
+
+            },
+            outline: "black"
         }
     });
 

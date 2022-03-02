@@ -3,6 +3,8 @@ import { useSelector } from "react-redux";
 import axios from "axios";
 import { makeStyles } from '@material-ui/core';
 import { CardContent, Card, Box } from '@material-ui/core';
+import { Button, Container, Grid } from "@material-ui/core";
+import background from "../../img/background.jpg";
 
 const Score = () => {
     const username = useSelector((state) => state.user.user.username);
@@ -48,7 +50,14 @@ const Score = () => {
   
     // Adding Material UI
     const useStyles = makeStyles({
-      mainStyle: {
+
+      background: {
+        backgroundImage: `url(${background})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        objectFit: "cover",
+        height: "100vh",
+      
       },
       cardStyle: {
         backgroundColor: "#140100"
@@ -57,7 +66,9 @@ const Score = () => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        minHeight: "90vh"
+        minHeight: "90vh",
+        boxShadow: "10px 10px 20px black;"
+
       },
       writing: {
         color: "white",
@@ -68,7 +79,7 @@ const Score = () => {
     const classes = useStyles();
   
     return (
-      <div id="score-page" className={classes.mainStyle}>
+      <div id="score-page" className={classes.background}>
         <Box className={classes.box}>
           <Card className={classes.cardStyle}>
             <CardContent className={classes.writing}>
