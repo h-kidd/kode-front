@@ -20,7 +20,7 @@ function Waiting() {
       }, []);
 
     useEffect(() => {
-        socket.on('start_game', (data) => {
+        socket.on('init_game', (data) => {
             dispatch(loadExercise(data.topic, data.difficulty));
             dispatch(isMulti(true));
             navigate('/questions')
