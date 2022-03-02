@@ -14,12 +14,21 @@ const SetHomework = () => {
 
         card: {
             width: "200px",
-            margin: "10px"
+            margin: "10px",
+            marginTop: "50px",
+            borderRadius: "10px"
         },
 
         button: {
-            border: "1px solid black",
+            // border: "1px solid black",
             marginBottom: "10px"
+        },
+
+        buttonSetHomework: {
+            backgroundColor: "white",
+            border: "1px solid black",
+            bottom: "200px",
+            position: "fixed"
         }
     })
 
@@ -28,7 +37,6 @@ const SetHomework = () => {
     return (
         <div className={classes.background}>
             <Title />
-
             <Grid container
             direction="row"
             justify="center"
@@ -54,6 +62,12 @@ const SetHomework = () => {
                     <Button className={classes.button}>Hard</Button>
                 </Card>
                 </Grid>
+
+                
+                <Button className={classes.buttonSetHomework} variant="contained">
+                    Set Homework
+                </Button>
+               
             </Grid>
         </div>
     )
