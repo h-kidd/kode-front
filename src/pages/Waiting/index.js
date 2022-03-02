@@ -4,16 +4,16 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Title } from "../../components";
 import { useSocket } from "../../contexts/SocketProvider";
 import { loadExercise, isMulti } from '../../actions';
-import { makeStyles, Card, Grid, Button } from "@material-ui/core";
+import { makeStyles, Card, Grid } from "@material-ui/core";
 import background from "../../img/background.jpg";
 
 function Waiting() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const socket = useSocket();
-    const room = useSelector((state) => state.socketId);
-    const firstname = useSelector((state) => state.firstname);
-    const lastname = useSelector((state) => state.lastname);
+    const room = useSelector(state => state.socketId);
+    const firstname = useSelector(state => state.firstname);
+    const lastname = useSelector(state => state.lastname);
 
     useEffect(() => {
         socket.emit('join', {room: room, firstname: firstname, lastname: lastname});
@@ -26,10 +26,6 @@ function Waiting() {
             navigate('/questions')
         });
       }, [socket]);
-
-      const startGame = () => {
-          navigate('/questions')
-        }
 
       // Adding material ui
       const useStyles = makeStyles({
@@ -68,9 +64,6 @@ function Waiting() {
           <Card className={classes.cardLobby}>
             <h3>Waiting for teacher to start</h3>
           </Card>
-          <Button onClick={startGame}>
-          Start Game!
-        </Button>
         </Grid>
         </div>
     )

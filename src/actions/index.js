@@ -20,5 +20,23 @@ export const updateScore = (score) => ({
   payload: score
 });
 
-export const loadExercise = (topic, difficulty) => ({
-});
+export const loadExercise = (topic, difficulty) => {
+  return async (dispatch) => {
+    try {
+      const questions = await fetchQuestions(topic, difficulty);
+      console.log(questions)
+      dispatch({ type: 'LOAD_QUESTIONS', payload: questions });
+    } catch (err) {
+      console.warn(err.message);
+    };
+  };
+};
+
+const fetchQuestions = async (topic, difficulty) => {        
+  try {
+      const { data } = await axios.get(`https://kode-server.herokuapp.com/questions`);
+      return (data.filter(q => q.topic === topic && q.difficulty === difficulty));
+  } catch(err) {
+      throw new Error(err.message)
+  }
+};

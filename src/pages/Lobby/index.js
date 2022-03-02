@@ -11,9 +11,9 @@ import { Title } from "../../components";
 const Lobby = () => {
     const socket = useSocket();
     const navigate = useNavigate();
-    const room = useSelector((state) => state.socketId);
-    const topic = useSelector((state) => state.topic);
-    const difficulty = useSelector((state) => state.difficulty);
+    const room = useSelector(state => state.socketId);
+    const topic = useSelector(state => state.topic);
+    const difficulty = useSelector(state => state.difficulty);
     const [players, setPlayers] = useState([]);
 
     useEffect(() => {
