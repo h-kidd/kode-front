@@ -4,16 +4,16 @@ import { LobbyStatus, PlayerBubble } from "../../components";
 import { useSelector } from "react-redux";
 import { useSocket } from "../../contexts/SocketProvider";
 import { Grid, makeStyles } from '@material-ui/core';
-import { CardContent, Card, Box } from '@material-ui/core';
+import { CardContent, Card, Box, Button } from '@material-ui/core';
 import background from "../../img/background.jpg";
 import { Title } from "../../components";
 
 const Lobby = () => {
     const socket = useSocket();
     const navigate = useNavigate();
-    const room = useSelector((state) => state.socketId);
-    const topic = useSelector((state) => state.topic);
-    const difficulty = useSelector((state) => state.difficulty);
+    const room = useSelector(state => state.socketId);
+    const topic = useSelector(state => state.topic);
+    const difficulty = useSelector(state => state.difficulty);
     const [players, setPlayers] = useState([]);
 
     useEffect(() => {
@@ -30,6 +30,10 @@ const Lobby = () => {
       socket.emit('start_game', {topic: topic, difficulty: difficulty});
       navigate("/leaderboard")
     })
+
+    // const startGame = () => {
+    //   navigate('/questions')
+    // }
     
     const useStyles = makeStyles({
         mainStyle: {
@@ -69,6 +73,10 @@ const Lobby = () => {
               <p>{player.firstname} {player.lastname}</p>
             ))}
           </Card>
+          <br/>
+          <Button variant="contained" onClick={handleStart}>
+          Start Game!
+          </Button>
         </Grid>
         </div>
       );
