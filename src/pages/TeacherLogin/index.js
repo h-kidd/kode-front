@@ -29,9 +29,9 @@ const TeacherLogin = () => {
         })
         .then((response) => { 
             console.log("success")
-            sessionStorage.setItem(response.data.access_token)
-            navigate('/teacher') 
             
+            navigate('/teacher') 
+            sessionStorage.setItem(response.data.access_token)
           }).catch((error) => {
             if (error.response) {
               console.log(error.response)
