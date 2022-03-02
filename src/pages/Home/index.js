@@ -12,7 +12,7 @@ function Home() {
 
     const teacher = () => {
         dispatch(isTeacher())
-        navigate("/teacher");
+        navigate("/teacherLogin");
     }
 
     //Include Material UI

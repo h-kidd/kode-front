@@ -7,11 +7,11 @@ import { Title } from "../../components";
 import {  Card, Box, CardContent } from "@material-ui/core";
 
 
-const LoginPage = () => {
+const TeacherLogin = () => {
 
     const navigate = useNavigate()
     const login = () => {
-        navigate('/student')
+        navigate('/settings')
     }
 
     //Include Material UI
@@ -80,7 +80,7 @@ const LoginPage = () => {
         <Box className={classes.box}>
          <Card className={classes.cardStyle}>
            <CardContent className={classes.writing}> 
-           <h1>Student Login!</h1>
+           <h1>Teacher Login!</h1>
                 <label>
                   <input className={classes.customfieldinput} type="text" placeholder ="Username"/>
                   </label>
@@ -99,4 +99,4 @@ const LoginPage = () => {
     )
 }
 
-export default LoginPage;
+export default TeacherLogin;
