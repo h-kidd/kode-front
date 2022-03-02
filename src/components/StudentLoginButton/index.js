@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { makeStyles, CardActionArea, CardContent, Card, Grid, CardMedia } from "@material-ui/core";
 import tag from "../../img/tag.png";
+import { sizeHeight } from "@mui/system";
 
 const StudentLoginButton = () => {
     const navigate = useNavigate()
@@ -25,6 +26,12 @@ const StudentLoginButton = () => {
             // width: "100%",
             // margin: "auto",
             // paddingTop: "56.25%",
+            // height: "300px",
+            // width: "400px",
+            // marginTop: "50px",
+            borderRadius: "20px",
+            boxShadow: "10px 10px 20px black;"
+            
         },
         cardStyle: {
             backgroundColor: "white",
@@ -45,8 +52,7 @@ const StudentLoginButton = () => {
             allVariants: {
                 color: "white"
             },
-            // verticalAlign: "top",
-            // textAlign: "center"
+            fontSize: "35px"
         }
     })
 

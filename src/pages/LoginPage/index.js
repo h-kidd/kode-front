@@ -4,6 +4,7 @@ import { makeStyles, Button, Container, Grid } from "@material-ui/core";
 import background from "../../img/background.jpg";
 import { appendOwnerState } from "@mui/base";
 import { Title } from "../../components";
+import {  Card, Box, CardContent } from "@material-ui/core";
 
 
 const LoginPage = () => {
@@ -34,11 +35,12 @@ const LoginPage = () => {
         },
         container: {
             backgroundColor: "white",
-            width: "300px",
+            height: "300px",
+            width: "400px",
             padding: "20px",
-            borderRadius: "30px",
+            borderRadius: "20px",
             // position: "fixed",
-            // marginTop: "200px",
+            // marginTop: "250px",
             justify: "center",
             // marginLeft: "600px",
             // transform: "translate(-50%, -50%)",
@@ -46,7 +48,11 @@ const LoginPage = () => {
             flexDirection: "column",
             alignItems: "center",
             // direction: "column",
-            marginTop: "100px"
+            marginTop: "100px",
+            direction: "column",
+            boxShadow: "10px 10px 20px black;"
+
+
         },
         customfield: {
             fontSize: "14px",
@@ -69,34 +75,60 @@ const LoginPage = () => {
     
         const classes = useStyles();
     return (
-        <Grid className={classes.background}>
+       
+        <div className={classes.background}>
+        <Box className={classes.box}>
+         <Card className={classes.cardStyle}>
+           <CardContent className={classes.writing}> 
+           <h1>Student Login!</h1>
+                <label>
+                  <input className={classes.customfieldinput} type="text" placeholder ="Username"/>
+                  </label>
+                  <br/>
+             <label>
+             <input className={classes.customfieldinput} type="text" placeholder="Password" />
+             </label> 
+             <br/>
+             <button className={classes.button} id="student" onClick={ login }>
+                 Login!
+             </button>
+             </CardContent>
+         </Card>
+        </Box>
+        </div>
+       
+       
+       
+       
+       
+       
+       
+    //    <Grid className={classes.background}>    
 
-        <Title />
-
-        <Container className={classes.container} maxWidth="sm">
-            <div>      
-            <h1>Student Login!</h1>
-            <label className={classes.customfield}>
-            <input className={classes.customfieldinput} type="text" placeholder ="Username"/>
-            </label>
-            <br/>
-            <label className={classes.customfield}>
-            <input className={classes.customfieldinput} type="text" placeholder="Password" />
-            </label> 
-            <br/>
+    //     <Container className={classes.container} maxWidth="sm">
+    //         <div>      
+    //         <h1>Student Login!</h1>
+    //         <label className={classes.customfield}>
+    //         <input className={classes.customfieldinput} type="text" placeholder ="Username"/>
+    //         </label>
+    //         <br/>
+    //         <label className={classes.customfield}>
+    //         <input className={classes.customfieldinput} type="text" placeholder="Password" />
+    //         </label> 
+    //         <br/>
             
-            <button className={classes.button} id="student" 
-            variant="contained"
-            color="primary"
-            size="large"
-            onClick={ login }>
-                Login!
-            </button>
-            </div> 
+    //         <button className={classes.button} id="student" 
+    //         variant="contained"
+    //         color="primary"
+    //         size="large"
+    //         onClick={ login }>
+    //             Login!
+    //         </button>
+    //         </div> 
                 
-        </Container>
+    //     </Container>
 
-        </Grid>
+    //     </Grid>
     )
 }
 

@@ -15,11 +15,12 @@ const SetHomework = () => {
         card: {
             width: "200px",
             margin: "10px",
-            marginTop: "50px"
+            marginTop: "50px",
+            borderRadius: "10px"
         },
 
         button: {
-            border: "1px solid black",
+            // border: "1px solid black",
             marginBottom: "10px"
         },
 
