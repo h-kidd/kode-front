@@ -32,8 +32,7 @@ const HomeworkList = () => {
             <header>
                 <h3>Homework</h3>
             </header>
-
-            {homework.map(work => <div><h3>{work.topic} {work.difficulty}</h3> <button id={work.topic} onClick={() => handleHomeworkSelect(work.topic, work.difficulty)}>Start!</button></div>)}
+            {homework.map(work => <div><span>{work.topic} {work.difficulty}</span> <button id={work.topic} onClick={() => handleHomeworkSelect(work.topic, work.difficulty)}>Start!</button></div>)}
         </div>
     )
 }

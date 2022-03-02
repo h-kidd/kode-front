@@ -30,6 +30,7 @@ export const loadExercise = (topic, difficulty) => {
     try {
       const questions = await fetchQuestions(topic, difficulty);
       console.log(questions)
+      dispatch({ type: 'LOAD_SETTINGS', payload: { topic, difficulty } });
       dispatch({ type: 'LOAD_QUESTIONS', payload: questions });
     } catch (err) {
       console.warn(err.message);
