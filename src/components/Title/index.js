@@ -1,8 +1,23 @@
+import { createTheme, ThemeProvider, Typography } from "@material-ui/core";
 import React from "react";
 
 const Title = () => {
+
+    const theme = createTheme({
+        typography: {
+            fontFamily: [
+                'Architects Daughter'
+            ].join(','),
+            allVariants: {
+                color: "white"
+            }
+        }
+    });
+
     return (
-        <h1>Kode</h1>
+        <ThemeProvider theme={theme}>
+            <Typography variant="h1">Kode</Typography>
+        </ThemeProvider>
     )
 }
 
