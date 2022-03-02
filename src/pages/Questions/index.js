@@ -11,7 +11,7 @@ import { Card, Box, CardContent } from "@material-ui/core";
 const Quiz = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const initTimer = 20;
+  const initTimer = 30;
   const [timer, setTimer] = useState(initTimer);
   const [seconds, setSeconds] =  useState(timer);
   const [index, setIndex] =  useState(0);

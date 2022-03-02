@@ -22,7 +22,13 @@ function Teacher() {
         },
         button: {
             backgroundColor: "white",
-            marginRight: "20px"
+            color: "black",
+            borderRadius: "10px",
+            marginTop: "50px",
+            width: "200px",
+            height: "40px",
+            border: "1px solid black"
+            
         }
     })
 
@@ -34,12 +40,17 @@ function Teacher() {
             
             <h1>Teacher Portal</h1>
 
+            <Grid container
+            direction="row"
+            justify="center"
+            alignItems="center">
             <StudentList />
 
-            <Grid container justify="flex-end">
+            
                 <Button variant="contained"  id="createGame" className={classes.button} onClick={ createGame }>
                     Create Game
                 </Button>
+                <br/>
                 <Button variant="contained" id="setHomework" className={classes.button} onClick={ setHomework }>
                     Set Homework
                 </Button>

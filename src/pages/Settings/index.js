@@ -4,7 +4,7 @@ import { Button, MenuItem, TextField } from "@material-ui/core";
 import { useState, useEffect } from "react";
 import { useNavigate, Outlet } from "react-router-dom";
 import { useDispatch } from 'react-redux';
-import Categories from "../../data/Categories";
+import Topics from "../../data/Topics";
 import { loadSettings } from '../../actions';
 import { makeStyles, Container } from "@material-ui/core";
 import background from "../../img/background.jpg";
@@ -24,7 +24,6 @@ const CreateRoom = ({ user, fetchQuestions}) => {
       return;
     } else {
       setError(false);
-      
       dispatch(loadSettings(topic, difficulty))
       navigate("/lobby");
     }
@@ -87,9 +86,9 @@ const CreateRoom = ({ user, fetchQuestions}) => {
             variant="outlined"
             style={{ marginBottom: 30 }}
           >
-            {Categories.map((cat) => (
-              <MenuItem key={cat.category} value={cat.value}>
-                {cat.category}
+            {Topics.map((top) => (
+              <MenuItem key={top.topic} value={top.value}>
+                {top.topic}
               </MenuItem>
             ))}
           </TextField >
@@ -103,13 +102,13 @@ const CreateRoom = ({ user, fetchQuestions}) => {
             variant="outlined"
             style={{ marginBottom: 30 }}
           >
-            <MenuItem key="Easy" value="easy">
+            <MenuItem key="Easy" value="1">
               Easy
             </MenuItem>
-            <MenuItem key="Medium" value="medium">
+            <MenuItem key="Medium" value="2">
               Medium
             </MenuItem>
-            <MenuItem key="Hard" value="hard">
+            <MenuItem key="Hard" value="3">
               Hard
             </MenuItem>
           </TextField>
