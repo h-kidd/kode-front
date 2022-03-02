@@ -29,7 +29,8 @@ function Student() {
             marginTop: "10px",
             borderColor: "lightblue",
             width: "100px",
-            height: "40px"
+            height: "40px",
+            display: "inline-block"
         },
         container: {
             backgroundColor: "white",
