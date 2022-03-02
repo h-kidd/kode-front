@@ -15,8 +15,8 @@ function Leaderboard() {
   };
 
   useEffect(() => {
-    socket.on('start_game', (firstname, lastname, score) => {
-      setPlayers(players => [...players, {firstname: firstname, lastname: lastname, score: score}])
+    socket.on('start_game', (data) => {
+      setPlayers(players => [...players, data])
     });
   }, [socket]);
   
