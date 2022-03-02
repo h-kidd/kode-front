@@ -45,6 +45,11 @@ function Waiting() {
           width: "50%",
           marginTop: "20px",
           border: "1px solid black"
+        },
+        button: {
+            backgroundColor: "white",
+            marginTop: "50px",
+            border: "1px solid black"
         }
       });
     
