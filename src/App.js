@@ -1,23 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
+import { Routes, Route, Outlet } from "react-router-dom";
+import Settings from "./pages/Settings/index"
+import { Questions, Waiting, Leaderboard, Score, Results, Lobby } from "./pages";
+import Home from "./pages/Home";
+import Teacher from './pages/Teacher';
+import Student from './pages/Student';
+import { LoginPage, SetHomework, TeacherLogin } from './pages';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/settings" element={<Settings />} />
+        <Route path="/questions" element={<Questions />} />
+        <Route path="/results" element={<Results />} />
+        <Route path="/leaderboard" element={<Leaderboard />} />
+        <Route path="/lobby" element={<Lobby />} />
+        <Route path="/waiting" element={<Waiting />} />
+        <Route path="/score" element={<Score />} />
+        <Route path="/teacher" element={<Teacher />} />
+        <Route path="/student" element={<Student />} />
+        <Route path='/loginPage' element={<LoginPage />} />
+        <Route path="/setHomework" element={<SetHomework />} />
+        <Route path="/teacherLogin" element={<TeacherLogin />} />
+      </Routes>
+      <Outlet />
     </div>
   );
 }
