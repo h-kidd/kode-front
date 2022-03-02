@@ -7,7 +7,7 @@ import background from "../../img/background.jpg";
 function Student() {
     const navigate = useNavigate()
     const joinGame = () => {
-        navigate("/lobby")
+        navigate("/waiting")
     }
 
     const viewScores = () => {

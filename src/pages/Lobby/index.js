@@ -65,7 +65,9 @@ const Lobby = () => {
           </Card>
           <Card className={classes.cardLobby}>
             <h3>Classroom List</h3>
-            <p>Users</p>
+            {players.map(player => (
+              <p>{player.firstname} {player.lastname}</p>
+            ))}
           </Card>
         </Grid>
         </div>
