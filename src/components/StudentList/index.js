@@ -1,23 +1,25 @@
-import { Button, Card, CardContent, makeStyles } from '@material-ui/core';
+import { Button, Card, CardContent, Grid, makeStyles } from '@material-ui/core';
 import EditIcon from '@material-ui/icons/Edit';
 import AddIcon from '@material-ui/icons/Add';
 import React, {useEffect, useState} from 'react';
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const StudentList = () =>  {
     const [classRoster, setClassRoster] = useState([]);
+    const userId = useSelector(state => state.userId);
 
     useEffect(() => {
         async function getClassRoster() {
-            const response = await fetch ('insert url here',{
+            const response = await fetch (`https://kode-server.herokuapp.com/teachers/${userId}/class`,{
                 method: 'GET',
-                headers: { "Content-Type": "application/json", "Authorization": "Bearer " + localStorage.getItem('accessToken') }});
+                headers: { "Content-Type": "application/json", "Authorization": "Bearer " + localStorage.getItem('token') }});
             let data = await response.json();
+            console.log(data)
             setClassRoster(data)
         }
         getClassRoster();
     },[])
-
-    const renderClassRoster = () => classRoster.map(student => <div><h3>{student.firstname} {student.lastname}</h3> <button id={student.username}>Join Game</button></div>)
 
     // Adding material ui
     const useStyles = makeStyles({
@@ -63,9 +65,9 @@ const StudentList = () =>  {
     const classes = useStyles();
 
     return (
-        <div>
+        <Grid>
             <Card className={classes.container}>
-                <h3 className={classes.h3}>Class 1</h3>
+                <h3 className={classes.h3}>Class</h3>
                 <Button variant="contained" className={classes.buttonEdit}>
                     Edit Students
                     <EditIcon />
@@ -78,11 +80,11 @@ const StudentList = () =>  {
 
             <CardContent>
             <div>
-                {renderClassRoster()}
+                {classRoster.map(student => <div><span>{student.firstname} {student.lastname}</span> <button id={student.username}>Details</button></div>)}
             </div>
             </CardContent>
             </Card>
-        </div>
+        </Grid>
     )
 }
 

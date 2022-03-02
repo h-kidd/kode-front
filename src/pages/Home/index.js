@@ -1,17 +1,13 @@
 import React from "react";
-import { useDispatch } from 'react-redux';
 import { useNavigate } from "react-router-dom";
 import { StudentLoginButton, Title } from "../../components";
-import { isTeacher } from "../../actions"
 import { makeStyles, Button } from "@material-ui/core";
 import background from "../../img/background.jpg";
 
 function Home() {
-    const dispatch = useDispatch();
     const navigate = useNavigate()
 
     const teacher = () => {
-        dispatch(isTeacher())
         navigate("/teacherLogin");
     }
 
@@ -22,14 +18,13 @@ function Home() {
             backgroundSize: "cover",
             backgroundPosition: "center",
             objectFit: "cover",
-            height: "100vh",
+            height: "100vh"
         },
         button: {
             backgroundColor: "white",
             marginTop: "20px",
             borderRadius: "10px",
             boxShadow: "10px 10px 30px black;"
-
         },
         
     })

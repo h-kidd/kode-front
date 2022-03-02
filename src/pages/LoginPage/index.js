@@ -1,17 +1,35 @@
-import React from "react";
+import {useState} from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { makeStyles, Button, Container, Grid } from "@material-ui/core";
 import background from "../../img/background.jpg";
 import { appendOwnerState } from "@mui/base";
 import { Title } from "../../components";
 import {  Card, Box, CardContent } from "@material-ui/core";
-
+import axios from "axios";
+import { loadUser } from "../../actions";
 
 const LoginPage = () => {
 
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
     const navigate = useNavigate()
-    const login = () => {
-        navigate('/student')
+    const dispatch = useDispatch();
+
+    const handleClick = async () => {
+        try{
+            let response = await axios.post('https://kode-server.herokuapp.com/token/student',{
+                username: username,
+                password: password
+            })
+            localStorage.setItem("token",response.data.access_token)
+            dispatch(loadUser(response.data.additional_claims.student_id, username, response.data.additional_claims.firstname, response.data.additional_claims.lastname, response.data.additional_claims.teacher_id, false))
+            navigate('/student')
+        }catch(error){
+            console.log(error.response)
+            console.log(error.response.status)
+            console.log(error.response.headers) 
+        }     
     }
 
     //Include Material UI
@@ -106,17 +124,20 @@ const LoginPage = () => {
          <Card className={classes.cardStyle}>
            <CardContent className={classes.writing}> 
            <h1>Student Login!</h1>
+           <div>
+                
                 <label>
-                  <input className={classes.customfieldinput} type="text" placeholder ="Username"/>
-                  </label>
-                  <br/>
-             <label>
-             <input className={classes.customfieldinput} type="text" placeholder="Password" />
-             </label> 
-             <br/>
-             <button className={classes.button} id="student" onClick={ login }>
-                 Login!
-             </button>
+                <input className={classes.customfieldinput} type="text" placeholder ="Username" onChange={(e) => setUsername(e.target.value)}/>
+                </label>
+                <br/>
+                <label>
+                <input className={classes.customfieldinput} type="text" placeholder="Password" onChange={(e) => setPassword(e.target.value)}/>
+                </label> 
+                <br/>
+                <button className={classes.button} id="student" onClick={ handleClick }>Login! </button>
+                        
+                   
+             </div> 
              </CardContent>
          </Card>
         </Box>
