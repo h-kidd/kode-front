@@ -21,13 +21,23 @@ const StudentList = () =>  {
 
     // Adding material ui
     const useStyles = makeStyles({
-        card: {
-            display: "flex",
-            width: "45%",
-            height: "50%",
-            flexDirection: "column",
-            marginLeft: "20px"
-        },
+        container: {
+            backgroundColor: "white",
+            width: "400px",
+            height: "400px",
+            padding: "20px",
+            borderRadius: "30px",
+            marginRight: "100px",
+            border: "1px solid black"
+            // position: "fixed",
+            // marginTop: "270px",
+            // marginLeft: "275px",
+            // transform: "translate(-50%, -50%)",
+            // flexDirection: "column",
+            // alignItems: "left",
+            // display: "flex",
+            
+            },
         header: {
             backgroundColor: "lightGrey"
         },
@@ -39,11 +49,14 @@ const StudentList = () =>  {
         buttonEdit: {
             justifyContent: "left",
             backgroundColor: "orange",
-            marginBottom: "10px"
+            marginBottom: "10px",
+            color: "white"
         },
         buttonAdd: {
             backgroundColor: "blue",
-            marginBottom: "10px"
+            marginBottom: "10px",
+            color: "white",
+            marginLeft: "20px"
         }
     })
 
@@ -51,8 +64,7 @@ const StudentList = () =>  {
 
     return (
         <div>
-            <Card className={classes.card}>
-                <header className={classes.header}>
+            <Card className={classes.container}>
                 <h3 className={classes.h3}>Class 1</h3>
                 <Button variant="contained" className={classes.buttonEdit}>
                     Edit Students
@@ -62,7 +74,6 @@ const StudentList = () =>  {
                     Add Students
                     <AddIcon />
                 </Button>
-                </header>
             
 
             <CardContent>
