@@ -6,16 +6,9 @@ import background from "../../img/background.jpg";
 import { Title } from "../../components";
 import { Results } from '../index';
 
-const Score = (getResults, results) => {
+const Score = () => {
 
-  useEffect(() => {
-    getResults()
-  }, []
-
-  )
-  // getResults();
-
-  // console.log(results);
+  
     // Adding Material UI
     const useStyles = makeStyles({
 
@@ -58,7 +51,7 @@ const Score = (getResults, results) => {
           </TableHead>
 
           <TableBody>
-            {results.map((result) => {
+            {/* {results.map((result) => {
               const {Name, Score} = result
               return(
                 <TableRow
@@ -71,7 +64,7 @@ const Score = (getResults, results) => {
               )
             }
 
-            )}
+            )} */}
           </TableBody>
         </Table>
       </div>

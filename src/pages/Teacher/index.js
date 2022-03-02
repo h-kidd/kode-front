@@ -44,16 +44,18 @@ function Teacher() {
             direction="row"
             justify="center"
             alignItems="center">
+
             <StudentList />
 
-            
+                <Grid>
                 <Button variant="contained"  id="createGame" className={classes.button} onClick={ createGame }>
                     Create Game
                 </Button>
-                <br/>
+                < br/>
                 <Button variant="contained" id="setHomework" className={classes.button} onClick={ setHomework }>
                     Set Homework
                 </Button>
+                </Grid>
             </Grid>
         </div>
     )

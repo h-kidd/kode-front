@@ -47,6 +47,11 @@ function Waiting() {
           width: "50%",
           marginTop: "20px",
           border: "1px solid black"
+        },
+        button: {
+            backgroundColor: "white",
+            marginTop: "50px",
+            border: "1px solid black"
         }
       });
     
@@ -69,7 +74,7 @@ function Waiting() {
             <h3>Classroom List</h3>
             <p>Users</p>
           </Card>
-          <Button onClick={startGame}>
+          <Button variant="contained" className={classes.button} onClick={startGame}>
           Start Game!
         </Button>
         </Grid>

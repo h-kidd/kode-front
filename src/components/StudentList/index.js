@@ -1,4 +1,4 @@
-import { Button, Card, CardContent, makeStyles } from '@material-ui/core';
+import { Button, Card, CardContent, Grid, makeStyles } from '@material-ui/core';
 import EditIcon from '@material-ui/icons/Edit';
 import AddIcon from '@material-ui/icons/Add';
 import React, {useEffect, useState} from 'react';
@@ -63,7 +63,7 @@ const StudentList = () =>  {
     const classes = useStyles();
 
     return (
-        <div>
+        <Grid>
             <Card className={classes.container}>
                 <h3 className={classes.h3}>Class 1</h3>
                 <Button variant="contained" className={classes.buttonEdit}>
@@ -82,7 +82,7 @@ const StudentList = () =>  {
             </div>
             </CardContent>
             </Card>
-        </div>
+        </Grid>
     )
 }
 

@@ -23,13 +23,13 @@ function Home() {
             backgroundPosition: "center",
             objectFit: "cover",
             height: "100vh",
+            display: "flex"
         },
         button: {
             backgroundColor: "white",
             marginTop: "20px",
             borderRadius: "10px",
             boxShadow: "10px 10px 30px black;"
-
         },
         
     })
