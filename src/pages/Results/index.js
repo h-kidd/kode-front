@@ -4,12 +4,13 @@ import { useNavigate } from "react-router-dom";
 import { useSocket } from "../../contexts/SocketProvider";
 import { makeStyles, Button, Container, Grid, Card, Box, CardContent } from "@material-ui/core";
 import background from "../../img/background.jpg";
-import { isMulti } from "../../actions"
+import { isMulti, resetScore } from "../../actions"
 
 function Results() {
   const navigate = useNavigate();
   const socket = useSocket();
   const dispatch = useDispatch();
+  const room = useSelector(state => state.socketId);
   const firstname = useSelector(state => state.firstname);
   const lastname = useSelector(state => state.lastname);
   const score = useSelector(state => state.score);
@@ -21,7 +22,7 @@ function Results() {
 
   useEffect(() => {
     if (isMultiplayer) {
-      socket.emit('send_score', {firstname: firstname, lastname: lastname, score: score});
+      socket.emit('send_score', {room: room, firstname: firstname, lastname: lastname, score: score});
       dispatch(isMulti(false))
     }
   }, []);
