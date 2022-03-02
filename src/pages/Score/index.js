@@ -1,53 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import axios from "axios";
-import { makeStyles } from '@material-ui/core';
+import { makeStyles, Table, TableHead, TableCell, TableRow, TableBody } from '@material-ui/core';
 import { CardContent, Card, Box } from '@material-ui/core';
 import { Button, Container, Grid } from "@material-ui/core";
 import background from "../../img/background.jpg";
+import { Title } from "../../components";
 
 const Score = () => {
-    const username = useSelector((state) => state.user.user.username);
-    const score = useSelector((state) => state.quizReducer.score); //get score from state
-    const results = useSelector((state) => state.quizReducer.results);
-    const [allScores, setAllScores] = useState("");
-    const room = useSelector((state) => state.user.room);
-    const players = useSelector((state) => state.user.user.username);
-    const categoryName = useSelector((state) => state.quizReducer.categoryName);
-    console.log(score, "hello");
-  
-    const sendResults = (categoryName, playerName, playerScore) => {
-      return new Promise(async (resolve, reject) => {
-        try {
-          const options = {
-            headers: { 'Content-Type': 'application/json' },
-            body: {
-              "category": categoryName,
-              "name": playerName,
-              "score": playerScore
-            }
-          }
-          console.log(results);
-          const { data } = await axios.post(`http://localhost:5000/leaderboard`, options)
-  
-          if (data.err) {
-            throw Error(data.err)
-          }
-          resolve('Scores sent to leaderboard!')
-        } catch (err) {
-          reject(`Can't send results: ${err}`);
-        }
-      })
-    }
-  
-  
-    useEffect(() => {
-      console.log('catname',categoryName)
-      players.forEach((player, i) => {
-        sendResults(categoryName, player, score[i])
-      })
-    }, [categoryName, score, players])
-  
+
+
+  // getResults();
+
+  // console.log(results);
     // Adding Material UI
     const useStyles = makeStyles({
 
@@ -67,7 +32,7 @@ const Score = () => {
         justifyContent: "center",
         alignItems: "center",
         minHeight: "90vh",
-        boxShadow: "10px 10px 20px black;"
+        // boxShadow: "10px 10px 20px black;"
 
       },
       writing: {
@@ -79,23 +44,36 @@ const Score = () => {
     const classes = useStyles();
   
     return (
-      <div id="score-page" className={classes.background}>
-        <Box className={classes.box}>
-          <Card className={classes.cardStyle}>
-            <CardContent className={classes.writing}>
-              <div id="playerscore">
-                {players.map((p, i) => (
-                  <p>
-                    {p} Score: {score[i]}
-                  </p>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-        </Box>
+      <div className={classes.background}>
+        <Title />
+        <Table sx={{minWidth: 600}} size="small" aria-label="a dense table">
+          <TableHead>
+            <TableRow>
+            <TableCell className={classes.writing} align="center">Name</TableCell>
+            <TableCell className={classes.writing} align="center">Score</TableCell>
+            </TableRow>
+          </TableHead>
+
+          <TableBody>
+            {/* {results.map((result) => {
+              const {Name, Points} = result
+              return(
+                <TableRow
+                  key={Name}
+                  sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                  >
+                  <TableCell align="left">{Name}</TableCell>
+                  <TableCell align="right">{Points}</TableCell>
+                </TableRow>
+              )
+            }
+
+            )} */}
+          </TableBody>
+        </Table>
       </div>
     );
-  };
+};
   
-  export default Score;
+export default Score;
   

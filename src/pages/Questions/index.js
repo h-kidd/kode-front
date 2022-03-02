@@ -122,6 +122,7 @@ const Quiz = () => {
       width: "400px",
       height: "75px",
       borderRadius: "10px",
+      border: "1px solid black"
       // boxShadow: "10px 10px 20px black;"
 
     },
@@ -129,8 +130,8 @@ const Quiz = () => {
       display: "flex",
       justifyContent: "center",
       // alignItems: "center",
-      minHeight: "90vh",
-      marginTop: "100px",
+      // minHeight: "90vh",
+      marginTop: "50px",
       // marginLeft: "500px",
 
     },
@@ -140,10 +141,12 @@ const Quiz = () => {
       height: "75px",
       borderRadius: "10px",
       position: "relative",
+      border: "1px solid black"
     },
     box1: {
       display: "flex",
       justifyContent: "center",
+      marginTop: "50px"
 
     },
     writing: {
@@ -157,9 +160,9 @@ const Quiz = () => {
     ans: {
       backgroundColor: "white",
       borderRadius: "5px",
-      
-
-
+      fontSize: "50px",
+      marginTop: "50px",
+      width: "70px"
     }
 
     })
@@ -198,7 +201,7 @@ const Quiz = () => {
       </div>
 
       
-        <Card>
+        
       <Grid  container spacing={3}>
         {questions[index].options.map(opt => (
           <Grid item xs>
@@ -206,7 +209,7 @@ const Quiz = () => {
           </Grid>
         ))}
       </Grid>
-      </Card>
+      
     </div>
   );
 };
