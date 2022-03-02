@@ -1,10 +1,12 @@
 import {useState} from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { makeStyles, Button, Container, Grid } from "@material-ui/core";
 import background from "../../img/background.jpg";
 import { appendOwnerState } from "@mui/base";
 import { Title } from "../../components";
 import {  Card, Box, CardContent } from "@material-ui/core";
+import { loadUser } from "../../actions";
 import axios from "axios";
 
 
@@ -12,6 +14,7 @@ const TeacherLogin = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate()
+    const dispatch = useDispatch();
     // const login = () => {
     //     navigate('/teacher')
     // }
@@ -25,10 +28,7 @@ const TeacherLogin = () => {
             console.log(response)
             
             localStorage.setItem("token",response.data.access_token)
-            localStorage.setItem("teacher_id", response.data.additional_claims.teacher_id)
-            localStorage.setItem("firstname", response.data.additional_claims.firstname)
-            localStorage.setItem("lastname", response.data.additional_claims.lastname)
-            
+            dispatch(loadUser(response.data.additional_claims.teacher_id, username, response.data.additional_claims.firstname, response.data.additional_claims.lastname, response.data.additional_claims.teacher_id, true))
             navigate('/teacher')
         }catch(error){
             console.log(error)

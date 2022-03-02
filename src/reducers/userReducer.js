@@ -1,4 +1,5 @@
-const initState = { 
+const initState = {
+  userId: 0,
   username: "",
   firstname: "first",
   lastname: "last",
@@ -14,7 +15,7 @@ const initState = {
 const userReducer = (state=initState, action) => {
   switch(action.type) {
     case 'LOAD_USER':
-      return {...state, username: action.payload.username, firstname: action.payload.firstname, lastname: action.payload.lastname, socketId: action.payload.socketId, isTeacher: action.payload.isTeacher};
+      return {...state, userId: action.payload.userId, username: action.payload.username, firstname: action.payload.firstname, lastname: action.payload.lastname, socketId: action.payload.socketId, isTeacher: action.payload.isTeacher};
     case 'LOAD_SETTINGS':
       return {...state, difficulty: action.payload.difficulty, topic: action.payload.topic}
     case 'LOAD_QUESTIONS':
@@ -23,8 +24,6 @@ const userReducer = (state=initState, action) => {
       return {...state, score: 0}
     case 'UPDATE_SCORE':
       return {...state, score: state.score + action.payload}
-    case 'IS_TEACHER':
-      return {...state, isTeacher: action.payload}
     case 'IS_MULTI':
       return {...state, isMulti: action.payload}
     default:

@@ -1,8 +1,8 @@
 import axios from "axios";
 
-export const isTeacher = (bool) => ({ 
-  type: 'IS_TEACHER',
-  payload: bool
+export const loadUser = (userId, username, firstname, lastname, socketId, isTeacher) => ({ 
+  type: 'LOAD_USER',
+  payload: {userId, username, firstname, lastname, socketId, isTeacher}
 });
 
 export const loadSettings = (topic, difficulty) => ({ 
