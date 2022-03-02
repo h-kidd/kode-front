@@ -14,15 +14,17 @@ function Waiting() {
     const room = useSelector(state => state.socketId);
     const firstname = useSelector(state => state.firstname);
     const lastname = useSelector(state => state.lastname);
+    const delay = ms => new Promise(res => setTimeout(res, ms));
 
     useEffect(() => {
         socket.emit('join', {room: room, firstname: firstname, lastname: lastname});
       }, []);
 
     useEffect(() => {
-        socket.on('init_game', (data) => {
+        socket.on('init_game', async (data) => {
             dispatch(loadExercise(data.topic, data.difficulty));
             dispatch(isMulti(true));
+            await delay(1000);
             navigate('/questions')
         });
       }, [socket]);

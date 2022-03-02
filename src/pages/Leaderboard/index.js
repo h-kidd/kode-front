@@ -15,7 +15,7 @@ function Leaderboard() {
   };
 
   useEffect(() => {
-    socket.on('start_game', (data) => {
+    socket.on('user_score', (data) => {
       setPlayers(players => [...players, data])
     });
   }, [socket]);
@@ -52,7 +52,9 @@ function Leaderboard() {
       <Card className={ classes.cardStyle }>
       <CardContent  className={classes.writing}>
       <h2>Leaderboard</h2>
-      <LeaderboardTable />
+      {players.map(player => (
+        <p>{player.firstname} {player.lastname} {player.score}</p>
+      ))}
       <button id="start-again" onClick={handleClick} className={classes.button}>
         Home
       </button>

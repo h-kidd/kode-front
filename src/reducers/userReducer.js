@@ -18,7 +18,7 @@ const userReducer = (state=initState, action) => {
     case 'LOAD_SETTINGS':
       return {...state, difficulty: action.payload.difficulty, topic: action.payload.topic}
     case 'LOAD_QUESTIONS':
-      return {...state, difficulty: action.payload}
+      return {...state, questions: action.payload}
     case 'RESET_SCORE':
       return {...state, score: 0}
     case 'UPDATE_SCORE':

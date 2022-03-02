@@ -20,6 +20,11 @@ export const updateScore = (score) => ({
   payload: score
 });
 
+export const resetScore = () => ({ 
+  type: 'RESET_SCORE',
+  payload: {}
+});
+
 export const loadExercise = (topic, difficulty) => {
   return async (dispatch) => {
     try {

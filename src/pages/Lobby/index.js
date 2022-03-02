@@ -27,7 +27,7 @@ const Lobby = () => {
     }, [socket]);
 
     const handleStart = (() => {
-      socket.emit('start_game', {topic: topic, difficulty: difficulty});
+      socket.emit('start_game', {room: room, topic: topic, difficulty: difficulty});
       navigate("/leaderboard")
     })
 
