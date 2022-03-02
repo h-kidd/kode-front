@@ -62,8 +62,7 @@ function Waiting() {
             Code: code
           </Card>
           <Card className={classes.cardLobby}>
-            <h3>Classroom List</h3>
-            <p>Users</p>
+            <h3>Waiting for teacher to start</h3>
           </Card>
         </Grid>
         </div>
