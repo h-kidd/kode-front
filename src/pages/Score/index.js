@@ -2,14 +2,17 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import axios from "axios";
 import { makeStyles, Table, TableHead, TableCell, TableRow, TableBody } from '@material-ui/core';
-import { CardContent, Card, Box } from '@material-ui/core';
-import { Button, Container, Grid } from "@material-ui/core";
 import background from "../../img/background.jpg";
 import { Title } from "../../components";
+import { Results } from '../index';
 
-const Score = () => {
+const Score = (getResults, results) => {
 
+  useEffect(() => {
+    getResults()
+  }, []
 
+  )
   // getResults();
 
   // console.log(results);
@@ -55,20 +58,20 @@ const Score = () => {
           </TableHead>
 
           <TableBody>
-            {/* {results.map((result) => {
-              const {Name, Points} = result
+            {results.map((result) => {
+              const {Name, Score} = result
               return(
                 <TableRow
                   key={Name}
                   sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                   >
                   <TableCell align="left">{Name}</TableCell>
-                  <TableCell align="right">{Points}</TableCell>
+                  <TableCell align="right">{Score}</TableCell>
                 </TableRow>
               )
             }
 
-            )} */}
+            )}
           </TableBody>
         </Table>
       </div>
