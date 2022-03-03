@@ -48,9 +48,11 @@ const LoginPage = () => {
             marginTop: "10px",
             borderColor: "lightblue",
             width: "100px",
-            height: "40px"
-            
+            height: "40px",
+        
         },
+            
+        
         container: {
             backgroundColor: "white",
             height: "300px",
@@ -135,7 +137,7 @@ const LoginPage = () => {
                 <input className={classes.customfieldinput} type="text" placeholder="Password" onChange={(e) => setPassword(e.target.value)}/>
                 </label> 
                 <br/>
-                <button className={classes.button} id="student" onClick={ handleClick }>Login! </button>
+                <Button className={classes.button} id="student" onClick={ handleClick }>Login! </Button>
                         
                    
              </div> 
