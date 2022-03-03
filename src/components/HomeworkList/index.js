@@ -53,7 +53,11 @@ const HomeworkList = () => {
         button: {
           backgroundColor: "lightblue",
           borderColor: "lightblue",
-          borderRadius: "5px"
+          borderRadius: "5px",
+          '&:hover': {
+            backgroundColor: '#006dbc',
+            color: "white"
+          }
         },
         nav: {
           fontWeight: "bold",

@@ -88,12 +88,17 @@ function Results() {
     },
     button: {
       backgroundColor: "lightblue",
-      color: "white",
-      borderRadius: "10px",
+      color: "black",
       marginTop: "10px",
       borderColor: "lightblue",
       width: "100px",
-      height: "40px"
+      height: "40px",
+      borderRadius: "10px",
+          '&:hover': {
+            backgroundColor: '#006dbc',
+            color: "white"
+          }
+
     }
     
   })
@@ -107,7 +112,7 @@ function Results() {
         <Card className={classes.cardStyle}>
           <CardContent className={classes.writing}> 
             <h3>Score: {score}</h3>
-            <button className={classes.button} onClick={handleClick}>Home</button>
+            <Button className={classes.button} onClick={handleClick}>Home</Button>
             </CardContent>
         </Card>
        </Box>

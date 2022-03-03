@@ -54,12 +54,16 @@ function Leaderboard() {
     
     button: {
         backgroundColor: "lightblue",
-        color: "white",
+        color: "black",
         borderRadius: "10px",
         borderColor: "lightblue",
         width: "100px",
         height: "40px",
-        marginTop: "350px"
+        marginTop: "50px",
+        '&:hover': {
+          backgroundColor: '#006dbc',
+          color: "white"
+        }
     },
     nav: {
       fontWeight: "bold"
@@ -75,7 +79,13 @@ function Leaderboard() {
       },
       outline: "white",
       color: "white"
-    }
+    },
+
+    paper: {
+      height: "375px",
+      marginTop: "theme.spacing.unit * 3",
+      overflowY: "auto"
+  }
     
   });
   
@@ -92,7 +102,7 @@ function Leaderboard() {
       
       {/* <Paper>
       {players.map(player => */}
-
+      <Paper className={classes.paper}>
       <TableContainer component={Paper}>
       <Table sx={{ midWidth: 650 }} aria-label="simple table">
         <TableHead>
@@ -117,6 +127,7 @@ function Leaderboard() {
         </TableBody>
       </Table>
       </TableContainer>
+      </Paper>
          
       
         {/* <TableHead>

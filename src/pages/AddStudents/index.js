@@ -49,7 +49,7 @@ const AddStudents = () => {
         cardStyle: {
             backgroundColor: "white",
             width: "500px",
-            height: "450px",
+            height: "500px",
             borderRadius: "10px",
         },
         box: {
@@ -71,10 +71,17 @@ const AddStudents = () => {
         
         },
         button: {
-            backgroundColor: "white",
-            marginTop: "20px",
+            backgroundColor: "lightblue",
+            color: "black",
             borderRadius: "10px",
-            width: ""
+            marginTop: "10px",
+            borderColor: "lightblue",
+            width: "100px",
+            height: "40px",
+            '&:hover': {
+                backgroundColor: '#006dbc',
+                color: "white"
+              }
             
         }
     })
@@ -113,13 +120,12 @@ const AddStudents = () => {
                 <input className={classes.input} type="text" id="fname" name="fname"  placeholder="Enter username here" onChange={(e) => setUsername(e.target.value)}></input>
                 </div>
             </form>
-
             
+            <Button className={classes.button} onClick={addStudent}>Submit</Button>
 
             </CardContent>
             </Card>
             </Box>
-            <Button className={classes.button} onClick={addStudent}>Submit</Button>
         </div>
     )
 }
