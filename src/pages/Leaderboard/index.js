@@ -94,7 +94,7 @@ function Leaderboard() {
             {/* <TableCell component="th" scope="row">
               {player.name}
             </TableCell> */}
-            <TableCell align="center">{player.firstname}{player.lastname}</TableCell>
+            <TableCell align="center">{player.firstname} {player.lastname}</TableCell>
             <TableCell align="center">{player.score}</TableCell>
             </TableRow>
           ))}
