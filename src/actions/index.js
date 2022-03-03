@@ -15,6 +15,11 @@ export const isMulti = (bool) => ({
   payload: bool
 });
 
+export const isResit = (bool) => ({ 
+  type: 'IS_RESIT',
+  payload: bool
+});
+
 export const updateScore = (score) => ({ 
   type: 'UPDATE_SCORE',
   payload: score

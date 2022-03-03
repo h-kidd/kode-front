@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useSocket } from "../../contexts/SocketProvider";
 import { makeStyles, Button, Container, Grid, Card, Box, CardContent } from "@material-ui/core";
 import background from "../../img/background.jpg";
-import { isMulti, resetScore } from "../../actions"
+import { isMulti, isResit } from "../../actions"
 
 function Results() {
   const navigate = useNavigate();
@@ -15,6 +15,7 @@ function Results() {
   const lastname = useSelector(state => state.lastname);
   const score = useSelector(state => state.score);
   const isMultiplayer = useSelector(state => state.isMulti);
+  const isResitScore = useSelector(state => state.isResit);
   const userId = useSelector(state => state.userId);
   const topic = useSelector(state => state.topic);
   const difficulty = useSelector(state => state.difficulty);
@@ -29,21 +30,24 @@ function Results() {
       dispatch(isMulti(false))
     } else {
       async function completeHomework() {
-        const response = await fetch (`https://kode-server.herokuapp.com//exercises`,{
+        const response = await fetch (`https://kode-server.herokuapp.com/exercises`,{
           method: 'GET',
           headers: { "Content-Type": "application/json"}});
         let data = await response.json();
         let exercise = data.find(e => e.topic === topic && e.difficulty === difficulty);
-        const response2 = await fetch (`https://kode-server.herokuapp.com/students/${userId}/exercise/${exercise.id}/complete`,{
-          method: 'PATCH',
-          headers: { "Content-Type": "application/json", "Authorization": "Bearer " + localStorage.getItem('token') }});
-        let data2 = await response2.json();
+        if (!isResitScore) {
+          const response2 = await fetch (`https://kode-server.herokuapp.com/students/${userId}/exercise/${exercise.id}/complete`,{
+            method: 'PATCH',
+            headers: { "Content-Type": "application/json", "Authorization": "Bearer " + localStorage.getItem('token') }});
+          let data2 = await response2.json();
+        }
         const response3 = await fetch (`https://kode-server.herokuapp.com/students/${userId}/exercise/${exercise.id}/score`,{
           method: 'PATCH',
           headers: { "Content-Type": "application/json", "Authorization": "Bearer " + localStorage.getItem('token')},
           body: JSON.stringify({score: score}) });
         let data3 = await response3.json();
         console.log(data3)
+        dispatch(isResit(false))
       }
       completeHomework();
     }
