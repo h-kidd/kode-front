@@ -11,7 +11,7 @@ export function SocketProvider({ children }) {
   const [socket, setSocket] = useState()
 
   useEffect(() => {
-    const newSocket = io('https://kode-server.herokuapp.com')
+    const newSocket = io('https://kode-server.herokuapp.com/')
     setSocket(newSocket)
     return () => newSocket.close()
   }, [])

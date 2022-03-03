@@ -27,7 +27,7 @@ const StudentList = () =>  {
         navigate('/details')
     }
 
-    
+
 
     // Adding material ui
     const useStyles = makeStyles({
