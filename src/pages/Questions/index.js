@@ -162,7 +162,7 @@ const Quiz = () => {
       borderRadius: "5px",
       fontSize: "20px",
       marginTop: "50px",
-      width: "100px",
+      width: "100%",
       height: "70px"
     },
     option:{
