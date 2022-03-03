@@ -134,7 +134,7 @@ const LoginPage = () => {
                 </label>
                 <br/>
                 <label>
-                <input className={classes.customfieldinput} type="text" placeholder="Password" onChange={(e) => setPassword(e.target.value)}/>
+                <input className={classes.customfieldinput} type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)}/>
                 </label> 
                 <br/>
                 <Button className={classes.button} id="student" onClick={ handleClick }>Login! </Button>
