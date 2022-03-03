@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { makeStyles, Table, TableHead, TableCell, TableRow, TableBody } from '@material-ui/core';
+import { makeStyles, Table, TableHead, TableHeader, TableCell, TableRow, TableBody, Paper, TableContainer } from '@material-ui/core';
 import background from "../../img/background.jpg";
 import { CardContent, Card, Box } from '@material-ui/core';
 import { Title, Nav } from "../../components";
@@ -33,6 +33,8 @@ const Score = () => {
     navigate('/questions')
   };
 
+  
+
     // Adding Material UI
     const useStyles = makeStyles({
 
@@ -50,7 +52,7 @@ const Score = () => {
         alignItems: "center",
         // minHeight: "90vh",
         // boxShadow: "10px 10px 20px black;",
-        paddingTop: "20px"
+        paddingTop: "10px"
 
       },
       writing: {
@@ -63,6 +65,23 @@ const Score = () => {
         height: "500px",
         borderRadius: "10px"
       },
+      button: {
+        backgroundColor: "lightblue",
+        borderColor: "lightblue",
+        borderRadius: "5px"
+      },
+      nav: {
+        fontWeight: "bold"
+      },
+      typography: {
+        fontFamily: [
+            'Architects Daughter'
+        ].join(','),
+        allVariants: {
+            color: "white",
+        },
+        color: "white"
+    }
      
     });
   
@@ -71,25 +90,59 @@ const Score = () => {
     return (
       <div className={classes.background}>
         <Nav />
-        <Title />
+        <h1 className={classes.typography}>Scores</h1>
         <Box className={classes.box}>
       <Card className={ classes.cardStyle }>
 
+        {/* <Paper>{completed.map(work =>
+        <Table>
+        <TableHead>
+          <TableRow>
+            <TableCell className={classes.nav} align="center">Topic</TableCell>
+            <TableCell className={classes.nav} align="center">Difficulty</TableCell>
+            <TableCell className={classes.nav} align="center">Score</TableCell>
+            <TableCell className={classes.nav} align="center">Try Again</TableCell>
+          </TableRow>
+        </TableHead>
 
-        <Table sx={{minWidth: 600}} size="small" aria-label="a dense table">
-          <TableHead>
-            <TableRow>
-            <TableCell className={classes.writing} align="center">Name</TableCell>
-            <TableCell className={classes.writing} align="center">Topic</TableCell>
-            <TableCell className={classes.writing} align="center">Difficulty</TableCell>
-            <TableCell className={classes.writing} align="center">Score</TableCell>
-            </TableRow>
-          </TableHead>
 
-          <TableBody>
-            {completed.map(work => <div><span>{work.topic} {work.difficulty}: {work.score}</span> <button id={work.topic} onClick={() => handleHomeworkSelect(work.topic, work.difficulty)}>Start!</button></div>)}
-          </TableBody>
-        </Table>
+        <TableCell align="center">{work.topic}</TableCell>
+        <TableCell align="center">{work.difficulty}</TableCell>
+        <TableCell align="center">{work.score}</TableCell>
+        <TableCell align="center"><button className={classes.button} id={work.topic} onClick={() => handleHomeworkSelect(work.topic, work.difficulty)}>Start!</button></TableCell>
+        </ Table>)}
+        
+        </Paper> */}
+        <TableContainer component={Paper}>
+          <Table sx={{ midWidth: 650 }} aria-label="simple table">
+            <TableHead>
+              <TableRow>
+                <TableCell className={classes.nav} align="center" >Topic</TableCell>
+                <TableCell className={classes.nav} align="center">Difficulty</TableCell>
+                <TableCell className={classes.nav} align="center">Score</TableCell>
+                <TableCell className={classes.nav} align="center">Try Again</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {completed.map((work) => (
+                <TableRow
+                key={work.name}
+                sx={{'&:last-child td, &:last-child th': { border: 0 } }}
+                >
+                  {/* <TableCell component="th" scope="row">
+                    {work.name}
+                  </TableCell> */}
+                  <TableCell align="center">{work.topic}</TableCell>
+                  <TableCell align="center">{work.difficulty}</TableCell>
+                  <TableCell align="center">{work.score}</TableCell>
+                  <TableCell align="center"><button className={classes.button} id={work.topic} onClick={() => handleHomeworkSelect(work.topic, work.difficulty)}>Start!</button></TableCell>
+
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+
         </Card>
         </Box>
       </div>
