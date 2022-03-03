@@ -12,6 +12,7 @@ const StudentList = () =>  {
     const [classRoster, setClassRoster] = useState([]);
     const userId = useSelector(state => state.userId);
 
+
     useEffect(() => {
         async function getClassRoster() {
             const response = await fetch (`https://kode-server.herokuapp.com/teachers/${userId}/class`,{
@@ -39,12 +40,13 @@ const StudentList = () =>  {
     const useStyles = makeStyles({
         container: {
             backgroundColor: "white",
-            width: "400px",
-            height: "400px",
+            width: "55vh",
+            height: "55vh",
             padding: "20px",
             borderRadius: "30px",
             marginRight: "100px",
-            border: "1px solid black"
+            border: "1px solid black",
+            boxShadow: "10px 10px 20px black",
             },
         header: {
             backgroundColor: "lightGrey"
@@ -52,7 +54,7 @@ const StudentList = () =>  {
         h3: {
             color: "black",
             // textAlign: "left",
-            paddingLeft: "20px"
+            textAlign: "center"
         },
         button: {
             backgroundColor: "lightblue",
@@ -60,7 +62,7 @@ const StudentList = () =>  {
             borderRadius: "10px",
             marginTop: "10px",
             borderColor: "lightblue",
-            width: "200px",
+            width: "20vh;",
             height: "40px",
             '&:hover': {
                 backgroundColor: '#006dbc',
@@ -68,7 +70,7 @@ const StudentList = () =>  {
         
         }},
         paper: {
-            height: "250px",
+            height: "40vh",
             marginTop: "theme.spacing.unit * 3",
             overflowY: "auto"
         }
@@ -79,11 +81,14 @@ const StudentList = () =>  {
     return (
         <Grid>
             <Card className={classes.container}>
+                <div class="buttondiv">
                 <h3 className={classes.h3}>Class</h3>
                 <Button variant="contained" onClick={addStudents} className={classes.button}>
                     Add Students
                     <AddIcon />
                 </Button>
+                </div>
+               
             
 
             <CardContent>
@@ -91,7 +96,7 @@ const StudentList = () =>  {
                 {classRoster.map(student => 
                 <Table>
                 <TableCell align="left" className={classes.tablecell}>{student.firstname} {student.lastname}</TableCell>
-                <TableCell align="right" className={classes.tablecell}><Button onClick={() => handleStudentSelect(student.id, student.firstname, student.lastname)} id={student.username}>Details</Button>
+                <TableCell align="right" className={classes.tablecell}><Button variant="contained" onClick={() => handleStudentSelect(student.id, student.firstname, student.lastname)} id={student.username}>Details</Button>
                 </TableCell>
                 </Table>)}
                 </Paper>

@@ -4,6 +4,7 @@ import { makeStyles, Card, Table, TableCell, TableRow, TableBody, TableContainer
 import background from '../../img/background.jpg';
 import { Title, Nav } from "../../components";
 import { TableHead } from "@mui/material";
+import "./details.css"
 
 const Details = () => {
     const userId = useSelector(state => state.userId);
@@ -79,7 +80,7 @@ const Details = () => {
         <div className={classes.background}>
             <Nav />
             
-            <h1 className={classes.typography}>Details for {studentFname} {studentLname}</h1>
+            <h1 class="kek">Details for {studentFname} {studentLname}</h1>
             {/* <Card className={classes.table}> */}
             <Box className={classes.box}>
             <Card className={ classes.cardStyle }>

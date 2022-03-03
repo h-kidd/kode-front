@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
+
+.teacherportal {
+    font-family: 'Gloria Hallelujah', cursive;
+    color: white;
+    font-size: 60px;
+}
+
+h3 {
+    font-family: "Noto Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 20px;
+}

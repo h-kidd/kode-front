@@ -9,6 +9,7 @@ import { loadSettings } from '../../actions';
 import { makeStyles, Container } from "@material-ui/core";
 import background from "../../img/background.jpg";
 import { Nav } from "../../components";
+import "./settings.css"
 
 
 const CreateRoom = () => {
@@ -50,11 +51,12 @@ const CreateRoom = () => {
       // transform: "translate(-50%, -50%)",
       display: "flex",
       flexDirection: "column",
-      alignItems: "center"   
+      alignItems: "center",   
+      boxShadow: "10px 10px 20px black",
   },
   button: {
     backgroundColor: "lightblue",
-    fontSize: "10px",
+    fontSize: "15px",
     color: "black",
     borderRadius: "10px",
     marginTop: "10px",
@@ -93,7 +95,7 @@ const CreateRoom = () => {
   return (
     <div className={classes.background}>
       <Nav />
-      <h1 className={classes.typography}>Start a Game</h1>
+      <h1 class="headerstart">Start a Game</h1>
       <Container className={classes.container} maxWidth="sm">
         <span className="h2" style={{ fontSize: 30 }}>Quiz Settings</span>
         < br />
@@ -141,7 +143,7 @@ const CreateRoom = () => {
             size="large"
             onClick={handleSubmit}
           >
-            Start Quiz
+           <p class="startquiz">Start Quiz</p>
           </Button>
         </div>
       {/* <img src="/quiz.svg" className="banner" alt="quiz app" /> */}

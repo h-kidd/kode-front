@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
+
+.typography {
+    color: black
+} 
+
+.student-login {
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 30px;
+}
+
+.cardStyle {
+    position: relative;
+    
+}
+
+.student-login {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+    
+}
