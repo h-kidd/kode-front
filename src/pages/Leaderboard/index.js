@@ -86,7 +86,7 @@ function Leaderboard() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {players.map((player) => {
+          {players.map((player) => (
             <TableRow
             key={player.name}
                 sx={{'&:last-child td, &:last-child th': { border: 0 } }}
@@ -97,7 +97,7 @@ function Leaderboard() {
             <TableCell align="center">{player.firstname}{player.lastname}</TableCell>
             <TableCell align="center">{player.score}</TableCell>
             </TableRow>
-          })}
+          ))}
         </TableBody>
       </Table>
       </TableContainer>
