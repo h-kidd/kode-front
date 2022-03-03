@@ -5,8 +5,10 @@ import React, {useEffect, useState} from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { TableCell } from '@mui/material';
+import { loadStudent } from '../../actions';
 
 const StudentList = () =>  {
+    const dispatch = useDispatch();
     const [classRoster, setClassRoster] = useState([]);
     const userId = useSelector(state => state.userId);
 
@@ -23,13 +25,15 @@ const StudentList = () =>  {
     },[])
 
     const navigate = useNavigate();
-    const details = () => {
+
+    const handleStudentSelect = async (studentId, studentFname, studentLname) => {
+        dispatch(loadStudent(studentId, studentFname, studentLname))
         navigate('/details')
     }
 
     const addStudents = () => {
         navigate('/addStudents')
-    }
+    };
 
     // Adding material ui
     const useStyles = makeStyles({
@@ -80,7 +84,7 @@ const StudentList = () =>  {
                 {classRoster.map(student => 
                 <Table>
                 <TableCell align="left" className={classes.tablecell}>{student.firstname} {student.lastname}</TableCell>
-                <TableCell align="right" className={classes.tablecell}><Button onClick={details} id={student.username}>Details</Button>
+                <TableCell align="right" className={classes.tablecell}><Button onClick={() => handleStudentSelect(student.id, student.firstname, student.lastname)} id={student.username}>Details</Button>
                 </TableCell>
                 </Table>)}
                 </Paper>
