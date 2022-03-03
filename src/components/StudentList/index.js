@@ -1,9 +1,10 @@
-import { Button, Card, CardContent, Grid, makeStyles } from '@material-ui/core';
+import { Button, Card, CardContent, Grid, makeStyles, Table, Paper } from '@material-ui/core';
 import EditIcon from '@material-ui/icons/Edit';
 import AddIcon from '@material-ui/icons/Add';
 import React, {useEffect, useState} from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { TableCell } from '@mui/material';
 
 const StudentList = () =>  {
     const [classRoster, setClassRoster] = useState([]);
@@ -31,14 +32,6 @@ const StudentList = () =>  {
             borderRadius: "30px",
             marginRight: "100px",
             border: "1px solid black"
-            // position: "fixed",
-            // marginTop: "270px",
-            // marginLeft: "275px",
-            // transform: "translate(-50%, -50%)",
-            // flexDirection: "column",
-            // alignItems: "left",
-            // display: "flex",
-            
             },
         header: {
             backgroundColor: "lightGrey"
@@ -59,6 +52,11 @@ const StudentList = () =>  {
             marginBottom: "10px",
             color: "white",
             marginLeft: "20px"
+        },
+        paper: {
+            height: "250px",
+            marginTop: "theme.spacing.unit * 3",
+            overflowY: "auto"
         }
     })
 
@@ -79,9 +77,14 @@ const StudentList = () =>  {
             
 
             <CardContent>
-            <div>
-                {classRoster.map(student => <div><span>{student.firstname} {student.lastname}</span> <button id={student.username}>Details</button></div>)}
-            </div>
+                <Paper className={classes.paper}>
+                {classRoster.map(student => 
+                <Table>
+                <TableCell align="left" className={classes.tablecell}>{student.firstname} {student.lastname}</TableCell>
+                <TableCell align="right" className={classes.tablecell}><Button id={student.username}>Details</Button>
+                </TableCell>
+                </Table>)}
+                </Paper>
             </CardContent>
             </Card>
         </Grid>
