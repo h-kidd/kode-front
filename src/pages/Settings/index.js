@@ -8,7 +8,7 @@ import Topics from "../../data/Topics";
 import { loadSettings } from '../../actions';
 import { makeStyles, Container } from "@material-ui/core";
 import background from "../../img/background.jpg";
-import {  Nav } from "../../components";
+import { Nav } from "../../components";
 
 
 const CreateRoom = () => {
