@@ -66,10 +66,10 @@ const StudentList = () =>  {
         <Grid>
             <Card className={classes.container}>
                 <h3 className={classes.h3}>Class</h3>
-                <Button variant="contained" className={classes.buttonEdit}>
+                {/* <Button variant="contained" className={classes.buttonEdit}>
                     Edit Students
                     <EditIcon />
-                </Button>
+                </Button> */}
                 <Button variant="contained" className={classes.buttonAdd}>
                     Add Students
                     <AddIcon />
