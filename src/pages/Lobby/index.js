@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { LobbyStatus, PlayerBubble, Nav } from "../../components";
+import { Nav } from "../../components";
 import { useSelector } from "react-redux";
 import { useSocket } from "../../contexts/SocketProvider";
 import { Grid, makeStyles } from '@material-ui/core';
