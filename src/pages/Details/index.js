@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { makeStyles, Card, Table, TableCell } from "@material-ui/core";
+import { makeStyles, Card, Table, TableCell, TableRow } from "@material-ui/core";
 import background from '../../img/background.jpg';
 import { Title } from "../../components";
+import { TableHead } from "@mui/material";
 
 const Details = () => {
     const userId = useSelector(state => state.userId);
@@ -43,11 +44,21 @@ const Details = () => {
             <Title />
             <h2>Details for {studentFname} {studentLname}</h2>
             <Card className={classes.table}>
+                
+                {completed.map(work => 
                 <Table>
-                    <TableCell align="center">Homework</TableCell>
-                    <TableCell align="center">Score</TableCell>
-                </Table>
-                {completed.map(work => <div><span>{work.topic} {work.difficulty}</span> <span>{work.score}</span></div>)}
+                    <TableHead>
+                        <TableRow>
+                            <TableCell>Topic</TableCell>
+                            <TableCell>Difficulty</TableCell>
+                            <TableCell>Score</TableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableCell>{work.topic}</TableCell> 
+                    <TableCell>{work.difficulty}</TableCell>
+                    <TableCell>{work.score}</TableCell>
+                </Table>)}
+                
             </Card>
         </div>
     )
