@@ -13,6 +13,7 @@ import axios from "axios";
 const TeacherLogin = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [error, setError] = useState("");
     const navigate = useNavigate()
     const dispatch = useDispatch();
     // const login = () => {
@@ -31,9 +32,7 @@ const TeacherLogin = () => {
             dispatch(loadUser(response.data.additional_claims.teacher_id, username, response.data.additional_claims.firstname, response.data.additional_claims.lastname, response.data.additional_claims.teacher_id, true))
             navigate('/teacher')
         }catch(error){
-            console.log(error)
-            console.log(error.status)
-            console.log(error.headers) 
+            setError("Invalid username or password")
         }     
     }   
        
@@ -132,6 +131,7 @@ const TeacherLogin = () => {
          <Card className={classes.cardStyle}>
            <CardContent className={classes.writing}> 
            <h1>Teacher Login!</h1>
+           <p>{error}</p>
            {/* {(token && token!=="" && token!==undefined) ? "You are logged in with this token" + token: */}
            <div>
                 

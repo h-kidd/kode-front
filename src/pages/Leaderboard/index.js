@@ -19,7 +19,7 @@ function Leaderboard() {
 
   useEffect(() => {
     socket.on('user_score', (data) => {
-      setPlayers(players => [...players, data])
+      setPlayers(players => [...players, data].sort((a, b) => parseFloat(b.score) - parseFloat(a.score)))
     });
   }, [socket]);
   
@@ -86,7 +86,7 @@ function Leaderboard() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {players.map((player) => {
+          {players.map((player) => (
             <TableRow
             key={player.name}
                 sx={{'&:last-child td, &:last-child th': { border: 0 } }}
@@ -94,10 +94,10 @@ function Leaderboard() {
             {/* <TableCell component="th" scope="row">
               {player.name}
             </TableCell> */}
-            <TableCell align="center">{player.firstname}{player.lastname}</TableCell>
+            <TableCell align="center">{player.firstname} {player.lastname}</TableCell>
             <TableCell align="center">{player.score}</TableCell>
             </TableRow>
-          })}
+          ))}
         </TableBody>
       </Table>
       </TableContainer>

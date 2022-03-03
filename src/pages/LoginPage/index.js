@@ -13,6 +13,7 @@ const LoginPage = () => {
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [error, setError] = useState("");
     const navigate = useNavigate()
     const dispatch = useDispatch();
 
@@ -26,9 +27,7 @@ const LoginPage = () => {
             dispatch(loadUser(response.data.additional_claims.student_id, username, response.data.additional_claims.firstname, response.data.additional_claims.lastname, response.data.additional_claims.teacher_id, false))
             navigate('/student')
         }catch(error){
-            console.log(error.response)
-            console.log(error.response.status)
-            console.log(error.response.headers) 
+            setError("Invalid username or password")
         }     
     }
 
@@ -127,6 +126,7 @@ const LoginPage = () => {
          <Card className={classes.cardStyle}>
            <CardContent className={classes.writing}> 
            <h1>Student Login!</h1>
+           <p>{error}</p>
            <div>
                 
                 <label>
