@@ -11,3 +11,5 @@ export { default as Waiting } from './Waiting';
 export { default as LoginPage } from './LoginPage';
 export { default as SetHomework } from './SetHomework';
 export { default as TeacherLogin } from './TeacherLogin';
+export { default as Details } from './Details';
+export { default as AddStudents } from './AddStudents';
