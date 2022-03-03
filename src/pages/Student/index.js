@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch} from 'react-redux';
 import { useNavigate } from "react-router-dom";
-import { HomeworkList, Title } from "../../components";
+import { HomeworkList, Title, Nav } from "../../components";
 import { makeStyles, Button, Container, Grid, Card } from "@material-ui/core";
 import background from "../../img/background.jpg";
 import { dividerClasses } from "@mui/material";
@@ -78,6 +78,7 @@ function Student() {
     return (
         
         <div className={classes.background}>
+            <Nav />
             <Title />
 
             <Grid container

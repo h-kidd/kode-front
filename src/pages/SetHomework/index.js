@@ -1,6 +1,6 @@
 import { makeStyles, Card, Grid, Button } from "@material-ui/core";
 import React from "react";
-import { Title } from "../../components";
+import { Title, Nav } from "../../components";
 import background from '../../img/background.jpg';
 
 const SetHomework = () => {
@@ -36,6 +36,7 @@ const SetHomework = () => {
 
     return (
         <div className={classes.background}>
+            <Nav />
             <Title />
             <Grid container
             direction="row"

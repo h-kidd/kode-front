@@ -8,6 +8,7 @@ import Topics from "../../data/Topics";
 import { loadSettings } from '../../actions';
 import { makeStyles, Container } from "@material-ui/core";
 import background from "../../img/background.jpg";
+import {  Nav } from "../../components";
 
 
 const CreateRoom = ({ user, fetchQuestions}) => {
@@ -73,6 +74,7 @@ const CreateRoom = ({ user, fetchQuestions}) => {
 
   return (
     <div className={classes.background}>
+      <Nav />
       <p className={classes.hi}>Hi {user}</p>
       <Container className={classes.container} maxWidth="sm">
         <span className="h2" style={{ fontSize: 30 }}>Quiz Settings</span>
