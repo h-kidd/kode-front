@@ -22,6 +22,13 @@ const StudentList = () =>  {
         getClassRoster();
     },[])
 
+    const navigate = useNavigate();
+    const details = () => {
+        navigate('/details')
+    }
+
+    
+
     // Adding material ui
     const useStyles = makeStyles({
         container: {
@@ -41,17 +48,11 @@ const StudentList = () =>  {
             // textAlign: "left",
             paddingLeft: "20px"
         },
-        buttonEdit: {
-            justifyContent: "left",
-            backgroundColor: "orange",
-            marginBottom: "10px",
-            color: "white"
-        },
-        buttonAdd: {
+        button: {
             backgroundColor: "blue",
             marginBottom: "10px",
             color: "white",
-            marginLeft: "20px"
+            width: "90%"
         },
         paper: {
             height: "250px",
@@ -66,11 +67,7 @@ const StudentList = () =>  {
         <Grid>
             <Card className={classes.container}>
                 <h3 className={classes.h3}>Class</h3>
-                <Button variant="contained" className={classes.buttonEdit}>
-                    Edit Students
-                    <EditIcon />
-                </Button>
-                <Button variant="contained" className={classes.buttonAdd}>
+                <Button variant="contained" className={classes.button}>
                     Add Students
                     <AddIcon />
                 </Button>
@@ -81,7 +78,7 @@ const StudentList = () =>  {
                 {classRoster.map(student => 
                 <Table>
                 <TableCell align="left" className={classes.tablecell}>{student.firstname} {student.lastname}</TableCell>
-                <TableCell align="right" className={classes.tablecell}><Button id={student.username}>Details</Button>
+                <TableCell align="right" className={classes.tablecell}><Button onClick={details} id={student.username}>Details</Button>
                 </TableCell>
                 </Table>)}
                 </Paper>
