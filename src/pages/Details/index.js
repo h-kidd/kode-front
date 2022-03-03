@@ -24,13 +24,13 @@ const Details = () => {
     },[])
 
     const useStyles = makeStyles({
-        background: {
-            backgroundImage: `url(${background})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            objectFit: "cover",
-            height: "100vh"
-        },
+        // background: {
+        //     backgroundImage: `url(${background})`,
+        //     backgroundSize: "cover",
+        //     backgroundPosition: "center",
+        //     objectFit: "cover",
+        //     height: "100vh"
+        // },
         box: {
             display: "flex",
             justifyContent: "center",
@@ -53,8 +53,23 @@ const Details = () => {
         card: {
             width: "80%",
         },
-        nav: {
+        writing: {
+            color: "white"
+        },
+        Nav: {
             fontWeight: "bold"
+        },
+        typography: {
+            fontFamily: [
+                'Architects Daughter'
+            ].join(','),
+            allVariants: {
+                color: "white",
+                
+
+            },
+            outline: "white",
+            color: "white"
         }
     })
 
@@ -63,8 +78,8 @@ const Details = () => {
     return (
         <div className={classes.background}>
             <Nav />
-            <Title />
-            <h2>Details for {studentFname} {studentLname}</h2>
+            
+            <h1 className={classes.typography}>Details for {studentFname} {studentLname}</h1>
             {/* <Card className={classes.table}> */}
             <Box className={classes.box}>
             <Card className={ classes.cardStyle }>

@@ -15,11 +15,11 @@ function Teacher() {
     }
 
     const useStyles = makeStyles ({
-        background: {
-            backgroundImage: `url(${background})`,
-            backgroundSize: "cover",
-            height: "100vh"
-        },
+        // background: {
+        //     backgroundImage: `url(${background})`,
+        //     backgroundSize: "cover",
+        //     height: "100vh"
+        // },
         button: {
             backgroundColor: "white",
             color: "black",
@@ -29,6 +29,18 @@ function Teacher() {
             height: "40px",
             border: "1px solid black"
             
+        },
+        typography: {
+            fontFamily: [
+                'Architects Daughter'
+            ].join(','),
+            allVariants: {
+                color: "white",
+                
+
+            },
+            outline: "white",
+            color: "white"
         }
     })
 
@@ -37,7 +49,7 @@ function Teacher() {
     return (
         <div className={classes.background}>
             <Nav />
-            <Title />
+            <h1 className={classes.typography}> Teacher Home</h1>
             
             {/* <h1>Teacher Portal</h1> */}
 

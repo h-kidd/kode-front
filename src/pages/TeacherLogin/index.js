@@ -40,23 +40,26 @@ const TeacherLogin = () => {
     //Include Material UI
     //Include Material UI
     const useStyles = makeStyles ({
-        background: {
-            backgroundImage: `url(${background})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            objectFit: "cover",
-            height: "100vh",
-        },
+        // background: {
+        //     backgroundImage: `url(${background})`,
+        //     backgroundSize: "cover",
+        //     backgroundPosition: "center",
+        //     objectFit: "cover",
+        //     height: "100vh",
+        // },
         button: {
             backgroundColor: "lightblue",
-            color: "white",
+            color: "black",
             borderRadius: "10px",
             marginTop: "10px",
             borderColor: "lightblue",
             width: "100px",
-            height: "40px"
+            height: "40px",
+            '&:hover': {
+                backgroundColor: '#006dbc',
+                color: "white"
             
-        },
+        }},
         container: {
             backgroundColor: "white",
             height: "300px",
@@ -143,7 +146,7 @@ const TeacherLogin = () => {
                 <input className={classes.customfieldinput} type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)}/>
                 </label> 
                 <br/>
-                <button className={classes.button} id="student" onClick={ handleClick }>Login! </button>
+                <Button className={classes.button} id="student" onClick={ handleClick }>Login </Button>
                         
                    
              </div> 

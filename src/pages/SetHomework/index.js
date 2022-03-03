@@ -50,20 +50,20 @@ const SetHomework = () => {
 
   //Include Material UI
   const useStyles = makeStyles ({
-    background: {
-        backgroundImage: `url(${background})`,
-        backgroundSize: "cover",
-        // backgroundPosition: "center",
-        // objectFit: "cover",
-        height: "100vh"
-    },
+    // background: {
+    //     backgroundImage: `url(${background})`,
+    //     backgroundSize: "cover",
+    //     // backgroundPosition: "center",
+    //     // objectFit: "cover",
+    //     height: "100vh"
+    // },
     container: {
       backgroundColor: "white",
       width: "350px",
       padding: "20px",
       borderRadius: "30px",
       // position: "fixed",
-      marginTop: "100px",
+      marginTop: "50px",
       // marginLeft: "600px",
       // transform: "translate(-50%, -50%)",
       display: "flex",
@@ -85,6 +85,18 @@ const SetHomework = () => {
     fontSize: "50px",
     color: "white",
     margin: 0
+  },
+  typography: {
+    fontFamily: [
+        'Architects Daughter'
+    ].join(','),
+    allVariants: {
+        color: "white",
+        
+
+    },
+    outline: "white",
+    color: "white"
   }
   })
   const classes = useStyles();
@@ -92,7 +104,7 @@ const SetHomework = () => {
   return (
     <div className={classes.background}>
       <Nav />
-      <p className={classes.hi}>Set Homework</p>
+      <h1 className={classes.typography}>Set Homework</h1>
       <Container className={classes.container} maxWidth="sm">
         <span className="h2" style={{ fontSize: 30 }}>Homework Settings</span>
         < br />
