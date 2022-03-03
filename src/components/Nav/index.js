@@ -43,12 +43,15 @@ const handleClick = () => {
         marginBottom: "10px",
         color: "white",
         outline: "white",
-        
+        backgroundColor: "transparent",
+        borderColor: "transparent"
     },
     home: {
         marginBottom: "10px",
         color: "white",
-        marginLeft: "20px"
+        marginLeft: "20px",
+        backgroundColor: "transparent",
+        borderColor: "transparent"
     },
     div: {
       justifyContent: "left",
@@ -68,11 +71,11 @@ const classes = useStyles();
         },
       }}
       onClick={preventDefault}>
-   
-    <li style={{ listStyle: "none" }}><button onClick={handleClick} className={classes.arrow}><ArrowBackIcon style={{ fill: 'white', fontSize: "40px" }} /></button></li>
-    <li style={{ listStyle: "none" }}><button className={classes.home} href="" color="inherit"><HomeIcon style={{ fill: 'white', fontSize: "40px" }}/></button></li>
-    <li style={{ listStyle: "none" }}><button className={classes.home} href="" color="inherit"><LogoutIcon style={{ fill: 'white', fontSize: "40px" }}/></button></li>
-
+    <div className={classes.div}>
+    <Button onClick={handleClick} className={classes.arrow}><ArrowBackIcon style={{ fill: 'white', fontSize: "40px" }} /></Button>
+    <Button className={classes.home} href="" color="inherit"><HomeIcon style={{ fill: 'white', fontSize: "40px" }}/></Button>
+    <Button className={classes.home} href="" color="inherit"><LogoutIcon style={{ fill: 'white', fontSize: "40px" }}/></Button>
+    </div>
     </Box>
      
   );
