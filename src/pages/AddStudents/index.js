@@ -25,13 +25,25 @@ const AddStudents = () => {
     }
 
     const useStyles = makeStyles({
-        background: {
-            backgroundImage: `url(${background})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            objectFit: "cover",
-            height: "100vh"
-        },
+        // background: {
+        //     backgroundImage: `url(${background})`,
+        //     backgroundSize: "cover",
+        //     backgroundPosition: "center",
+        //     objectFit: "cover",
+        //     height: "100vh"
+        // },
+        typography: {
+            fontFamily: [
+                'Architects Daughter'
+            ].join(','),
+            allVariants: {
+                color: "white",
+                
+
+            },
+            outline: "white",
+            color: "white"
+        }
 
         
     })
@@ -40,8 +52,8 @@ const AddStudents = () => {
 
     return (
         <div className={classes.background}>
-            <Title />
-            <h1>Add Student</h1>
+            
+            <h1 className = {classes.typography}>Add Student</h1>
             <p>Username:</p><input type="text" placeholder="Enter username here" onChange={(e) => setUsername(e.target.value)}></input>
             <p>Password:</p><input type="text" placeholder="Enter password here" onChange={(e) => setPassword(e.target.value)}></input>
             <p>First Name:</p><input type="text" placeholder="Enter first name here" onChange={(e) => setFirstname(e.target.value)}></input>

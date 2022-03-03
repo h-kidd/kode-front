@@ -31,13 +31,13 @@ function Waiting() {
 
       // Adding material ui
       const useStyles = makeStyles({
-        mainStyle: {
-          backgroundImage: `url(${background})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            objectFit: "cover",
-            height: "100vh",
-        },
+        // mainStyle: {
+        //   backgroundImage: `url(${background})`,
+        //     backgroundSize: "cover",
+        //     backgroundPosition: "center",
+        //     objectFit: "cover",
+        //     height: "100vh",
+        // },
         cardCode: {
           width: "50%",
           marginTop: "20px",

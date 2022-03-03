@@ -32,20 +32,20 @@ const CreateRoom = () => {
 
   //Include Material UI
   const useStyles = makeStyles ({
-    background: {
-        backgroundImage: `url(${background})`,
-        backgroundSize: "cover",
-        // backgroundPosition: "center",
-        // objectFit: "cover",
-        height: "100vh"
-    },
+    // background: {
+    //     backgroundImage: `url(${background})`,
+    //     backgroundSize: "cover",
+    //     // backgroundPosition: "center",
+    //     // objectFit: "cover",
+    //     height: "100vh"
+    // },
     container: {
       backgroundColor: "white",
       width: "350px",
       padding: "20px",
       borderRadius: "30px",
       // position: "fixed",
-      marginTop: "100px",
+      marginTop: "50px",
       // marginLeft: "600px",
       // transform: "translate(-50%, -50%)",
       display: "flex",
@@ -67,6 +67,18 @@ const CreateRoom = () => {
     fontSize: "50px",
     color: "white",
     margin: 0
+  },
+  typography: {
+    fontFamily: [
+        'Architects Daughter'
+    ].join(','),
+    allVariants: {
+        color: "white",
+        
+
+    },
+    outline: "white",
+    color: "white"
   }
   })
   const classes = useStyles();
@@ -75,7 +87,7 @@ const CreateRoom = () => {
   return (
     <div className={classes.background}>
       <Nav />
-      <p className={classes.hi}>Start a Game</p>
+      <h1 className={classes.typography}>Start a Game</h1>
       <Container className={classes.container} maxWidth="sm">
         <span className="h2" style={{ fontSize: 30 }}>Quiz Settings</span>
         < br />

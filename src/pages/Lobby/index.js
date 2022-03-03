@@ -36,11 +36,11 @@ const Lobby = () => {
     // }
     
     const useStyles = makeStyles({
-        mainStyle: {
-          background: `url(${background})`,
-          backgroundSize: "cover",
-          height: "100vh"
-        },
+        // mainStyle: {
+        //   background: `url(${background})`,
+        //   backgroundSize: "cover",
+        //   height: "100vh"
+        // },
         cardCode: {
           width: "50%",
           marginTop: "20px",

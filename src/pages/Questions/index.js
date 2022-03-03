@@ -76,13 +76,13 @@ const Quiz = () => {
 
   //Include Material UI
   const useStyles = makeStyles ({
-    background: {
-        backgroundImage: `url(${background})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        objectFit: "cover",
-        height: "100vh",
-    },
+    // background: {
+    //     backgroundImage: `url(${background})`,
+    //     backgroundSize: "cover",
+    //     backgroundPosition: "center",
+    //     objectFit: "cover",
+    //     height: "100vh",
+    // },
     container: {
       backgroundColor: "white",
       height: "350px",
