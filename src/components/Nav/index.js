@@ -45,7 +45,6 @@ const handleClick = () => {
         outline: "white",
         backgroundColor: "transparent",
         borderColor: "transparent"
-        
     },
     home: {
         marginBottom: "10px",
@@ -76,9 +75,9 @@ const classes = useStyles();
       }}
       onClick={preventDefault}>
    
-    <Button onClick={handleClick} className={classes.arrow}><ArrowBackIcon style={{ fill: 'white', fontSize: "40px" }} /></Button>
-    <Button className={classes.home} href="" color="inherit"><HomeIcon style={{ fill: 'white', fontSize: "40px" }}/></Button>
-    <Button className={classes.home} href="" color="inherit"><LogoutIcon style={{ fill: 'white', fontSize: "40px" }}/></Button>
+    <Button  onClick={() => navigate(-1)} className={classes.arrow}><ArrowBackIcon style={{ fill: 'white', fontSize: "40px" }} /></Button>
+    <Button onClick={handleClick} className={classes.home} color="inherit"><HomeIcon style={{ fill: 'white', fontSize: "40px" }}/></Button>
+    <Button onClick={() => navigate("/LoginPage")} className={classes.home} color="inherit"><LogoutIcon style={{ fill: 'white', fontSize: "40px" }}/></Button>
 
     </Box>
      
