@@ -197,7 +197,7 @@ const Quiz = () => {
       </Card>
       </Box>
 
-        <p>{correct}</p>
+        <p className={classes.writing2}>{correct}</p>
       </div>
 
       
