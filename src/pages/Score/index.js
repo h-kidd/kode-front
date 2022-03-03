@@ -80,17 +80,14 @@ const Score = () => {
       nav: {
         fontWeight: "bold"
       },
-      // typography: {
-        // fontFamily: [
-        //     'Architects Daughter'
-        // ].join(','),
-        // allVariants: {
-        //     color: "white",
-        // },
-        // color: "white"
-    // }
-    typography: {
-      color: "white"
+      typography: {
+        fontFamily: [
+            'Architects Daughter'
+        ].join(','),
+        allVariants: {
+            color: "white",
+        },
+        color: "white"
     }
      
     });

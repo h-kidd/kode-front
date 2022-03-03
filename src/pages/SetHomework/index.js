@@ -63,7 +63,7 @@ const SetHomework = () => {
       padding: "20px",
       borderRadius: "30px",
       // position: "fixed",
-      marginTop: "100px",
+      marginTop: "50px",
       // marginLeft: "600px",
       // transform: "translate(-50%, -50%)",
       display: "flex",
