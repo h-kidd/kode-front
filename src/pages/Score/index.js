@@ -52,7 +52,7 @@ const Score = () => {
         alignItems: "center",
         // minHeight: "90vh",
         // boxShadow: "10px 10px 20px black;",
-        paddingTop: "20px"
+        paddingTop: "10px"
 
       },
       writing: {
@@ -72,7 +72,16 @@ const Score = () => {
       },
       nav: {
         fontWeight: "bold"
-      }
+      },
+      typography: {
+        fontFamily: [
+            'Architects Daughter'
+        ].join(','),
+        allVariants: {
+            color: "white",
+        },
+        color: "white"
+    }
      
     });
   
@@ -81,7 +90,7 @@ const Score = () => {
     return (
       <div className={classes.background}>
         <Nav />
-        <Title />
+        <h1 className={classes.typography}>Scores</h1>
         <Box className={classes.box}>
       <Card className={ classes.cardStyle }>
 

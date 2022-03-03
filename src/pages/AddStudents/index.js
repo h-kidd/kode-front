@@ -31,7 +31,9 @@ const AddStudents = () => {
             backgroundPosition: "center",
             objectFit: "cover",
             height: "100vh"
-        }
+        },
+
+        
     })
 
     const classes = useStyles();
@@ -39,7 +41,7 @@ const AddStudents = () => {
     return (
         <div className={classes.background}>
             <Title />
-            Add Student
+            <h1>Add Student</h1>
             <p>Username:</p><input type="text" placeholder="Enter username here" onChange={(e) => setUsername(e.target.value)}></input>
             <p>Password:</p><input type="text" placeholder="Enter password here" onChange={(e) => setPassword(e.target.value)}></input>
             <p>First Name:</p><input type="text" placeholder="Enter first name here" onChange={(e) => setFirstname(e.target.value)}></input>
