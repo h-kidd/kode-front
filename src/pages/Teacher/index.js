@@ -39,7 +39,7 @@ function Teacher() {
             <Nav />
             <Title />
             
-            <h1>Teacher Portal</h1>
+            {/* <h1>Teacher Portal</h1> */}
 
             <Grid container
             direction="row"

@@ -1,11 +1,14 @@
-import { Button, Card, CardContent, Grid, makeStyles } from '@material-ui/core';
+import { Button, Card, CardContent, Grid, makeStyles, Table, Paper } from '@material-ui/core';
 import EditIcon from '@material-ui/icons/Edit';
 import AddIcon from '@material-ui/icons/Add';
 import React, {useEffect, useState} from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { TableCell } from '@mui/material';
+import { loadStudent } from '../../actions';
 
 const StudentList = () =>  {
+    const dispatch = useDispatch();
     const [classRoster, setClassRoster] = useState([]);
     const userId = useSelector(state => state.userId);
 
@@ -21,6 +24,17 @@ const StudentList = () =>  {
         getClassRoster();
     },[])
 
+    const navigate = useNavigate();
+
+    const handleStudentSelect = async (studentId, studentFname, studentLname) => {
+        dispatch(loadStudent(studentId, studentFname, studentLname))
+        navigate('/details')
+    }
+
+    const addStudents = () => {
+        navigate('/addStudents')
+    };
+
     // Adding material ui
     const useStyles = makeStyles({
         container: {
@@ -31,14 +45,6 @@ const StudentList = () =>  {
             borderRadius: "30px",
             marginRight: "100px",
             border: "1px solid black"
-            // position: "fixed",
-            // marginTop: "270px",
-            // marginLeft: "275px",
-            // transform: "translate(-50%, -50%)",
-            // flexDirection: "column",
-            // alignItems: "left",
-            // display: "flex",
-            
             },
         header: {
             backgroundColor: "lightGrey"
@@ -48,17 +54,16 @@ const StudentList = () =>  {
             // textAlign: "left",
             paddingLeft: "20px"
         },
-        buttonEdit: {
-            justifyContent: "left",
-            backgroundColor: "orange",
-            marginBottom: "10px",
-            color: "white"
-        },
-        buttonAdd: {
+        button: {
             backgroundColor: "blue",
             marginBottom: "10px",
             color: "white",
-            marginLeft: "20px"
+            width: "90%"
+        },
+        paper: {
+            height: "250px",
+            marginTop: "theme.spacing.unit * 3",
+            overflowY: "auto"
         }
     })
 
@@ -68,20 +73,21 @@ const StudentList = () =>  {
         <Grid>
             <Card className={classes.container}>
                 <h3 className={classes.h3}>Class</h3>
-                {/* <Button variant="contained" className={classes.buttonEdit}>
-                    Edit Students
-                    <EditIcon />
-                </Button> */}
-                <Button variant="contained" className={classes.buttonAdd}>
+                <Button variant="contained" onClick={addStudents} className={classes.button}>
                     Add Students
                     <AddIcon />
                 </Button>
             
 
             <CardContent>
-            <div>
-                {classRoster.map(student => <div><span>{student.firstname} {student.lastname}</span> <button id={student.username}>Details</button></div>)}
-            </div>
+                <Paper className={classes.paper}>
+                {classRoster.map(student => 
+                <Table>
+                <TableCell align="left" className={classes.tablecell}>{student.firstname} {student.lastname}</TableCell>
+                <TableCell align="right" className={classes.tablecell}><Button onClick={() => handleStudentSelect(student.id, student.firstname, student.lastname)} id={student.username}>Details</Button>
+                </TableCell>
+                </Table>)}
+                </Paper>
             </CardContent>
             </Card>
         </Grid>

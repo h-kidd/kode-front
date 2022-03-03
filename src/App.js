@@ -5,7 +5,7 @@ import { Questions, Waiting, Leaderboard, Score, Results, Lobby } from "./pages"
 import Home from "./pages/Home";
 import Teacher from './pages/Teacher';
 import Student from './pages/Student';
-import { LoginPage, SetHomework, TeacherLogin } from './pages';
+import { LoginPage, SetHomework, TeacherLogin, Details, AddStudents } from './pages';
 
 function App() {
   return (
@@ -24,6 +24,8 @@ function App() {
         <Route path='/loginPage' element={<LoginPage />} />
         <Route path="/setHomework" element={<SetHomework />} />
         <Route path="/teacherLogin" element={<TeacherLogin />} />
+        <Route path="/details" element={<Details />} />
+        <Route path="/addStudents" element={<AddStudents />} />
       </Routes>
       <Outlet />
     </div>
