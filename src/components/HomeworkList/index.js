@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { loadExercise } from "../../actions";
-import { makeStyles, Table, TableHead, TableHeader, TableCell, TableRow, TableBody, Paper, TableContainer } from '@material-ui/core';
+import { makeStyles, Table, TableHead, TableHeader, TableCell, TableRow, TableBody, Paper, TableContainer, Button } from '@material-ui/core';
 import { CardContent, Card, Box } from '@material-ui/core';
 
 const HomeworkList = () => {
@@ -91,7 +91,7 @@ const HomeworkList = () => {
                 </TableCell>
                 <TableCell align="center">{work.topic}</TableCell>
                 <TableCell align="center">{work.difficulty}</TableCell>
-                <TableCell align="center"><button className={classes.button} id={work.topic} onClick={() => handleHomeworkSelect(work.topic, work.difficulty)}>Start!</button></TableCell>
+                <TableCell align="center"><Button className={classes.button} id={work.topic} onClick={() => handleHomeworkSelect(work.topic, work.difficulty)}>Start</Button></TableCell>
 
             </TableRow>
         ))}
