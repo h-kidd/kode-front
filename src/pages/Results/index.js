@@ -4,7 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { useSocket } from "../../contexts/SocketProvider";
 import { makeStyles, Button, Container, Grid, Card, Box, CardContent } from "@material-ui/core";
 import background from "../../img/background.jpg";
-import { isMulti, isResit } from "../../actions"
+import { isMulti, isResit, resetScore } from "../../actions"
+import {  Nav } from "../../components";
 
 function Results() {
   const navigate = useNavigate();
@@ -99,6 +100,7 @@ function Results() {
 
   return (
     <div className={classes.background}>
+      <Nav />
        <Box className={classes.box}>
         <Card className={classes.cardStyle}>
           <CardContent className={classes.writing}> 

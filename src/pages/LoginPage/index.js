@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { makeStyles, Button, Container, Grid } from "@material-ui/core";
 import background from "../../img/background.jpg";
 import { appendOwnerState } from "@mui/base";
-import { Title } from "../../components";
+import { Title, Nav } from "../../components";
 import {  Card, Box, CardContent } from "@material-ui/core";
 import axios from "axios";
 import { loadUser } from "../../actions";
@@ -119,6 +119,7 @@ const LoginPage = () => {
     return (
        
         <div className={classes.background}>
+        <Nav />
         <Title />
         <Box className={classes.box}>
          <Card className={classes.cardStyle}>
