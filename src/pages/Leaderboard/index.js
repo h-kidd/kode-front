@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { LeaderboardTable, Nav } from "../../components";
+import { Nav } from "../../components";
 import { useNavigate } from "react-router-dom";
 import { makeStyles, Button } from '@material-ui/core';
 import { CardContent, Card, Box, Paper, Table, TableHead, TableRow, TableBody, TableContainer} from '@material-ui/core';
