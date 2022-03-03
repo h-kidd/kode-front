@@ -1,0 +1,20 @@
+.waitingtext {
+    font-family: "Noto Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    display: inline-block;
+}
+
+.dotsdiv {
+    display:flex;
+    
+}
+
+.hi {
+    display:block;
+    margin:auto;
+}
+
+.waitingdiv {
+    width: 65%;
+    display: flex;
+    justify-content: right;
+}

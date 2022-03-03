@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { loadExercise } from "../../actions";
 import { makeStyles, Table, TableHead, TableHeader, TableCell, TableRow, TableBody, Paper, TableContainer, Button } from '@material-ui/core';
 import { CardContent, Card, Box } from '@material-ui/core';
+import "./homeworklist.css"
 
 const HomeworkList = () => {
     const dispatch = useDispatch();
@@ -24,7 +25,7 @@ const HomeworkList = () => {
     },[])
 
     const handleHomeworkSelect = async (topic, difficulty) => {
-        dispatch(loadExercise(topic, difficulty));
+        // dispatch(loadExercise(topic, difficulty));
         await new Promise(res => setTimeout(res, 1000));
         navigate('/questions')
     };
@@ -76,7 +77,7 @@ const HomeworkList = () => {
         <div>
             <Box className={classes.box}>
         <Card className={ classes.cardStyle }>
-            <h2>Homework</h2>
+            <h2 class="homeworkh2">Homework</h2>
         <TableContainer component={Paper}>
             <Table sx={{ midWidth: 250 }} aria-label="simple table">  
                          
@@ -89,7 +90,7 @@ const HomeworkList = () => {
                 <TableCell component="th" scope="row">
                 {work.name}
                 </TableCell>
-                <TableCell align="center">{work.topic}</TableCell>
+                <TableCell id="t1" align="center">{work.topic}</TableCell>
                 <TableCell align="center">{work.difficulty}</TableCell>
                 <TableCell align="center"><Button className={classes.button} id={work.topic} onClick={() => handleHomeworkSelect(work.topic, work.difficulty)}>Start</Button></TableCell>
 

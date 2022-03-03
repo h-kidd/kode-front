@@ -8,6 +8,7 @@ import { Title, Nav } from "../../components";
 import {  Card, Box, CardContent } from "@material-ui/core";
 import axios from "axios";
 import { loadUser } from "../../actions";
+import "./loginpage.css"
 
 const LoginPage = () => {
 
@@ -128,7 +129,7 @@ const LoginPage = () => {
         <Box className={classes.box}>
          <Card className={classes.cardStyle}>
            <CardContent className={classes.writing}> 
-           <h1>Student Login!</h1>
+           <h1 class="studentlogin">Student Login</h1>
            <p>{error}</p>
            <div>
                 

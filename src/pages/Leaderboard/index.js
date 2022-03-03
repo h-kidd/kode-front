@@ -6,7 +6,7 @@ import { CardContent, Card, Box, Paper, Table, TableHead, TableRow, TableBody, T
 import { useSocket } from "../../contexts/SocketProvider";
 import background from "../../img/background.jpg";
 import { TableCell } from '@mui/material';
-
+import "./leaderboard.css"
 
 function Leaderboard() {
   const navigate = useNavigate();
@@ -37,14 +37,15 @@ function Leaderboard() {
       width: "500px",
       height: "500px",
       borderRadius: "10px",
-      marginTop: "10px"
+      marginTop: "10px",
+      boxShadow: "10px 10px 20px black",
     },
     box: {
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
       minHeight: "90vh",
-      marginTop: "-50px"
+      marginTop: "-150px"
       
     },
     writing: {
@@ -54,7 +55,7 @@ function Leaderboard() {
     
     button: {
         backgroundColor: "lightblue",
-        color: "white",
+        color: "black",
         borderRadius: "10px",
         borderColor: "lightblue",
         width: "100px",
@@ -84,7 +85,7 @@ function Leaderboard() {
   return (
     <div id="Leaderboard-page" className={classes.mainStyle}>
       <Nav />
-      <h1 className={classes.typography}>Leaderboard</h1>
+      <h1 class="kek">Leaderboard</h1>
       <Box className={classes.box}>
       <Card className={ classes.cardStyle }>
       <CardContent  className={classes.writing}>
@@ -130,7 +131,7 @@ function Leaderboard() {
       <TableCell> {player.score}</TableCell> */}
 
       {/* </Table>)} */}
-      <Button id="start-again" onClick={handleClick} className={classes.button}>
+      <Button variant="contained" id="start-again" onClick={handleClick} className={classes.button}>
         Home
       </Button>
       {/* </Paper> */}

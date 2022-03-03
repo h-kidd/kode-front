@@ -6,6 +6,7 @@ import { makeStyles, Button, Container, Grid, Card } from "@material-ui/core";
 import background from "../../img/background.jpg";
 import { dividerClasses } from "@mui/material";
 import { isMulti, isResit, resetScore } from '../../actions';
+import "./student.css"
 
 function Student() {
     const dispatch = useDispatch();
@@ -39,17 +40,19 @@ function Student() {
             marginTop: "50px",
             width: "200px",
             height: "40px",
-            border: "1px solid black"
+            border: "1px solid black",
+            boxShadow: "10px 10px 20px black",
             // display: "inline-block"
         },
         container: {
             backgroundColor: "white",
-            width: "400px",
-            height: "400px",
+            width: "55vh",
+            height: "55vh",
             padding: "20px",
             borderRadius: "30px",
             marginRight: "100px",
-            border: "1px solid black"
+            border: "1px solid black",
+            boxShadow: "10px 10px 20px black",
             // position: "fixed",
             // marginTop: "270px",
             // marginLeft: "275px",
@@ -93,7 +96,7 @@ function Student() {
         
         <div className={classes.background}>
             <Nav />
-            <h1 className={classes.typography}>Student Home</h1>
+            <h1 class="studenthome">Student Portal</h1>
 
             <Grid container
             direction="row"

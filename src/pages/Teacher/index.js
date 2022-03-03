@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { StudentList, Title, Nav } from "../../components";
 import background from "../../img/background.jpg";
 import { Button, makeStyles, Grid } from "@material-ui/core";
+import "./teacher.css"
 
 function Teacher() {
     const navigate = useNavigate()
@@ -27,21 +28,11 @@ function Teacher() {
             marginTop: "50px",
             width: "200px",
             height: "40px",
-            border: "1px solid black"
+            border: "1px solid black",
+            boxShadow: "10px 10px 20px black",
             
-        },
-        typography: {
-            fontFamily: [
-                'Architects Daughter'
-            ].join(','),
-            allVariants: {
-                color: "white",
-                
-
-            },
-            outline: "white",
-            color: "white"
         }
+   
     })
 
     const classes = useStyles();
@@ -49,7 +40,7 @@ function Teacher() {
     return (
         <div className={classes.background}>
             <Nav />
-            <h1 className={classes.typography}> Teacher Home</h1>
+            <h1 class="teacherportal"> Teacher Portal</h1>
             
             {/* <h1>Teacher Portal</h1> */}
 

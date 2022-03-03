@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { makeStyles, CardActionArea, Card, Grid } from "@material-ui/core";
 import student from "../../img/student.png";
-
+import "./studentlogin.css"
 const StudentLoginButton = () => {
     const navigate = useNavigate()
 
@@ -24,12 +24,14 @@ const StudentLoginButton = () => {
         cardStyle: {
             height: "375px",
             width: "375px",
-            marginTop: "50px",
             backgroundImage: `url(${student})`,
-            backgroundSize: "cover",
+            backgroundSize: "80%",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
             border: "5px solid white",
             borderRadius: "15px",
-            backgroundColor: "white"
+            backgroundColor: "white",
+            boxShadow: "10px 10px 20px black",
         },
 
         typography: {
@@ -63,9 +65,12 @@ const StudentLoginButton = () => {
         // alignItems="center"
         // direction="column">
         >
-            <CardActionArea className={classes.cardStyle} onClick={ studentLogin } to="/loginPage">
-            <h1 className={classes.typography} >Student Login</h1>
-            </CardActionArea>
+            <div>
+                <CardActionArea className={classes.cardStyle} onClick={ studentLogin } to="/loginPage">
+                <h1 class="student-login">Student Login</h1>
+                </CardActionArea>
+            </div>
+            
         </Grid>
     )
 }

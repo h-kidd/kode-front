@@ -1,7 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { makeStyles, CardActionArea, Card, Grid } from "@material-ui/core";
-import school from "../../img/school.png";
+import hat from "../../img/hat3.png";
+import "./teachloginbutton.css"
 
 const TeacherLoginButton = () => {
     const navigate = useNavigate()
@@ -17,19 +18,21 @@ const TeacherLoginButton = () => {
             marginTop: "50px",
             border: "1px solid black",
             borderRadius: "20px",
-            boxShadow: "10px 10px 20px black;",
+            boxShadow: "10px 10px 20px black",
             opacity: "20%"
             
         },
         cardStyle: {
             height: "375px",
             width: "375px",
-            marginTop: "50px",
-            backgroundImage: `url(${school})`,
-            backgroundSize: "cover",
-            backgroundColor: "white",
-            border: "25px solid white",
-            borderRadius: "15px"
+            backgroundImage: `url(${hat})`,
+            backgroundSize: "80%",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            border: "5px solid white",
+            boxShadow: "10px 10px 20px black",
+            borderRadius: "15px",
+            backgroundColor: "white"
         },
 
         typography: {
@@ -59,12 +62,17 @@ const TeacherLoginButton = () => {
     return (
         <Grid
         container
-        justify="center"
-        alignItems="center"
-        direction="column">
-            <CardActionArea className={classes.cardStyle} onClick={ teacherLogin } to="/loginPage">
-            <h1 className={classes.typography}>Teacher Login</h1>
-            </CardActionArea>
+        // justify="center"
+        // alignItems="center"
+        // direction="column">
+        >
+            <div class="student-div">
+                <CardActionArea className={classes.cardStyle} onClick={ teacherLogin } to="/loginPage"> 
+                </CardActionArea>
+                <h1 class="student-login">Teacher Login</h1>
+
+            </div>
+            
         </Grid>
     )
 }

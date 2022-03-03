@@ -6,6 +6,7 @@ import Grid from '@mui/material/Grid';
 import { makeStyles, Button, Container } from "@material-ui/core";
 import background from "../../img/background.jpg";
 import { Card, Box, CardContent } from "@material-ui/core";
+import "./questions.css"
 
 
 const Quiz = () => {
@@ -91,7 +92,7 @@ const Quiz = () => {
       borderRadius: "10px",
       justify: "center",
       alignItems: "center",
-      boxShadow: "10px 10px 20px black;",
+      boxShadow: "10px 10px 20px black",
       position: "relative"
     },
     container1: {
@@ -103,7 +104,7 @@ const Quiz = () => {
       justify: "center",
       alignItems: "center",
       direction: "column",
-      boxShadow: "10px 10px 20px black;",
+      boxShadow: "10px 10px 20px black",
       position: "relative"
     },
     container2: {
@@ -115,14 +116,15 @@ const Quiz = () => {
       justify: "center",
       alignItems: "center",
       direction: "column",
-      boxShadow: "10px 10px 20px black;"
+      boxShadow: "10px 10px 20px black"
     },
     cardStyle: {
       backgroundColor: "white",
       width: "400px",
       height: "100px",
       borderRadius: "10px",
-      border: "1px solid black"
+      border: "1px solid black",
+      boxShadow: "10px 10px 20px black",
       // boxShadow: "10px 10px 20px black;"
 
     },
@@ -141,7 +143,8 @@ const Quiz = () => {
       height: "75px",
       borderRadius: "10px",
       position: "relative",
-      border: "1px solid black"
+      border: "1px solid black",
+      boxShadow: "10px 10px 20px black",
     },
     box1: {
       display: "flex",
@@ -151,14 +154,16 @@ const Quiz = () => {
     },
     writing: {
       color: "black",
+
       fontSize: "20px"
     },
     writing2: {
       color: "white",
-      fontSize: "20px"
+      fontSize: "27px"
     },
     ans: {
       backgroundColor: "white",
+      boxShadow: "10px 10px 20px black",
       borderRadius: "5px",
       fontSize: "20px",
       marginTop: "50px",
@@ -181,11 +186,11 @@ const Quiz = () => {
   return (
     <div className={classes.background}>
       
-      <div className={classes.writing2}>
-        {seconds} 
+      <div class="text1">
+        {seconds}s
       </div> 
 
-      <label className={classes.writing2}>Score: {score} </label>
+      <label class="text2">Score: {score} </label>
 
       <div className='q-frame typewriter'>
       

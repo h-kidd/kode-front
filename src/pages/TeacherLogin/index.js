@@ -8,6 +8,7 @@ import { Title, Nav } from "../../components";
 import {  Card, Box, CardContent } from "@material-ui/core";
 import { loadUser } from "../../actions";
 import axios from "axios";
+import "./teacherlogin.css"
 
 
 const TeacherLogin = () => {
@@ -133,7 +134,7 @@ const TeacherLogin = () => {
         <Box className={classes.box}>
          <Card className={classes.cardStyle}>
            <CardContent className={classes.writing}> 
-           <h1>Teacher Login!</h1>
+           <h1 class="headertitle">Teacher Login</h1>
            <p>{error}</p>
            {/* {(token && token!=="" && token!==undefined) ? "You are logged in with this token" + token: */}
            <div>

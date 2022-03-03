@@ -8,6 +8,7 @@ import { CardContent, Card, Box } from '@material-ui/core';
 import { Title, Nav } from "../../components";
 import { loadExercise, isResit } from "../../actions";
 import { Results } from '../index';
+import "./score.css"
 
 const Score = () => {
   const dispatch = useDispatch();
@@ -63,7 +64,8 @@ const Score = () => {
         backgroundColor: "white",
         width: "500px",
         height: "500px",
-        borderRadius: "10px"
+        borderRadius: "10px",
+        boxShadow: "10px 10px 20px black",
       },
         button: {
           backgroundColor: "lightblue",
@@ -97,7 +99,7 @@ const Score = () => {
     return (
       <div className={classes.background}>
         <Nav />
-        <h1 className={classes.typography}>Scores</h1>
+        <h1 class="scoretext">Scores</h1>
         <Box className={classes.box}>
       <Card className={ classes.cardStyle }>
 
@@ -142,7 +144,7 @@ const Score = () => {
                   <TableCell align="center">{work.topic}</TableCell>
                   <TableCell align="center">{work.difficulty}</TableCell>
                   <TableCell align="center">{work.score}</TableCell>
-                  <TableCell align="center"><Button className={classes.button} id={work.topic} onClick={() => handleHomeworkSelect(work.topic, work.difficulty)}>Start!</Button></TableCell>
+                  <TableCell align="center"><Button className={classes.button} id={work.topic} onClick={() => handleHomeworkSelect(work.topic, work.difficulty)}>Start</Button></TableCell>
 
                 </TableRow>
               ))}

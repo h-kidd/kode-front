@@ -1,5 +1,6 @@
 import { createTheme, ThemeProvider, Typography } from "@material-ui/core";
 import React from "react";
+import "./title.css"
 
 const Title = () => {
 
@@ -18,9 +19,16 @@ const Title = () => {
     });
 
     return (
-        <ThemeProvider theme={theme}>
-            <Typography variant="h1">Kode</Typography>
-        </ThemeProvider>
+        <div class="titlediv"> 
+            <div class="emptydiv">
+            </div>
+             <ThemeProvider theme={theme}>
+                <Typography variant="h1" class="kode">Kode</Typography>
+            </ThemeProvider>
+            <div class="emptydiv2">
+            </div>
+        </div>
+       
     )
 }
 
