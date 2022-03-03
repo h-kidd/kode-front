@@ -34,6 +34,9 @@ const Details = () => {
 
         card: {
             width: "80%",
+        },
+        writing: {
+            color: "white"
         }
     })
 
@@ -42,7 +45,7 @@ const Details = () => {
     return (
         <div className={classes.background}>
             <Title />
-            <h2>Details for {studentFname} {studentLname}</h2>
+            <h2 className={classes.writing} >Details for {studentFname} {studentLname}</h2>
             <Card className={classes.table}>
                 
                 {completed.map(work => 

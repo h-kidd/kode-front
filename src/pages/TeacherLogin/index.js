@@ -50,7 +50,7 @@ const TeacherLogin = () => {
         },
         button: {
             backgroundColor: "lightblue",
-            color: "white",
+            color: "black",
             borderRadius: "10px",
             marginTop: "10px",
             borderColor: "lightblue",
@@ -143,7 +143,7 @@ const TeacherLogin = () => {
                 <input className={classes.customfieldinput} type="text" placeholder="Password" onChange={(e) => setPassword(e.target.value)}/>
                 </label> 
                 <br/>
-                <button className={classes.button} id="student" onClick={ handleClick }>Login! </button>
+                <Button className={classes.button} id="student" onClick={ handleClick }>Login </Button>
                         
                    
              </div> 

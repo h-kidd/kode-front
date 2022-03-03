@@ -120,9 +120,9 @@ const Score = () => {
                 key={work.name}
                 sx={{'&:last-child td, &:last-child th': { border: 0 } }}
                 >
-                  <TableCell component="th" scope="row">
+                  {/* <TableCell component="th" scope="row">
                     {work.name}
-                  </TableCell>
+                  </TableCell> */}
                   <TableCell align="center">{work.topic}</TableCell>
                   <TableCell align="center">{work.difficulty}</TableCell>
                   <TableCell align="center">{work.score}</TableCell>
