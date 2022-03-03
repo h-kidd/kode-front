@@ -46,8 +46,8 @@ function Student() {
         },
         container: {
             backgroundColor: "white",
-            width: "400px",
-            height: "400px",
+            width: "55vh",
+            height: "55vh",
             padding: "20px",
             borderRadius: "30px",
             marginRight: "100px",
