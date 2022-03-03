@@ -5,6 +5,11 @@ export const loadUser = (userId, username, firstname, lastname, socketId, isTeac
   payload: {userId, username, firstname, lastname, socketId, isTeacher}
 });
 
+export const loadStudent = (studentId, studentFname, studentLname) => ({ 
+  type: 'LOAD_STUDENT',
+  payload: {studentId, studentFname, studentLname}
+});
+
 export const loadSettings = (topic, difficulty) => ({ 
   type: 'LOAD_SETTINGS',
   payload: { topic, difficulty }

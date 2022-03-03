@@ -5,8 +5,10 @@ import React, {useEffect, useState} from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { TableCell } from '@mui/material';
+import { loadStudent } from '../../actions';
 
 const StudentList = () =>  {
+    const dispatch = useDispatch();
     const [classRoster, setClassRoster] = useState([]);
     const userId = useSelector(state => state.userId);
 
@@ -21,6 +23,17 @@ const StudentList = () =>  {
         }
         getClassRoster();
     },[])
+
+    const navigate = useNavigate();
+
+    const handleStudentSelect = async (studentId, studentFname, studentLname) => {
+        dispatch(loadStudent(studentId, studentFname, studentLname))
+        navigate('/details')
+    }
+
+    const addStudents = () => {
+        navigate('/addStudents')
+    };
 
     // Adding material ui
     const useStyles = makeStyles({
@@ -41,17 +54,11 @@ const StudentList = () =>  {
             // textAlign: "left",
             paddingLeft: "20px"
         },
-        buttonEdit: {
-            justifyContent: "left",
-            backgroundColor: "orange",
-            marginBottom: "10px",
-            color: "white"
-        },
-        buttonAdd: {
+        button: {
             backgroundColor: "blue",
             marginBottom: "10px",
             color: "white",
-            marginLeft: "20px"
+            width: "90%"
         },
         paper: {
             height: "250px",
@@ -66,11 +73,7 @@ const StudentList = () =>  {
         <Grid>
             <Card className={classes.container}>
                 <h3 className={classes.h3}>Class</h3>
-                <Button variant="contained" className={classes.buttonEdit}>
-                    Edit Students
-                    <EditIcon />
-                </Button>
-                <Button variant="contained" className={classes.buttonAdd}>
+                <Button variant="contained" onClick={addStudents} className={classes.button}>
                     Add Students
                     <AddIcon />
                 </Button>
@@ -81,7 +84,7 @@ const StudentList = () =>  {
                 {classRoster.map(student => 
                 <Table>
                 <TableCell align="left" className={classes.tablecell}>{student.firstname} {student.lastname}</TableCell>
-                <TableCell align="right" className={classes.tablecell}><Button id={student.username}>Details</Button>
+                <TableCell align="right" className={classes.tablecell}><Button onClick={() => handleStudentSelect(student.id, student.firstname, student.lastname)} id={student.username}>Details</Button>
                 </TableCell>
                 </Table>)}
                 </Paper>
