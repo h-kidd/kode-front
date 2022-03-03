@@ -55,11 +55,18 @@ const StudentList = () =>  {
             paddingLeft: "20px"
         },
         button: {
-            backgroundColor: "blue",
-            marginBottom: "10px",
-            color: "white",
-            width: "90%"
-        },
+            backgroundColor: "lightblue",
+            color: "black",
+            borderRadius: "10px",
+            marginTop: "10px",
+            borderColor: "lightblue",
+            width: "200px",
+            height: "40px",
+            '&:hover': {
+                backgroundColor: '#006dbc',
+                color: "white"
+        
+        }},
         paper: {
             height: "250px",
             marginTop: "theme.spacing.unit * 3",

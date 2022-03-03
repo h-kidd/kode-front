@@ -7,6 +7,7 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from "react-router-dom";
 import { SocketProvider } from './contexts/SocketProvider';
 import store from './store';
+import { CssBaseline } from '@material-ui/core';
 
 ReactDOM.render(
   <React.StrictMode>

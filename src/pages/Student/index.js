@@ -25,13 +25,13 @@ function Student() {
     }, []);
     
     const useStyles = makeStyles ({
-        background: {
-            backgroundImage: `url(${background})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            objectFit: "cover",
-            height: "100vh",
-        },
+        // background: {
+        //     backgroundImage: `url(${background})`,
+        //     backgroundSize: "cover",
+        //     backgroundPosition: "center",
+        //     objectFit: "cover",
+        //     height: "100vh",
+        // },
         button: {
             backgroundColor: "white",
             color: "black",
@@ -73,14 +73,27 @@ function Student() {
             },
             item2: {
                 border: "1px solid white"
-                }   
+                }  ,
+            typography: {
+                    fontFamily: [
+                        'Architects Daughter'
+                    ].join(','),
+                    allVariants: {
+                        color: "white",
+                        
+        
+                    },
+                    outline: "white",
+                    color: "white"
+                }    
+
     })
     const classes = useStyles();
     return (
         
         <div className={classes.background}>
             <Nav />
-            <Title />
+            <h1 className={classes.typography}>Student Home</h1>
 
             <Grid container
             direction="row"
