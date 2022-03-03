@@ -26,7 +26,9 @@ function Results() {
   };
 
   useEffect(() => {
+    console.log(isMultiplayer)
     if (isMultiplayer) {
+      console.log("hi")
       socket.emit('send_score', {room: room, firstname: firstname, lastname: lastname, score: score});
       dispatch(isMulti(false))
     } else {
