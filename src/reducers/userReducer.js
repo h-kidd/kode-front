@@ -9,7 +9,8 @@ const initState = {
   topic: "",
   difficulty: "",
   questions: [{answer: ["5*2", "2*5"], options: ["5", "/", "4", "*", "2", "+"], question: ["How would you get the output to equal 10", "___=10"]}, {answer: ["10/2"], options: ["10", "/", "2", "*", "5"], question: ["How would you get the output to equel 5.0", "___=5.0"]}],
-  isMulti: false
+  isMulti: false,
+  isResit: false
 };
 
 const userReducer = (state=initState, action) => {
@@ -26,6 +27,8 @@ const userReducer = (state=initState, action) => {
       return {...state, score: state.score + action.payload}
     case 'IS_MULTI':
       return {...state, isMulti: action.payload}
+    case 'IS_RESIT':
+      return {...state, isResit: action.payload}
     default:
       return state
   }
