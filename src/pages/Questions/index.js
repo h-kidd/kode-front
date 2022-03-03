@@ -120,7 +120,7 @@ const Quiz = () => {
     cardStyle: {
       backgroundColor: "white",
       width: "400px",
-      height: "75px",
+      height: "100px",
       borderRadius: "10px",
       border: "1px solid black"
       // boxShadow: "10px 10px 20px black;"
@@ -160,9 +160,18 @@ const Quiz = () => {
     ans: {
       backgroundColor: "white",
       borderRadius: "5px",
-      fontSize: "50px",
+      fontSize: "20px",
       marginTop: "50px",
-      width: "70px"
+      width: "100%",
+      height: "70px"
+    },
+    option:{
+      width: "40px",
+      height: "20px"
+    },
+    button: {
+      
+
     }
 
     })
@@ -204,7 +213,7 @@ const Quiz = () => {
         
       <Grid  container spacing={3}>
         {questions[index].options.map(opt => (
-          <Grid item xs>
+          <Grid className={classes.option} item xs>
             <button className={classes.ans} disabled={answer.includes(opt)} onClick={() => handleAnswerSelect(opt)}>{opt}</button>
           </Grid>
         ))}

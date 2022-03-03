@@ -17,6 +17,11 @@ const handleClick = () => {
   navigate("/");
 };
 
+const handleLogout = () => {
+  localStorage.removeItem("token");
+  navigate("/");
+}
+
 // const Nav = () => {
 
   // Adding material ui
@@ -77,7 +82,7 @@ const classes = useStyles();
    
     <Button  onClick={() => navigate(-1)} className={classes.arrow}><ArrowBackIcon style={{ fill: 'white', fontSize: "40px" }} /></Button>
     <Button onClick={handleClick} className={classes.home} color="inherit"><HomeIcon style={{ fill: 'white', fontSize: "40px" }}/></Button>
-    <Button onClick={() => navigate("/LoginPage")} className={classes.home} color="inherit"><LogoutIcon style={{ fill: 'white', fontSize: "40px" }}/></Button>
+    <Button onClick={handleLogout} className={classes.home} color="inherit"><LogoutIcon style={{ fill: 'white', fontSize: "40px" }}/></Button>
 
     </Box>
      

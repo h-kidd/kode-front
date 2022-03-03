@@ -13,6 +13,7 @@ import axios from "axios";
 const TeacherLogin = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [error, setError] = useState("");
     const navigate = useNavigate()
     const dispatch = useDispatch();
     // const login = () => {
@@ -31,9 +32,7 @@ const TeacherLogin = () => {
             dispatch(loadUser(response.data.additional_claims.teacher_id, username, response.data.additional_claims.firstname, response.data.additional_claims.lastname, response.data.additional_claims.teacher_id, true))
             navigate('/teacher')
         }catch(error){
-            console.log(error)
-            console.log(error.status)
-            console.log(error.headers) 
+            setError("Invalid username or password")
         }     
     }   
        
@@ -50,14 +49,17 @@ const TeacherLogin = () => {
         // },
         button: {
             backgroundColor: "lightblue",
-            color: "white",
+            color: "black",
             borderRadius: "10px",
             marginTop: "10px",
             borderColor: "lightblue",
             width: "100px",
-            height: "40px"
+            height: "40px",
+            '&:hover': {
+                backgroundColor: '#006dbc',
+                color: "white"
             
-        },
+        }},
         container: {
             backgroundColor: "white",
             height: "300px",
@@ -132,6 +134,7 @@ const TeacherLogin = () => {
          <Card className={classes.cardStyle}>
            <CardContent className={classes.writing}> 
            <h1>Teacher Login!</h1>
+           <p>{error}</p>
            {/* {(token && token!=="" && token!==undefined) ? "You are logged in with this token" + token: */}
            <div>
                 
@@ -143,7 +146,7 @@ const TeacherLogin = () => {
                 <input className={classes.customfieldinput} type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)}/>
                 </label> 
                 <br/>
-                <button className={classes.button} id="student" onClick={ handleClick }>Login! </button>
+                <Button className={classes.button} id="student" onClick={ handleClick }>Login </Button>
                         
                    
              </div> 

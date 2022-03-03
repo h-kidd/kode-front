@@ -53,7 +53,10 @@ const Details = () => {
         card: {
             width: "80%",
         },
-        nav: {
+        writing: {
+            color: "white"
+        },
+        Nav: {
             fontWeight: "bold"
         },
         typography: {

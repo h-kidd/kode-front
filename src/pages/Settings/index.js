@@ -54,11 +54,17 @@ const CreateRoom = () => {
   },
   button: {
     backgroundColor: "lightblue",
-    color: "white",
+    fontSize: "10px",
+    color: "black",
     borderRadius: "10px",
     marginTop: "10px",
     borderColor: "lightblue",
-  },
+    width: "150px",
+    height: "40px",
+    '&:hover': {
+        backgroundColor: '#006dbc',
+        color: "white"
+  }},
   input: {
     width: "200px"
   },
