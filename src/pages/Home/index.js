@@ -18,14 +18,13 @@ function Home() {
             backgroundSize: "cover",
             backgroundPosition: "center",
             objectFit: "cover",
-            height: "100vh",
+            height: "100vh"
         },
         button: {
             backgroundColor: "white",
             marginTop: "20px",
             borderRadius: "10px",
             boxShadow: "10px 10px 30px black;"
-
         },
         
     })
