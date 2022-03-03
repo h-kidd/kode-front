@@ -1,76 +1,154 @@
-import { makeStyles, Card, Grid, Button } from "@material-ui/core";
-import React from "react";
-import { Title } from "../../components";
-import background from '../../img/background.jpg';
+import react from "react"
+import { NavLink } from 'react-router-dom';
+import { Button, MenuItem, TextField } from "@material-ui/core";
+import { useState, useEffect } from "react";
+import { useNavigate, Outlet } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import Topics from "../../data/Topics";
+import { loadSettings } from '../../actions';
+import { makeStyles, Container } from "@material-ui/core";
+import background from "../../img/background.jpg";
+import { Title, Nav } from "../../components";
 
 const SetHomework = () => {
+    const [topic, setTopic] = useState("");
+    const [difficulty, setDifficulty] = useState("");
+    const [error, setError] = useState(false);
+    const userId = useSelector(state => state.userId);
 
-    const useStyles = makeStyles({
-        background: {
-            background: `url(${background})`,
-            backgroundSize: "cover",
-            height: "100vh"
-        },
+    const navigate = useNavigate();
 
-        card: {
-            width: "200px",
-            margin: "10px",
-            marginTop: "50px",
-            borderRadius: "10px"
-        },
+    const handleSubmit = () => {
+    if (!topic || !difficulty) {
+      setError(true);
+      return;
+    } else {
+      setError(false);
+      async function setHomework() {
+            const response = await fetch (`https://kode-server.herokuapp.com/exercises`,{
+                method: 'GET',
+                headers: { "Content-Type": "application/json"}});
+            let data = await response.json();
+            let exercise = data.find(e => e.topic === topic && e.difficulty === difficulty);
+            const response2 = await fetch (`https://kode-server.herokuapp.com/teachers/${userId}/class`,{
+                method: 'GET',
+                headers: { "Content-Type": "application/json", "Authorization": "Bearer " + localStorage.getItem('token') }});
+            let classRoster = await response2.json();
+            console.log(classRoster)
+            for (var i = 0; i < classRoster.length; i++) {
+                const response3 = await fetch (`https://kode-server.herokuapp.com/homework`,{
+                    method: 'POST',
+                    headers: { "Content-Type": "application/json"},
+                    body: JSON.stringify({student_id: classRoster[i].id, exercise_id: exercise.id})});
+                let data3 = await response3.json();
+            }
+      }
+      setHomework();
+      navigate("/teacher");
+    }
+  };
 
-        button: {
-            // border: "1px solid black",
-            marginBottom: "10px"
-        },
+  //Include Material UI
+  const useStyles = makeStyles ({
+    background: {
+        backgroundImage: `url(${background})`,
+        backgroundSize: "cover",
+        // backgroundPosition: "center",
+        // objectFit: "cover",
+        height: "100vh"
+    },
+    container: {
+      backgroundColor: "white",
+      width: "350px",
+      padding: "20px",
+      borderRadius: "30px",
+      // position: "fixed",
+      marginTop: "100px",
+      // marginLeft: "600px",
+      // transform: "translate(-50%, -50%)",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center"   
+  },
+  button: {
+    backgroundColor: "lightblue",
+    color: "white",
+    borderRadius: "10px",
+    marginTop: "10px",
+    borderColor: "lightblue",
+  },
+  input: {
+    width: "200px"
+  },
+  hi: {
+    textAlign: "center",
+    fontSize: "50px",
+    color: "white",
+    margin: 0
+  }
+  })
+  const classes = useStyles();
 
-        buttonSetHomework: {
-            backgroundColor: "white",
-            border: "1px solid black",
-            bottom: "200px",
-            position: "fixed"
-        }
-    })
+  return (
+    <div className={classes.background}>
+      <Nav />
+      <p className={classes.hi}>Set Homework</p>
+      <Container className={classes.container} maxWidth="sm">
+        <span className="h2" style={{ fontSize: 30 }}>Homework Settings</span>
+        < br />
+        <div className="settings__select">
+          <TextField className={classes.input}
+            select
+            label="Select Category"
+            value={topic}
+            onChange={(e) => setTopic(e.target.value)}
+            variant="outlined"
+            style={{ marginBottom: 30 }}
+          >
+            {Topics.map((top) => (
+              <MenuItem key={top.topic} value={top.value}>
+                {top.topic}
+              </MenuItem>
+            ))}
+          </TextField >
+          {/* <div className="divider1"/> */}
+          <div className="difficulty">
+          <TextField className={classes.input} 
+            select
+            label="Select Difficulty"
+            value={difficulty}
+            onChange={(e) => setDifficulty(e.target.value)}
+            variant="outlined"
+            style={{ marginBottom: 30 }}
+          >
+            <MenuItem key="Easy" value="1">
+              Easy
+            </MenuItem>
+            <MenuItem key="Medium" value="2">
+              Medium
+            </MenuItem>
+            <MenuItem key="Hard" value="3">
+              Hard
+            </MenuItem>
+          </TextField>
+          </div>
+          {/* <div className="divider1"></div> */}
 
-    const classes = useStyles();
-
-    return (
-        <div className={classes.background}>
-            <Title />
-            <Grid container
-            direction="row"
-            justify="center"
-            alignItems="center">
-                <Grid>
-                <Card className={classes.card}>
-                    <h3>Set Topic</h3>
-                    <Button className={classes.button}>Maths</Button>
-                    <br/>
-                    <Button className={classes.button}>Variables</Button>
-                    <br/>
-                    <Button className={classes.button}>Functions</Button>
-                </Card>
-                </Grid>
-
-                <Grid>
-                <Card className={classes.card}>
-                    <h3>Set Difficulty</h3>
-                    <Button className={classes.button}>Easy</Button>
-                    <br/>
-                    <Button className={classes.button}>Medium</Button>
-                    <br/>
-                    <Button className={classes.button}>Hard</Button>
-                </Card>
-                </Grid>
-
-                
-                <Button className={classes.buttonSetHomework} variant="contained">
-                    Set Homework
-                </Button>
-               
-            </Grid>
+          <Button className={classes.button}
+            variant="contained"
+            color="primary"
+            size="large"
+            onClick={handleSubmit}
+          >
+            Set Homework
+          </Button>
         </div>
-    )
-}
+      {/* <img src="/quiz.svg" className="banner" alt="quiz app" /> */}
+      <Outlet />
+      </Container>
+    </div>
+    
+  );
+};
 
 export default SetHomework;

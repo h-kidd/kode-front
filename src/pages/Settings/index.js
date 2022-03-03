@@ -8,9 +8,10 @@ import Topics from "../../data/Topics";
 import { loadSettings } from '../../actions';
 import { makeStyles, Container } from "@material-ui/core";
 import background from "../../img/background.jpg";
+import {  Nav } from "../../components";
 
 
-const CreateRoom = ({ user, fetchQuestions}) => {
+const CreateRoom = () => {
     const dispatch = useDispatch();
     const [topic, setTopic] = useState("");
     const [difficulty, setDifficulty] = useState("");
@@ -73,7 +74,8 @@ const CreateRoom = ({ user, fetchQuestions}) => {
 
   return (
     <div className={classes.background}>
-      <p className={classes.hi}>Hi {user}</p>
+      <Nav />
+      <p className={classes.hi}>Start a Game</p>
       <Container className={classes.container} maxWidth="sm">
         <span className="h2" style={{ fontSize: 30 }}>Quiz Settings</span>
         < br />

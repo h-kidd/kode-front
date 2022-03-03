@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
-import { Title } from "../../components";
+import { Title, Nav } from "../../components";
 import { useSocket } from "../../contexts/SocketProvider";
 import { loadExercise, isMulti } from '../../actions';
 import { makeStyles, Card, Grid } from "@material-ui/core";
@@ -32,19 +32,23 @@ function Waiting() {
       // Adding material ui
       const useStyles = makeStyles({
         mainStyle: {
-          background: `url(${background})`,
-          backgroundSize: "cover",
-          height: "100vh"
+          backgroundImage: `url(${background})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            objectFit: "cover",
+            height: "100vh",
         },
         cardCode: {
           width: "50%",
           marginTop: "20px",
-          border: "1px solid black"
+          border: "1px solid black",
+        
         },
         cardLobby: {
           width: "50%",
           marginTop: "20px",
-          border: "1px solid black"
+          border: "1px solid black",
+          borderRadius: "10px"
         },
         button: {
             backgroundColor: "white",
@@ -57,6 +61,7 @@ function Waiting() {
 
     return (
         <div className={classes.mainStyle}>
+          <Nav />
           <Title />
 
           <Grid
@@ -65,9 +70,8 @@ function Waiting() {
           alignItems="center"
           justify="center"
           id="Lobby" >
-          <Card className={classes.cardCode}>
-            Code: code
-          </Card>
+         
+          
           <Card className={classes.cardLobby}>
             <h3>Waiting for teacher to start</h3>
           </Card>

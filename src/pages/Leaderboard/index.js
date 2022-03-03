@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { LeaderboardTable } from "../../components";
+import { LeaderboardTable, Nav } from "../../components";
 import { useNavigate } from "react-router-dom";
 import { makeStyles } from '@material-ui/core';
 import { CardContent, Card, Box } from '@material-ui/core';
 import { useSocket } from "../../contexts/SocketProvider";
+import background from "../../img/background.jpg";
+
 
 function Leaderboard() {
   const navigate = useNavigate();
@@ -22,9 +24,18 @@ function Leaderboard() {
   
   const useStyles = makeStyles({
     mainStyle: {
+      
+        backgroundImage: `url(${background})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        objectFit: "cover",
+        height: "100vh",
     },
     cardStyle: {
-      backgroundColor: "#140100"
+      backgroundColor: "white",
+      width: "500px",
+      height: "500px",
+      borderRadius: "10px"
     },
     box: {
       display: "flex",
@@ -33,14 +44,18 @@ function Leaderboard() {
       minHeight: "90vh"
     },
     writing: {
-      color: "white",
+      color: "black",
       fontSize: "20px"
     },
+    
     button: {
-      backgroundColor: "#140100",
-      color: "#61DBFB",
-      marginTop: "10px",
-      fontSize: "20px",
+        backgroundColor: "lightblue",
+        color: "white",
+        borderRadius: "10px",
+        borderColor: "lightblue",
+        width: "100px",
+        height: "40px",
+        marginTop: "350px"
     }
   });
   
@@ -48,6 +63,7 @@ function Leaderboard() {
 
   return (
     <div id="Leaderboard-page" className={classes.mainStyle}>
+      <Nav />
       <Box className={classes.box}>
       <Card className={ classes.cardStyle }>
       <CardContent  className={classes.writing}>
