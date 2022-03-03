@@ -7,6 +7,7 @@ import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import {  makeStyles, Button } from '@material-ui/core';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { useNavigate } from "react-router-dom";
+import "./nav.css"
 
 const preventDefault = (event) => event.preventDefault();
 
@@ -64,7 +65,8 @@ const handleLogout = () => {
       marginLeft: "0px"
     },
     box: {
-      alignContent: "left"
+      alignContent: "left",
+
     }
 })
 
@@ -79,10 +81,16 @@ const classes = useStyles();
         },
       }}
       onClick={preventDefault}>
-   
-    <Button  onClick={() => navigate(-1)} className={classes.arrow}><ArrowBackIcon style={{ fill: 'white', fontSize: "40px" }} /></Button>
-    <Button onClick={handleClick} className={classes.home} color="inherit"><HomeIcon style={{ fill: 'white', fontSize: "40px" }}/></Button>
-    <Button onClick={handleLogout} className={classes.home} color="inherit"><LogoutIcon style={{ fill: 'white', fontSize: "40px" }}/></Button>
+    
+    <div class="button-div">
+      <div class="insidevbtn-div">
+      <Button  onClick={() => navigate(-1)} className={classes.arrow}><ArrowBackIcon style={{ fill: 'rgb(58, 55, 167)', fontSize: "40px" }} /></Button>
+      <Button onClick={handleClick} className={classes.home} color="inherit"><HomeIcon style={{ fill: 'rgb(58, 55, 167)', fontSize: "40px" }}/></Button>
+      <Button onClick={handleLogout} className={classes.home} color="inherit"><LogoutIcon style={{ fill: 'rgb(58, 55, 167)', fontSize: "40px" }}/></Button>
+      </div>
+      
+    </div>
+ 
 
     </Box>
      

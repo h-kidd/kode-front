@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
-import { Title, Nav } from "../../components";
+import { Title, Nav, Loadingdots } from "../../components";
 import { useSocket } from "../../contexts/SocketProvider";
 import { loadExercise, isMulti } from '../../actions';
 import { makeStyles, Card, Grid } from "@material-ui/core";
 import background from "../../img/background.jpg";
+import "./waiting.css"
 
 function Waiting() {
     const dispatch = useDispatch();
@@ -48,7 +49,8 @@ function Waiting() {
           width: "50%",
           marginTop: "20px",
           border: "1px solid black",
-          borderRadius: "10px"
+          borderRadius: "10px",
+          boxShadow: "10px 10px 20px black",
         },
         button: {
             backgroundColor: "white",
@@ -73,7 +75,16 @@ function Waiting() {
          
           
           <Card className={classes.cardLobby}>
-            <h3>Waiting for teacher to start</h3>
+            <div class="dotsdiv">
+              <div class="waitingdiv">
+                <h3 class="waitingtext">Waiting for teacher to start</h3>
+              </div>
+              <div class="hi">
+                <Loadingdots/>
+              </div> 
+            </div>
+            
+            
           </Card>
         </Grid>
         </div>

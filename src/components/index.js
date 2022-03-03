@@ -9,3 +9,4 @@ export { default as Title } from "./Title";
 export {default as UseToken } from "./UseToken"
 export {default as Nav } from "./Nav"
 export { default as TeacherLoginButton } from './TeacherLoginButton';
+export { default as Loadingdots} from './Loadingdots'

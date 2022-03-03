@@ -7,6 +7,7 @@ import { Grid, makeStyles } from '@material-ui/core';
 import { CardContent, Card, Box, Button } from '@material-ui/core';
 import background from "../../img/background.jpg";
 import { Title } from "../../components";
+import "./lobby.css"
 
 const Lobby = () => {
     const socket = useSocket();
@@ -49,7 +50,8 @@ const Lobby = () => {
         cardLobby: {
           width: "50%",
           marginTop: "20px",
-          border: "1px solid black"
+          border: "1px solid black",
+          boxShadow: "10px 10px 20px black",
         },
         button: {
           backgroundColor: "white",
@@ -58,7 +60,8 @@ const Lobby = () => {
           marginTop: "10px",
           width: "200px",
           height: "40px",
-          border: "1px solid black"
+          border: "1px solid black",
+          boxShadow: "10px 10px 20px black",
           
       }
       });

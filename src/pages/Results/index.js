@@ -88,7 +88,7 @@ function Results() {
     },
     button: {
       backgroundColor: "lightblue",
-      color: "white",
+      color: "black",
       borderRadius: "10px",
       marginTop: "10px",
       borderColor: "lightblue",
@@ -107,7 +107,7 @@ function Results() {
         <Card className={classes.cardStyle}>
           <CardContent className={classes.writing}> 
             <h3>Score: {score}</h3>
-            <button className={classes.button} onClick={handleClick}>Home</button>
+            <Button variant="contained" className={classes.button} onClick={handleClick}>Home</Button>
             </CardContent>
         </Card>
        </Box>

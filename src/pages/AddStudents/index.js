@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { Title, Nav } from "../../components";
 import background from '../../img/background.jpg'
 import { CardContent, Card, Box, Paper, Table, TableHead, TableRow, TableBody, TableContainer, Button} from '@material-ui/core';
-
+import "./addstudent.css"
 const AddStudents = () => {
     const navigate = useNavigate();
     const [username, setUsername] = useState("");
@@ -51,6 +51,7 @@ const AddStudents = () => {
             width: "500px",
             height: "450px",
             borderRadius: "10px",
+            boxShadow: "10px 10px 20px black",
         },
         box: {
             display: "flex",
@@ -71,10 +72,11 @@ const AddStudents = () => {
         
         },
         button: {
-            backgroundColor: "white",
+            backgroundColor: "lightblue ",
             marginTop: "20px",
             borderRadius: "10px",
-            width: ""
+            width: "",
+            boxShadow: "10px 10px 20px black",
             
         }
     })
@@ -84,7 +86,7 @@ const AddStudents = () => {
     return (
         <div className={classes.background}>          
              <Nav />
-             <h1 className = {classes.typography}>Add Student</h1>
+             <h1 class="kek">Add Student</h1>
             <Box className={classes.box}>
             <Card className={ classes.cardStyle }>
             <CardContent  className={classes.writing}>
@@ -96,19 +98,21 @@ const AddStudents = () => {
             <p>First Name:</p><input type="text" placeholder="Enter first name here" onChange={(e) => setFirstname(e.target.value)}></input>
             <p>Last Name:</p><input type="text" placeholder="Enter last name here" onChange={(e) => setLastname(e.target.value)}></input> */}
             <form>
-                <div className={classes.form}>
-                <label for="fname">First Name</label>
+                <div className={classes.form} class="formthing">
+                <div class="randomdiv">
+                    <label for="fname">First Name</label>
+                </div>
                 <input className={classes.input} type="text" id="fname" name="fname" placeholder="Enter first name here" onChange={(e) => setFirstname(e.target.value)}></input>
                 </div>
-                <div className={classes.form}>
+                <div className={classes.form} class="formthing">
                 <label for="lname">Last Name</label>
                 <input className={classes.input} type="text" id="fname" name="fname" placeholder="Enter last name here" onChange={(e) => setLastname(e.target.value)}></input>
                 </div>
-                <div className={classes.form}>
+                <div className={classes.form} class="formthing">
                 <label for="fname">Username</label>
                 <input className={classes.input} type="text" id="fname" name="fname" placeholder="Enter password here" onChange={(e) => setPassword(e.target.value)}></input>
                 </div>
-                <div className={classes.form}>
+                <div className={classes.form} class="formthing">
                 <label for="fname">Password</label>
                 <input className={classes.input} type="text" id="fname" name="fname"  placeholder="Enter username here" onChange={(e) => setUsername(e.target.value)}></input>
                 </div>
@@ -119,7 +123,7 @@ const AddStudents = () => {
             </CardContent>
             </Card>
             </Box>
-            <Button className={classes.button} onClick={addStudent}>Submit</Button>
+            <Button variant="contained" className={classes.button} onClick={addStudent}>Submit</Button>
         </div>
     )
 }

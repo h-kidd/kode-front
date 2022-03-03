@@ -9,6 +9,7 @@ import { loadSettings } from '../../actions';
 import { makeStyles, Container } from "@material-ui/core";
 import background from "../../img/background.jpg";
 import { Title, Nav } from "../../components";
+import "./sethomework.css"
 
 const SetHomework = () => {
     const [topic, setTopic] = useState("");
@@ -68,11 +69,12 @@ const SetHomework = () => {
       // transform: "translate(-50%, -50%)",
       display: "flex",
       flexDirection: "column",
-      alignItems: "center"   
+      alignItems: "center",
+      boxShadow: "10px 10px 20px black",
   },
   button: {
     backgroundColor: "lightblue",
-    color: "white",
+    color: "black",
     borderRadius: "10px",
     marginTop: "10px",
     borderColor: "lightblue",
@@ -104,9 +106,9 @@ const SetHomework = () => {
   return (
     <div className={classes.background}>
       <Nav />
-      <h1 className={classes.typography}>Set Homework</h1>
+      <h1 class="sethomeworktext">Set Homework</h1>
       <Container className={classes.container} maxWidth="sm">
-        <span className="h2" style={{ fontSize: 30 }}>Homework Settings</span>
+        <span class="noth2" style={{ fontSize: 30 }}>Homework Settings</span>
         < br />
         <div className="settings__select">
           <TextField className={classes.input}

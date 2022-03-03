@@ -1,0 +1,12 @@
+.button-div {
+    background: white;
+    width: 100%;
+}
+
+.insidevbtn-div {
+
+    width: 60%;
+    display: flex;
+    justify-content: space-around;
+    margin: auto;
+}
