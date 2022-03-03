@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { LeaderboardTable, Nav } from "../../components";
 import { useNavigate } from "react-router-dom";
-import { makeStyles } from '@material-ui/core';
+import { makeStyles, Button } from '@material-ui/core';
 import { CardContent, Card, Box } from '@material-ui/core';
 import { useSocket } from "../../contexts/SocketProvider";
 import background from "../../img/background.jpg";
@@ -71,9 +71,9 @@ function Leaderboard() {
       {players.map(player => (
         <p>{player.firstname} {player.lastname} {player.score}</p>
       ))}
-      <button id="start-again" onClick={handleClick} className={classes.button}>
+      <Button id="start-again" onClick={handleClick} className={classes.button}>
         Home
-      </button>
+      </Button>
       </CardContent>
       </Card>
       </Box>
