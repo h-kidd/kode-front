@@ -19,7 +19,7 @@ function Leaderboard() {
 
   useEffect(() => {
     socket.on('user_score', (data) => {
-      setPlayers(players => [...players, data])
+      setPlayers(players => [...players, data].sort((a, b) => parseFloat(b.score) - parseFloat(a.score)))
     });
   }, [socket]);
   
