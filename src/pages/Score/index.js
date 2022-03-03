@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { makeStyles, Table, TableHead, TableHeader, TableCell, TableRow, TableBody, Paper, TableContainer } from '@material-ui/core';
+import { makeStyles, Table, TableHead, TableHeader, TableCell, TableRow, TableBody, Paper, TableContainer, Button } from '@material-ui/core';
 import background from "../../img/background.jpg";
 import { CardContent, Card, Box } from '@material-ui/core';
 import { Title, Nav } from "../../components";
@@ -38,13 +38,13 @@ const Score = () => {
     // Adding Material UI
     const useStyles = makeStyles({
 
-      background: {
-        backgroundImage: `url(${background})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        objectFit: "cover",
-        height: "100vh",    
-      },
+      // background: {
+      //   backgroundImage: `url(${background})`,
+      //   backgroundSize: "cover",
+      //   backgroundPosition: "center",
+      //   objectFit: "cover",
+      //   height: "100vh",    
+      // },
       
       box: {
         display: "flex",
@@ -65,11 +65,18 @@ const Score = () => {
         height: "500px",
         borderRadius: "10px"
       },
-      button: {
-        backgroundColor: "lightblue",
-        borderColor: "lightblue",
-        borderRadius: "5px"
-      },
+        button: {
+          backgroundColor: "lightblue",
+          color: "black",
+          borderRadius: "10px",
+          marginTop: "10px",
+          borderColor: "lightblue",
+          width: "80px",
+          height: "40px",
+          '&:hover': {
+              backgroundColor: '#006dbc',
+              color: "white"
+      }},
       nav: {
         fontWeight: "bold"
       },
@@ -135,7 +142,7 @@ const Score = () => {
                   <TableCell align="center">{work.topic}</TableCell>
                   <TableCell align="center">{work.difficulty}</TableCell>
                   <TableCell align="center">{work.score}</TableCell>
-                  <TableCell align="center"><button className={classes.button} id={work.topic} onClick={() => handleHomeworkSelect(work.topic, work.difficulty)}>Start!</button></TableCell>
+                  <TableCell align="center"><Button className={classes.button} id={work.topic} onClick={() => handleHomeworkSelect(work.topic, work.difficulty)}>Start!</Button></TableCell>
 
                 </TableRow>
               ))}

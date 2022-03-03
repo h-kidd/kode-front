@@ -1,8 +1,9 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { StudentLoginButton, Title, Nav } from "../../components";
-import { makeStyles, Button } from "@material-ui/core";
+import { StudentLoginButton, TeacherLoginButton, Title, Nav } from "../../components";
+import { makeStyles, Button, Grid } from "@material-ui/core";
 import background from "../../img/background.jpg";
+import './Home.css';
 
 function Home() {
     const navigate = useNavigate()
@@ -13,18 +14,17 @@ function Home() {
 
     //Include Material UI
     const useStyles = makeStyles ({
-        background: {
-            backgroundImage: `url(${background})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            objectFit: "cover",
-            height: "100vh"
-        },
+        // background: {
+        //     backgroundImage: `url(${background})`,
+        //     backgroundSize: "cover",
+        //     backgroundPosition: "center",
+        //     objectFit: "cover",
+        //     // height: "100vh",
+        //     backgroundColor: "#2d658a",
+        //     marginBottom: "0"
+        // },
         button: {
-            backgroundColor: "white",
-            marginTop: "20px",
-            borderRadius: "10px",
-            boxShadow: "10px 10px 30px black;"
+            paddingLeft: "50px"
         },
         
     })
@@ -36,11 +36,16 @@ function Home() {
             <Nav />
             <Title />
 
+            <Grid container
+            alignContent="center"
+            justifyContent="center">
+            <Grid>
             <StudentLoginButton />
-
-            <Button variant="contained" className={classes.button} id="teacherLogin" onClick={teacher}>
-                Teacher login
-            </Button>
+            </Grid>
+            <Grid className={classes.button}>
+            <TeacherLoginButton />
+            </Grid>
+            </Grid>
         </div>
     )
 }

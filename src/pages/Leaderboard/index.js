@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { LeaderboardTable, Nav } from "../../components";
+import { Nav } from "../../components";
 import { useNavigate } from "react-router-dom";
 import { makeStyles, Button } from '@material-ui/core';
 import { CardContent, Card, Box, Paper, Table, TableHead, TableRow, TableBody, TableContainer} from '@material-ui/core';
@@ -19,30 +19,33 @@ function Leaderboard() {
 
   useEffect(() => {
     socket.on('user_score', (data) => {
-      setPlayers(players => [...players, data])
+      setPlayers(players => [...players, data].sort((a, b) => parseFloat(b.score) - parseFloat(a.score)))
     });
   }, [socket]);
   
   const useStyles = makeStyles({
-    mainStyle: {
+    // mainStyle: {
       
-        backgroundImage: `url(${background})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        objectFit: "cover",
-        height: "100vh",
-    },
+    //     backgroundImage: `url(${background})`,
+    //     backgroundSize: "cover",
+    //     backgroundPosition: "center",
+    //     objectFit: "cover",
+    //     height: "100vh",
+    // },
     cardStyle: {
       backgroundColor: "white",
       width: "500px",
       height: "500px",
-      borderRadius: "10px"
+      borderRadius: "10px",
+      marginTop: "10px"
     },
     box: {
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
-      minHeight: "90vh"
+      minHeight: "90vh",
+      marginTop: "-50px"
+      
     },
     writing: {
       color: "black",
@@ -60,6 +63,18 @@ function Leaderboard() {
     },
     nav: {
       fontWeight: "bold"
+    },
+    typography: {
+      fontFamily: [
+          'Architects Daughter'
+      ].join(','),
+      allVariants: {
+          color: "white",
+          
+
+      },
+      outline: "white",
+      color: "white"
     }
     
   });
@@ -69,10 +84,11 @@ function Leaderboard() {
   return (
     <div id="Leaderboard-page" className={classes.mainStyle}>
       <Nav />
+      <h1 className={classes.typography}>Leaderboard</h1>
       <Box className={classes.box}>
       <Card className={ classes.cardStyle }>
       <CardContent  className={classes.writing}>
-      <h2>Leaderboard</h2>
+      
       
       {/* <Paper>
       {players.map(player => */}
@@ -86,7 +102,7 @@ function Leaderboard() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {players.map((player) => {
+          {players.map((player) => (
             <TableRow
             key={player.name}
                 sx={{'&:last-child td, &:last-child th': { border: 0 } }}
@@ -94,10 +110,10 @@ function Leaderboard() {
             {/* <TableCell component="th" scope="row">
               {player.name}
             </TableCell> */}
-            <TableCell align="center">{player.firstname}{player.lastname}</TableCell>
+            <TableCell align="center">{player.firstname} {player.lastname}</TableCell>
             <TableCell align="center">{player.score}</TableCell>
             </TableRow>
-          })}
+          ))}
         </TableBody>
       </Table>
       </TableContainer>
