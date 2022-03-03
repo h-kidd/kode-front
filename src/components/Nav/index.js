@@ -2,9 +2,9 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 import {useHistory, NavLink} from "react-router-dom";
-import HomeIcon from '@mui/icons-material/Home';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import {  makeStyles } from '@material-ui/core';
+import HomeIcon from '@material-ui/icons/Home';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import {  makeStyles, Button } from '@material-ui/core';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { useNavigate } from "react-router-dom";
 
@@ -57,13 +57,16 @@ const handleClick = () => {
       justifyContent: "left",
       alignitems: "left",
       marginLeft: "0px"
+    },
+    box: {
+      alignContent: "left"
     }
 })
 
 const classes = useStyles();
 
   return (
-    <Box
+    <Box classname={classes.box}
       sx={{
         typography: 'body1',
         '& > :not(style) + :not(style)': {
@@ -71,11 +74,11 @@ const classes = useStyles();
         },
       }}
       onClick={preventDefault}>
-    <div className={classes.div}>
-    <Button onClick={handleClick} className={classes.arrow}><ArrowBackIcon style={{ fill: 'white', fontSize: "40px" }} /></Button>
-    <Button className={classes.home} href="" color="inherit"><HomeIcon style={{ fill: 'white', fontSize: "40px" }}/></Button>
-    <Button className={classes.home} href="" color="inherit"><LogoutIcon style={{ fill: 'white', fontSize: "40px" }}/></Button>
-    </div>
+   
+    <Button  onClick={() => navigate(-1)} className={classes.arrow}><ArrowBackIcon style={{ fill: 'white', fontSize: "40px" }} /></Button>
+    <Button onClick={handleClick} className={classes.home} color="inherit"><HomeIcon style={{ fill: 'white', fontSize: "40px" }}/></Button>
+    <Button onClick={() => navigate("/LoginPage")} className={classes.home} color="inherit"><LogoutIcon style={{ fill: 'white', fontSize: "40px" }}/></Button>
+
     </Box>
      
   );
