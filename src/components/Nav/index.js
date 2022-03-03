@@ -2,9 +2,9 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 import {useHistory, NavLink} from "react-router-dom";
-import HomeIcon from '@mui/icons-material/Home';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import {  makeStyles } from '@material-ui/core';
+import HomeIcon from '@material-ui/icons/Home';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import {  makeStyles, Button } from '@material-ui/core';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { useNavigate } from "react-router-dom";
 
@@ -43,24 +43,31 @@ const handleClick = () => {
         marginBottom: "10px",
         color: "white",
         outline: "white",
+        backgroundColor: "transparent",
+        borderColor: "transparent"
         
     },
     home: {
         marginBottom: "10px",
         color: "white",
-        marginLeft: "20px"
+        marginLeft: "20px",
+        backgroundColor: "transparent",
+        borderColor: "transparent"
     },
     div: {
       justifyContent: "left",
       alignitems: "left",
       marginLeft: "0px"
+    },
+    box: {
+      alignContent: "left"
     }
 })
 
 const classes = useStyles();
 
   return (
-    <Box
+    <Box classname={classes.box}
       sx={{
         typography: 'body1',
         '& > :not(style) + :not(style)': {
@@ -69,9 +76,9 @@ const classes = useStyles();
       }}
       onClick={preventDefault}>
    
-    <li style={{ listStyle: "none" }}><button onClick={handleClick} className={classes.arrow}><ArrowBackIcon style={{ fill: 'white', fontSize: "40px" }} /></button></li>
-    <li style={{ listStyle: "none" }}><button className={classes.home} href="" color="inherit"><HomeIcon style={{ fill: 'white', fontSize: "40px" }}/></button></li>
-    <li style={{ listStyle: "none" }}><button className={classes.home} href="" color="inherit"><LogoutIcon style={{ fill: 'white', fontSize: "40px" }}/></button></li>
+    <Button onClick={handleClick} className={classes.arrow}><ArrowBackIcon style={{ fill: 'white', fontSize: "40px" }} /></Button>
+    <Button className={classes.home} href="" color="inherit"><HomeIcon style={{ fill: 'white', fontSize: "40px" }}/></Button>
+    <Button className={classes.home} href="" color="inherit"><LogoutIcon style={{ fill: 'white', fontSize: "40px" }}/></Button>
 
     </Box>
      
