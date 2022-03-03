@@ -8,7 +8,7 @@ import Topics from "../../data/Topics";
 import { loadSettings } from '../../actions';
 import { makeStyles, Container } from "@material-ui/core";
 import background from "../../img/background.jpg";
-
+import { Title, Nav } from "../../components";
 
 const SetHomework = () => {
     const [topic, setTopic] = useState("");
@@ -89,9 +89,9 @@ const SetHomework = () => {
   })
   const classes = useStyles();
 
-
   return (
     <div className={classes.background}>
+      <Nav />
       <p className={classes.hi}>Set Homework</p>
       <Container className={classes.container} maxWidth="sm">
         <span className="h2" style={{ fontSize: 30 }}>Homework Settings</span>

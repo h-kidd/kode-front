@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { StudentLoginButton, Title } from "../../components";
+import { StudentLoginButton, Title, Nav } from "../../components";
 import { makeStyles, Button } from "@material-ui/core";
 import background from "../../img/background.jpg";
 
@@ -33,6 +33,7 @@ function Home() {
 
     return (
         <div className={classes.background}>
+            <Nav />
             <Title />
 
             <StudentLoginButton />

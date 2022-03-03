@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { LobbyStatus, PlayerBubble } from "../../components";
+import { LobbyStatus, PlayerBubble, Nav } from "../../components";
 import { useSelector } from "react-redux";
 import { useSocket } from "../../contexts/SocketProvider";
 import { Grid, makeStyles } from '@material-ui/core';
@@ -50,12 +50,18 @@ const Lobby = () => {
           width: "50%",
           marginTop: "20px",
           border: "1px solid black"
-        }
+        },
+        button: {
+          backgroundColor: "white",
+          marginTop: "20px",
+          borderRadius: "10px",
+      },
       });
     
       const classes = useStyles();
     return (
         <div className={classes.mainStyle}>
+          <Nav />
           <Title />
 
           <Grid
@@ -64,9 +70,6 @@ const Lobby = () => {
           alignItems="center"
           justify="center"
           id="Lobby" >
-          <Card className={classes.cardCode}>
-            Code: code
-          </Card>
           <Card className={classes.cardLobby}>
             <h3>Classroom List</h3>
             {players.map(player => (
@@ -74,8 +77,8 @@ const Lobby = () => {
             ))}
           </Card>
           <br/>
-          <Button variant="contained" onClick={handleStart}>
-          Start Game!
+          <Button className={classes.button} variant="contained" onClick={handleStart}>
+          Start Game
           </Button>
         </Grid>
         </div>

@@ -4,8 +4,10 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { makeStyles, Table, TableHead, TableCell, TableRow, TableBody } from '@material-ui/core';
 import background from "../../img/background.jpg";
-import { Title } from "../../components";
+
+import { Title, Nav } from "../../components";
 import { loadExercise, isResit } from "../../actions";
+import { Results } from '../index';
 
 const Score = () => {
   const dispatch = useDispatch();
@@ -63,6 +65,7 @@ const Score = () => {
   
     return (
       <div className={classes.background}>
+        <Nav />
         <Title />
         <Table sx={{minWidth: 600}} size="small" aria-label="a dense table">
           <TableHead>

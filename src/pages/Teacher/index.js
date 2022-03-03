@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { StudentList, Title } from "../../components";
+import { StudentList, Title, Nav } from "../../components";
 import background from "../../img/background.jpg";
 import { Button, makeStyles, Grid } from "@material-ui/core";
 
@@ -36,6 +36,7 @@ function Teacher() {
 
     return (
         <div className={classes.background}>
+            <Nav />
             <Title />
             
             <h1>Teacher Portal</h1>
