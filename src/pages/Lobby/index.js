@@ -53,9 +53,14 @@ const Lobby = () => {
         },
         button: {
           backgroundColor: "white",
-          marginTop: "20px",
+          color: "black",
           borderRadius: "10px",
-      },
+          marginTop: "10px",
+          width: "200px",
+          height: "40px",
+          border: "1px solid black"
+          
+      }
       });
     
       const classes = useStyles();
