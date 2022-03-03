@@ -72,10 +72,14 @@ const SetHomework = () => {
   },
   button: {
     backgroundColor: "lightblue",
-    color: "white",
+    color: "black",
     borderRadius: "10px",
     marginTop: "10px",
     borderColor: "lightblue",
+    '&:hover': {
+      backgroundColor: '#006dbc',
+      color: "white"
+    }
   },
   input: {
     width: "200px"

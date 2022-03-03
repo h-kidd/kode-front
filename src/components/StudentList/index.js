@@ -67,6 +67,21 @@ const StudentList = () =>  {
                 color: "white"
         
         }},
+
+        buttonDetail: {
+            backgroundColor: "lightblue",
+            color: "black",
+            borderRadius: "10px",
+            marginTop: "10px",
+            borderColor: "lightblue",
+            width: "100px",
+            height: "40px",
+            '&:hover': {
+                backgroundColor: '#006dbc',
+                color: "white"
+        
+        }},
+
         paper: {
             height: "250px",
             marginTop: "theme.spacing.unit * 3",
@@ -91,7 +106,7 @@ const StudentList = () =>  {
                 {classRoster.map(student => 
                 <Table>
                 <TableCell align="left" className={classes.tablecell}>{student.firstname} {student.lastname}</TableCell>
-                <TableCell align="right" className={classes.tablecell}><Button onClick={() => handleStudentSelect(student.id, student.firstname, student.lastname)} id={student.username}>Details</Button>
+                <TableCell align="right" className={classes.tablecell}><Button className={classes.buttonDetail} onClick={() => handleStudentSelect(student.id, student.firstname, student.lastname)} id={student.username}>Details</Button>
                 </TableCell>
                 </Table>)}
                 </Paper>

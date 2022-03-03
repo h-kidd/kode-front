@@ -54,7 +54,6 @@ const CreateRoom = () => {
   },
   button: {
     backgroundColor: "lightblue",
-    fontSize: "10px",
     color: "black",
     borderRadius: "10px",
     marginTop: "10px",

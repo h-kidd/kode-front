@@ -48,9 +48,6 @@ const StudentLoginButton = () => {
             alignItems: "flex-end",
             bottom: "-20px",
             left: "100px"
-            
-            
-
         }
     })
 
