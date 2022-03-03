@@ -29,6 +29,10 @@ const StudentList = () =>  {
     const handleStudentSelect = async (studentId, studentFname, studentLname) => {
         dispatch(loadStudent(studentId, studentFname, studentLname))
         navigate('/details')
+    }
+
+    const addStudents = () => {
+        navigate('/addStudents')
     };
 
     // Adding material ui
@@ -69,7 +73,7 @@ const StudentList = () =>  {
         <Grid>
             <Card className={classes.container}>
                 <h3 className={classes.h3}>Class</h3>
-                <Button variant="contained" className={classes.button}>
+                <Button variant="contained" onClick={addStudents} className={classes.button}>
                     Add Students
                     <AddIcon />
                 </Button>
