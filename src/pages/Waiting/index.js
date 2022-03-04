@@ -23,7 +23,7 @@ function Waiting() {
 
     useEffect(() => {
         socket.on('init_game', async (data) => {
-            dispatch(loadExercise(data.topic, data.difficulty));
+            // dispatch(loadExercise(data.topic, data.difficulty));
             dispatch(isMulti(true));
             await delay(1000);
             navigate('/questions')
