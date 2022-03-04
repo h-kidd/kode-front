@@ -2,6 +2,7 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 import {useHistory, NavLink} from "react-router-dom";
+import { useSelector } from "react-redux";
 import HomeIcon from '@material-ui/icons/Home';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import {  makeStyles, Button } from '@material-ui/core';
@@ -13,9 +14,14 @@ const preventDefault = (event) => event.preventDefault();
 
 function Nav() {
   const navigate = useNavigate();
+  const isTeacher = useSelector(state => state.isTeacher);
 
 const handleClick = () => {
-  navigate("/");
+  if (isTeacher) {
+    navigate("/teacher");
+  } else {
+    navigate("/student");
+  }
 };
 
 const handleLogout = () => {
