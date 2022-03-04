@@ -25,7 +25,7 @@ const HomeworkList = () => {
     },[])
 
     const handleHomeworkSelect = async (topic, difficulty) => {
-        // dispatch(loadExercise(topic, difficulty));
+        dispatch(loadExercise(topic, difficulty));
         await new Promise(res => setTimeout(res, 1000));
         navigate('/questions')
     };
