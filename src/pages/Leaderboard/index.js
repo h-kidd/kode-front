@@ -131,9 +131,9 @@ function Leaderboard() {
       <TableCell> {player.score}</TableCell> */}
 
       {/* </Table>)} */}
-      <Button variant="contained" id="start-again" onClick={handleClick} className={classes.button}>
+      {/* <Button variant="contained" id="start-again" onClick={handleClick} className={classes.button}>
         Home
-      </Button>
+      </Button> */}
       {/* </Paper> */}
       </CardContent>
       </Card>

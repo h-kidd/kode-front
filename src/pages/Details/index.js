@@ -47,9 +47,10 @@ const Details = () => {
           },
         cardStyle: {
             backgroundColor: "white",
-            width: "400px",
-            height: "300px",
-            borderRadius: "10px"
+            width: "500px",
+            height: "450px",
+            borderRadius: "10px",
+            boxShadow: "10px 10px 20px black",
         },
         card: {
             width: "80%",
